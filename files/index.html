@@ -5,11 +5,15 @@
     <title>Resume</title>
     <script>
         const loadYAML = () => {
-            document.title = 'urk';
+            document.title = 'Resume: ';
         }
     </script>
 
 </head><body onLoad="loadYAML();">
 
+<form action="/render" method="POST">
+    <textarea name="yaml"></textarea>
+    <input type="submit"/>
+</form>
 
 </body></html>
