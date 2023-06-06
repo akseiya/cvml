@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title:  CVML - rendering YAML-encoded resumes in HTML
+  description: |-
+    This is an exercise in some technologies and at some point,
+    hopefully a way for me to keep track of my resume in a slightly
+    less tedious manner than HTML edition without tying it to
+    a commercial provider like linkedIn.
+  license:
+    name: MIT
+  version: 0.0.1
+tags:
+  - name: render
+    description: Just invoking a rendered with various inputs
+paths:
+  /render_from_object:
+    post:
+      tags: [render]
+      summary: Render from a JSON object
+      operationId: renderFromObject
+      description: \"simply\" try to express the CV object in HTML
+      requestBody:
+        description: specification of the CV in YAML
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Resume'
+      responses:
+        '200':
+          description: YAML CV rendered successfully
+          content:
+            text/html:
+              schema:
+                type: string
+        '400':
+          description: Invalid YAML spec of the resume
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResumeRenderingError'
+components:
+  schemas:
+    Resume:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        work permits:
+          type: array
+          items:
+            type: string
+    ResumeRenderingError:
+      type: object
+      properties:
+        problem:
+          type: string
