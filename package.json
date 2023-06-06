@@ -1,7 +1,7 @@
 {
   "name": "cvml",
   "version": "1.0.0",
-  "description": "CV YAML",
+  "description": "Rendering a YAML schema of resumes as formatted HTML",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
