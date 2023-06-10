@@ -5,4 +5,4 @@ export const jcon = (wat: unknown) => {
   console.log(jdmp(wat));
   return wat;
 };
-export const jdbg = (wat:unknown) => process.env.DEBUG ? jcon(wat) : wat;
+// export const jdbg = (wat:unknown) => process.env.DEBUG ? jcon(wat) : wat;

@@ -1,21 +1,15 @@
 import './App.css';
 
 import React, { useEffect, useState } from 'react';
-import YAML from 'yaml';
 
-import httpClient from './http/client';
-import { jcon } from './utils/debug';
+import { Resume,resume } from './Resume';
+import { jdmp } from './utils/debug';;
 
 export default function App() {
-  const [yaml, setYaml] = useState('');
+  const [currentResume, setCurrentResume] = useState({} as Resume);
 
   useEffect(() => {
-    (async () => {
-      const response = await httpClient.getDefaultCV(),
-        {data} = response,
-        resume: object = jcon(YAML.parse(data)) as object;
-      setYaml(resume.toString());
-    })();
+    resume.loadStaticDefault(setCurrentResume);
   
     return () => {
       // this now gets called when the component unmounts
@@ -23,13 +17,15 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header style={resume.photoAsBG(currentResume)}>
         Goose.
       </header>
-      <article>
-        {yaml}
-      </article>
+      <pre>
+        {
+          jdmp(currentResume)
+        }
+      </pre>        
     </div>
   );
 }
