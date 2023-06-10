@@ -10,27 +10,20 @@ interface ResumePhoto {
   type: string;
 }
 
-export interface Resume {
+export interface YAMLResume {
   photo?: ResumePhoto;
 };
 
-type ResumeStateSetter = React.Dispatch<React.SetStateAction<Resume>>;
-
-export const loadDefaultResume = async (setState: ResumeStateSetter): Promise<Resume> => {
-  const {data} = await httpClient.getDefaultCV();
-  const structure = YAML.parse(data);
-  setState(structure);
-  return structure;
-};
+type ResumeStateSetter = React.Dispatch<React.SetStateAction<YAMLResume>>;
 
 export const resume = {
-  loadStaticDefault: async (setState: ResumeStateSetter): Promise<Resume> => {
+  loadStaticDefault: async (setState: ResumeStateSetter): Promise<YAMLResume> => {
     const {data} = await httpClient.getDefaultCV();
     const structure = YAML.parse(data);
     setState(structure);
     return structure;
   },
-  photoAsBG: (structure: Resume): React.CSSProperties => ({
+  photoAsBG: (structure: YAMLResume): React.CSSProperties => ({
     backgroundImage: `url('data:${structure.photo?.type};base64,${structure.photo?.base64}')` ,
     height: structure.photo?.height
   })
