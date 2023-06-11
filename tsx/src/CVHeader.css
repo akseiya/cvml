@@ -1,0 +1,37 @@
+.resume-root > header header {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.resume-root > header {
+  display: flex;
+}
+
+.resume-root header div {
+  margin: 1em;
+}
+
+.resume-root header div:nth-child(1) {
+  display: none;
+}
+
+@media screen and (min-width: 670px) {
+  .resume-root header div:nth-child(1) {
+    display: block;
+  }
+}
+
+.resume-root header div:nth-child(2) {
+  flex-grow: 8;
+}
+
+.resume-root header div {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-root header th {
+  text-align: right;
+  padding-right: 0.5em;
+}

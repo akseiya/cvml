@@ -1,9 +1,10 @@
 name: Michał Lech
-launch year: 1999
-work permits:
-  - UK UE settled status
-  - UE citizen
-top position: Head of Test Engineering
+fundamentals:
+  in IT business since: 1999
+  work permits:
+    - UK UE settled status
+    - UE citizen
+  top position: Head of Test Engineering
 summary:
   - Core profile: |-
       * Front-line leader focused on supporting his people and his organisation
@@ -21,6 +22,103 @@ summary:
       * Ways of working and platform design and supervision (implementation, tooling,
         spiking, preaching).
       * Platform building and maintenance (be it z/OS's Control-M or gitLab CI/CD)
+  - Business applications: |-
+      # Social media and education
+      *   User activities and interactions with tracking and analysis.
+          *   Managing and leveraging digital communities.
+          *   Content authoring with 3rd party integrated software- text, video, SCORMs.
+      # Fintech
+        *   Reconciliation (DuCo)
+        *   Cash markets
+            *   Trading platforms: orders management, matching, post-processes.
+            *   Market data systems: feed handlers, aggregators, publishers.
+        *   Derivatives trading support
+            *   Third parties structure, trading, commissions, warehouse receipts.
+            *   Data migration and reconciliation, external interfaces.
+        *   Banking systems
+            *   Corporate tables, self-service access including security.
+            *   Customer contacts, statements and mailing.
+        *   Video production
+            *   Support for gathering rushes, approval, tagging, logging, transcoding and other tasks throughout the workflow from recording to broadcast.
+  - Technologies: |-
+        *   Fresh and sharp
+            *   Cucumber in many flavours and implementations
+            *   Python, Node.js and Ruby without Rails
+            *   gitLab CI/CD (in-depth)
+            *   Dockerfiles, helm templates, kubectl
+            *   POSIX (admin/scriptmaster) and Windows (power user who enables WSL anyway)
+            *   REST with its cousins and friends (openAPI, RAML)
+            *   The Web (HTML, CSS, JS, HAML, JQ, Marionette tricks etc)
+            *   webdrivers and add-ons (webdriver.io, Capybara, site Prism, pure Selenium)
+            *   pure SQL, postgres
+        *   A day's refresher will do it
+            *   `git rebase`s from hell
+            *   Bamboo, Jenkins, Go Pipelines
+            *   Browserstack and Saucelabs
+            *   Express.js, Sinatra, Grape
+            *   Rake, make, NPM runscripts and configs
+        *   Would require a week or two to use daily again
+            *   COBOL, JCL, PHP, C++, Visual Basic, Java
+            *   Mainframe tools (TSO/ISPF/SDSF, Control-M, CICS, Serena, Xpediter)
+            *   Sequel and DataMapper, Oracle procs, DB2 with tooling
+career:
+  title: Career
+  jobs:
+    - from: 2023-03-13
+      id: GR
+      company:
+        name: Global Relay
+      position:
+        name: Lead SDET
+    - from: 2022-11
+      to:   2023-01
+      id: shred
+      company:
+        name: Schroders (inside IR35)
+      position:
+        name: QE learning lead
+      description: |-
+        # Description
+
+        Initially an attempt to liaise between 3 counterparties to deliver
+        a learning project with associated materials and processes. After
+        communications with the customer contact collapsing, I focused on
+        creating a code exercises sandbox inspired by W3Schools and the first
+        learning module delivered by it.
+
+        The project served as a clear indication where my consultancy and management
+        skills have their limits. That is: I don't really function well when completely
+        exposed on all sides with a high-difficulty "partner" on each side. I need
+        at least one solid wall to put my back against.
+    - id: athena
+      from: 2020-04-01
+      to: 2021-10-01
+      company:
+        name: British Telecom (outside IR35)
+        link: https://www.mediaandbroadcast.bt.com/vena.html
+      position:
+        name: SDET
+        link: https://testguild.com/sdet/
+        description: |-
+          # Stuff done
+          1.  Retiring a contraption based on Robot Framework (a perfect silo) and
+              replacing it with a squad-maintained CCIT suite. This was my nominal
+              job which took around 4 sprints since it needed to be in Java.
+          1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
+              workflows.
+          1.  Creating a well received E2E testing framework in Python, where all Athena
+              project conventions (regarding k8s clusters, Hashicorp Vault secrets and
+              managing JSON API-s) were encapsulated so that all boilerplate for a new
+              API could be specified with its name and the name of squad that owned it
+              (while rebels and legacy code required merciful amounts of extra code)
+          1.  Creating, reshaping and maintaining auxiliary tools (standalone mocks,
+              proxies etc).
+          1.  BDD evangelism, including broad introduction of Cucumber and constant work
+              towards having it used as intended.
+    - id: fuse
+      from: 2018-05
+      to: 2019-12
+      company: Fuse Universal
 photo:
   width: 147px
   height: 147px
