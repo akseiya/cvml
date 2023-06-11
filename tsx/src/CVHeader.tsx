@@ -2,7 +2,7 @@ import './CVHeader.css';
 
 import React from 'react';
 
-import { resume, YAMLResume } from './Resume';
+import { resume, YAMLResume } from './utils/Resume';
 
 export default function CVHeader(props: { currentResume: YAMLResume }) {
   const { currentResume } = props;

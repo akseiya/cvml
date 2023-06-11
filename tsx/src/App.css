@@ -29,6 +29,20 @@ main {
   overflow-y: auto;
 }
 
+main h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+main article {
+  margin: 1em;
+}
+
+main article header {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .resume-root pre {
   background-color: #eef;
   overflow-x: auto;

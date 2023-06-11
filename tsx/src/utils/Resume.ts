@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import YAML from 'yaml';
 
-import httpClient from './http/client';
+import httpClient from '../http/client';
+import { SummaryItem } from '../Summary';
 
 interface ResumePhoto {
   base64: string;
@@ -16,6 +17,7 @@ export interface YAMLResume {
   fundamentals: {
     [key: string]: string | string[];
   };
+  summary: SummaryItem[];
 }
 
 type ResumeStateSetter = React.Dispatch<
@@ -34,8 +36,8 @@ export const resume = {
   photoAsBackground: (structure: YAMLResume): React.CSSProperties => ({
     ...(structure.photo
       ? {
-          backgroundImage: `url('data:${structure.photo?.type};base64,${structure.photo?.base64}')`,
-        }
+        backgroundImage: `url('data:${structure.photo?.type};base64,${structure.photo?.base64}')`,
+      }
       : {}),
     height: structure.photo?.height,
     width: structure.photo?.width,
