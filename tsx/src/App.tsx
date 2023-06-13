@@ -26,6 +26,7 @@ export default function App() {
         <pre>{jdmp(currentResume)}</pre>
       </main>
       <footer>Some footer.</footer>
+      <div className='switchbox'>⛔</div>
     </div>
   );
 }

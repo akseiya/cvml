@@ -12,16 +12,23 @@ body {
 }
 
 .resume-root {
-  background-color: white;
+  background-color: #FFFFFA;
 
   height: 100vh;
   max-width: 50em;
-
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
+}
+
+.switchbox {
+  font-family: sans-serif;
+  font-size: 2em;
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
 }
 
 main {
@@ -38,9 +45,19 @@ main article {
   margin: 1em;
 }
 
+main.rich article {
+  border: 1px solid black;
+}
+
 main article header {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+main article h1 {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: left;
 }
 
 .resume-root pre {

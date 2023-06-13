@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 import { YAMLResume } from './utils/Resume';
 
@@ -11,7 +12,8 @@ const renderSummaryItem = (item: SummaryItem) => {
   return (
     <article>
       <header>{title}</header>
-      {markdown}
+      <ReactMarkdown>{markdown}</ReactMarkdown>
+      
     </article>
   );
 };

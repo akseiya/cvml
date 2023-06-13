@@ -1,7 +1,8 @@
 .resume-root > header header {
   font-size: 2em;
   font-weight: bold;
-  text-align: right;
+  text-align: left;
+  flex-grow: 2;
 }
 
 .resume-root > header {
