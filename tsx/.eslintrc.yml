@@ -50,7 +50,6 @@ rules:
   sort-imports: off
   one-var: off
   no-ternary: off
-  # no-magic-numbers: off
 settings:
   react:
     version: detect

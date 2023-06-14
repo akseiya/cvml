@@ -26,11 +26,11 @@ type ResumeStateSetter = React.Dispatch<
 
 export const resume = {
   loadStaticDefault: async (
-    setState: ResumeStateSetter
+    setState?: ResumeStateSetter
   ): Promise<YAMLResume> => {
     const { data } = await httpClient.getDefaultCV();
     const structure = YAML.parse(data);
-    setState(structure);
+    if(setState) setState(structure);
     return structure;
   },
   photoAsBackground: (structure: YAMLResume): React.CSSProperties => ({
