@@ -7,13 +7,14 @@
 
 .resume-root > header {
   display: flex;
+  margin-bottom: 1em;
 }
 
 .resume-root header div {
   margin: 1em;
 }
 
-.resume-root header div:nth-child(1) {
+.resume-root > header div:nth-child(1) {
   display: none;
 }
 

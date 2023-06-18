@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import YAML from 'yaml';
 
+import { Job } from '../Career';
 import httpClient from '../http/client';
 import { SummaryItem } from '../Summary';
 
@@ -18,6 +19,10 @@ export interface YAMLResume {
     [key: string]: string | string[];
   };
   summary: SummaryItem[];
+  career: {
+    title?: string;
+    jobs: Job[];
+  }
 }
 
 type ResumeStateSetter = React.Dispatch<

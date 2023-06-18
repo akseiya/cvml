@@ -14,7 +14,7 @@ export default function CVHeader(props: { currentResume: YAMLResume }) {
   const coreLine = (pair: CoreLine) => {
     const [key, value] = pair;
     return (
-      <tr>
+      <tr key={key}>
         <th>{key}:</th>
         <td>{Array.isArray(value) ? value.join(', ') : value}</td>
       </tr>

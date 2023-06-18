@@ -1,0 +1,40 @@
+main h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+main article {
+    margin: 1em;
+}
+
+.rich main article {
+    border: 1px solid black;
+    border-radius: 0.4em;
+}
+
+main article header {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+.rich main article header {
+    background-color: #FCF7E8;
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0.4em;
+    padding: 0.2em 0 0.5em 0.5em;
+}
+
+main article h1 {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 1em;
+}
+
+main article p {
+    margin-left: 1em;
+    margin-right: 1em;
+}

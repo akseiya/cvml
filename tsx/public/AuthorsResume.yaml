@@ -7,21 +7,28 @@ fundamentals:
   top position: Head of Test Engineering
 summary:
   - Core profile: |-
-      * Front-line leader focused on supporting his people and his organisation
-        for ever further growth;
-      * veteran of 2 decades of every shade and flavour of software development
-        in fields ranging from military HR through video production to
-        fintech/banking/insurance;
-      * troubleshooter, performance profiler, batch-, net- and DB-admin;
-      * mentor and teacher - while always ready to learn the craft anew (two voluntary \"demotions\" so far, none regretted).
+      Front-line leader focused on supporting his people and his organisation
+      for ever further growth.
+
+
+      Mentor and teacher always ready to learn the craft anew himself *(two
+      voluntary \"demotions\" so far, none regretted).*
+
+
+      Veteran of 2 decades of every shade and flavour of software development
+      in fields ranging from military HR through video production to
+      fintech/banking/insurance.
+
+      Troubleshooter, performance profiler, batch-, net- and DB-admin.
   - Areas of competence: |-
-      * Quality Assistance in software development - up to building a chapter within
-        a Scaled Agile model.
-      * Feature software development (from Cobol+DB2 on zOS all the way to
-        Ruby/Python/Node on k8s).
-      * Ways of working and platform design and supervision (implementation, tooling,
-        spiking, preaching).
-      * Platform building and maintenance (be it z/OS's Control-M or gitLab CI/CD)
+      * Quality Assistance in software development
+        * *up to building a chapter within a Scaled Agile model.*
+      * Feature software development
+        * *from Cobol+DB2 on zOS all the way to Ruby/Python/Node on k8s).*
+      * Ways of working and platform design and supervision
+        * *implementation, tooling, spiking, preaching.*
+      * Platform building and maintenance
+        * *from z/OS's Control-M long ago to gitLab CI/CD recently.*
   - Business applications: |-
       # Social media and education
       *   User activities and interactions with tracking and analysis.
@@ -70,6 +77,16 @@ career:
         name: Global Relay
       position:
         name: Lead SDET
+      description: |-
+        # Duties
+
+        1.  Line management as per the corporate policies (including use of Trakstar
+            for regulated performance tracking and reviews including peer ratings).
+        1.  SDET duties (3 amigos, driving functional tests).
+        1.  Creating and refactoring testing frameworks (Pact.js, WDIO, Cucumber, Jest,
+            Playwright).
+        1.  Spikes and research, sharing the results and propositions with the pod
+            and the Quality Guild.
     - from: 2022-11
       to:   2023-01
       id: shred
@@ -99,26 +116,28 @@ career:
       position:
         name: SDET
         link: https://testguild.com/sdet/
-        description: |-
-          # Stuff done
-          1.  Retiring a contraption based on Robot Framework (a perfect silo) and
-              replacing it with a squad-maintained CCIT suite. This was my nominal
-              job which took around 4 sprints since it needed to be in Java.
-          1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
-              workflows.
-          1.  Creating a well received E2E testing framework in Python, where all Athena
-              project conventions (regarding k8s clusters, Hashicorp Vault secrets and
-              managing JSON API-s) were encapsulated so that all boilerplate for a new
-              API could be specified with its name and the name of squad that owned it
-              (while rebels and legacy code required merciful amounts of extra code)
-          1.  Creating, reshaping and maintaining auxiliary tools (standalone mocks,
-              proxies etc).
-          1.  BDD evangelism, including broad introduction of Cucumber and constant work
-              towards having it used as intended.
+      description: |-
+        # Stuff done
+        1.  Retiring a contraption based on Robot Framework (a perfect silo) and
+            replacing it with a squad-maintained CCIT suite. This was my nominal
+            job which took around 3 sprints since it needed to be in Java.
+        1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
+            workflows.
+        1.  Creating a well received E2E testing framework in Python, where all Athena
+            project conventions (regarding k8s clusters, Hashicorp Vault secrets and
+            managing JSON API-s) were encapsulated so that all boilerplate for a new
+            API could be specified with its name and the name of squad that owned it
+            (while rebels and legacy code required merciful amounts of extra code)
+        1.  Creating, reshaping and maintaining auxiliary tools (standalone mocks,
+            proxies etc).
+        1.  BDD evangelism in the squad and around it, including introduction of Cucumber and constant work
+            towards having it used as intended.
     - id: fuse
       from: 2018-05
       to: 2019-12
-      company: Fuse Universal
+      company:
+        name:
+          Fuse Universal
 photo:
   width: 147px
   height: 147px

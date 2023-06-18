@@ -12,15 +12,22 @@ body {
 }
 
 .resume-root {
-  background-color: #FFFFFA;
-
-  height: 100vh;
   max-width: 50em;
   position: relative;
   margin: 0 auto;
+}
+
+.resume-root.rich {
+  background-color: #FFFFFA;
+
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
+}
+
+.resume-root.rich.dark {
+  background-color: black;
 }
 
 .switchbox {
@@ -40,40 +47,14 @@ body {
   transition: width 0.3s;
 }
 
-.switchbox:hover {
-  width: 9em;
-}
+      .switchbox:hover { width: 9.6em; }
+.rich .switchbox:hover { width: 7.4em; }
 
-main {
+.rich main {
   flex-grow: 10;
   overflow-y: auto;
 }
 
-main h1 {
-  font-size: 2em;
-  text-align: center;
-}
-
-main.rich article {
-  margin: 1em;
-  border: 1px solid black;
-  border-radius: 0.4em;
-}
-
-main.rich article header {
-  font-size: 1.2em;
-  font-weight: bold;
-  border-radius: 0.4em 0.4em 0 0;
-  background-color: #FCF0FA;
-  padding: 0.2em 0 0.5em 0.5em;
-}
-
-main.rich article h1 {
-  font-size: 1em;
-  font-weight: bold;
-  text-align: left;
-  margin-left: 1em;
-}
 
 .resume-root pre {
   background-color: #eef;

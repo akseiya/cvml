@@ -10,24 +10,19 @@ export interface SummaryItem {
 const renderSummaryItem = (item: SummaryItem) => {
   const [[title, markdown]] = Object.entries(item);
   return (
-    <article>
+    <article key={`summary: ${title}`}>
       <header>{title}</header>
       <ReactMarkdown>{markdown}</ReactMarkdown>
-      
     </article>
   );
 };
 
 export default function Summary(props: { currentResume: YAMLResume }) {
-  const { currentResume } = props;
-  if (!currentResume.name) {
-    return <div/>;
-  }
-  const { summary } = currentResume;
+  const { currentResume: { summary } } = props;
   return (
     <>
       <h1>Summary</h1>
-      {summary.map(renderSummaryItem)}
+      {(summary ?? []).map(renderSummaryItem)}
     </>
   );
 };
