@@ -148,6 +148,8 @@ career:
       company:
         name: Fuse Universal
         link: http://fuseuniversal.com/
+      position:
+        name: Head of Test Engineering
 photo:
   width: 147px
   height: 147px

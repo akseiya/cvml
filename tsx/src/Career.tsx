@@ -30,20 +30,19 @@ const getDuration = (job: Job) => {
   return `${fuzzDate(from)} - ${fuzzDate(to)}`;
 };
 
+const nameWithOptionalLink = (linkable?: LinkableName) => {
+  if(!linkable) return ' ';
+  if(!linkable.link) return (<div>{linkable.name}</div>);
+  return (<div><a href={linkable.link}>{linkable.name}</a></div>);
+};
+
 const renderJob = (job: Job) => {
-  let companyBlock = null;
-  const { company } = job;
-  if(company) {
-    if(company.link) {
-      companyBlock = (<div><a href={company.link}>{company.name}</a></div>);
-    } else companyBlock = (<div>{company.name}</div>);
-  }
   return (
     <article className="job" key={`carrer:${job.id ?? Math.random()}`}>
       <header>
         <div>{getDuration(job)}</div>
-        {companyBlock}
-        <div>{job.position?.name ?? ''}</div>
+        {nameWithOptionalLink(job.company)}
+        {nameWithOptionalLink(job.position)}
       </header>
       <ReactMarkdown>{job.description}</ReactMarkdown>      
     </article>
