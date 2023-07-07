@@ -72,26 +72,34 @@ career:
   title: Career
   jobs:
     - from: 2023-03-13
+      to: 2023-06-30
       id: GR
       company:
         name: Global Relay
       position:
-        name: Lead SDET
+        name: '"Lead SDET"'
       description: |-
         # Duties
 
         1.  Line management as per the corporate policies (including use of Trakstar
             for regulated performance tracking and reviews including peer ratings).
-        1.  SDET duties (3 amigos, driving functional tests).
-        1.  Creating and refactoring testing frameworks (Pact.js, WDIO, Cucumber, Jest,
+        1.  Serving as the testing Amigo, trying to drive the shift-left in the pod.
+        1.  Creating and refactoring testing frameworks and scripts (Pact.js, WDIO, Cucumber, Jest,
             Playwright).
         1.  Spikes and research, sharing the results and propositions with the pod
             and the Quality Guild.
+
+        ## *"Why did you quit so fast?"*
+
+        It turned out my leadership was of ephemeral nature: any ways of working standards
+        worked out between the 3 Amigos and the team can be at any moment overturned by a mid-level
+        manager without asking me any questions or providing any explanations.
     - from: 2022-11
       to:   2023-01
       id: shred
       company:
         name: Schroders (inside IR35)
+        link: https://www.schroders.com/en/global/individual/contact-us/worldwide-locations/uk/
       position:
         name: QE learning lead
       description: |-
@@ -120,24 +128,26 @@ career:
         # Stuff done
         1.  Retiring a contraption based on Robot Framework (a perfect silo) and
             replacing it with a squad-maintained CCIT suite. This was my nominal
-            job which took around 3 sprints since it needed to be in Java.
+            job which took a few sprints since it needed to be in Java.
         1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
             workflows.
         1.  Creating a well received E2E testing framework in Python, where all Athena
             project conventions (regarding k8s clusters, Hashicorp Vault secrets and
             managing JSON API-s) were encapsulated so that all boilerplate for a new
-            API could be specified with its name and the name of squad that owned it
+            API could consist of API's name and the name of squad that owned it
             (while rebels and legacy code required merciful amounts of extra code)
         1.  Creating, reshaping and maintaining auxiliary tools (standalone mocks,
             proxies etc).
-        1.  BDD evangelism in the squad and around it, including introduction of Cucumber and constant work
-            towards having it used as intended.
+        1.  BDD evangelism in the squad and around it, including introduction of Cucumber and
+            constant work towards having it used well and with intended benefits. It was my first
+            instance of improving the ways of working as a ground-level "influencer" rather than
+            an appointed leader, with some actual satisfying results.
     - id: fuse
       from: 2018-05
       to: 2019-12
       company:
-        name:
-          Fuse Universal
+        name: Fuse Universal
+        link: http://fuseuniversal.com/
 photo:
   width: 147px
   height: 147px

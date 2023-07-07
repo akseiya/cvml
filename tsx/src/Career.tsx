@@ -31,11 +31,18 @@ const getDuration = (job: Job) => {
 };
 
 const renderJob = (job: Job) => {
+  let companyBlock = null;
+  const { company } = job;
+  if(company) {
+    if(company.link) {
+      companyBlock = (<div><a href={company.link}>{company.name}</a></div>);
+    } else companyBlock = (<div>{company.name}</div>);
+  }
   return (
     <article className="job" key={`carrer:${job.id ?? Math.random()}`}>
       <header>
         <div>{getDuration(job)}</div>
-        <div>{job.company?.name ?? ''}</div>
+        {companyBlock}
         <div>{job.position?.name ?? ''}</div>
       </header>
       <ReactMarkdown>{job.description}</ReactMarkdown>      
