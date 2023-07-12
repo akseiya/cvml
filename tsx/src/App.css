@@ -18,7 +18,7 @@ body {
 }
 
 .resume-root.rich {
-  background-color: #FFFFFA;
+  background-color: #fffffa;
 
   height: 100vh;
 
@@ -47,14 +47,17 @@ body {
   transition: width 0.3s;
 }
 
-      .switchbox:hover { width: 9.6em; }
-.rich .switchbox:hover { width: 7.4em; }
+.switchbox:hover {
+  width: 9.6em;
+}
+.rich .switchbox:hover {
+  width: 7.4em;
+}
 
 .rich main {
   flex-grow: 10;
   overflow-y: auto;
 }
-
 
 .resume-root pre {
   background-color: #eef;

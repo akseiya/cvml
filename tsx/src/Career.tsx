@@ -13,27 +13,32 @@ export interface Job {
   position: LinkableName;
   company: LinkableName;
   description: string;
-};
+}
 
 const fuzzDate = (dateSpec: string) => {
   const precision = dateSpec.split('-').length - 1;
   const date = new Date(dateSpec);
   const month = date.toDateString().split(' ')[1];
-  if(precision < 1) return dateSpec;
-  if(precision < 2) return `${month} ${date.getFullYear()}`;
-  return date.toISOString().split('T')[0];
+  if (precision < 1) return dateSpec;
+  // if(precision < 2)
+  return `${month} ${date.getFullYear()}`;
+  // return date.toISOString().split('T')[0];
 };
 
 const getDuration = (job: Job) => {
   const { from, to } = job;
-  if(!to) return `since ${fuzzDate(from)}`;
+  if (!to) return `since ${fuzzDate(from)}`;
   return `${fuzzDate(from)} - ${fuzzDate(to)}`;
 };
 
 const nameWithOptionalLink = (linkable?: LinkableName) => {
-  if(!linkable) return ' ';
-  if(!linkable.link) return (<div>{linkable.name}</div>);
-  return (<div><a href={linkable.link}>{linkable.name}</a></div>);
+  if (!linkable) return ' ';
+  if (!linkable.link) return <div>{linkable.name}</div>;
+  return (
+    <div>
+      <a href={linkable.link}>{linkable.name}</a>
+    </div>
+  );
 };
 
 const renderJob = (job: Job) => {
@@ -44,19 +49,24 @@ const renderJob = (job: Job) => {
         {nameWithOptionalLink(job.company)}
         {nameWithOptionalLink(job.position)}
       </header>
-      <ReactMarkdown>{job.description}</ReactMarkdown>      
+      <ReactMarkdown>{job.description}</ReactMarkdown>
     </article>
   );
 };
 
 export default function Career(props: { currentResume: YAMLResume }) {
   const { currentResume } = props;
-  const { career }  = currentResume;
+  const { career } = currentResume;
   const { jobs } = career ?? {};
   return (
     <>
       <h1>Career</h1>
-      {(jobs ?? []).map(renderJob)}
+      {(jobs ?? [])
+        .sort(
+          (j1: Job, j2: Job) =>
+            new Date(j2.from).valueOf() - new Date(j1.from).valueOf()
+        )
+        .map(renderJob)}
     </>
   );
-};
+}

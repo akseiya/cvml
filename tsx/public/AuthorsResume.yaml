@@ -7,13 +7,10 @@ fundamentals:
   top position: Head of Test Engineering
 summary:
   - Core profile: |-
-      Front-line leader focused on supporting his people and his organisation
-      for ever further growth.
-
+      Front-line leader focused on supporting his people for ever further growth.
 
       Mentor and teacher always ready to learn the craft anew himself *(two
       voluntary \"demotions\" so far, none regretted).*
-
 
       Veteran of 2 decades of every shade and flavour of software development
       in fields ranging from military HR through video production to
@@ -76,6 +73,7 @@ career:
       id: GR
       company:
         name: Global Relay
+        location: London
       position:
         name: '"Lead SDET"'
       description: |-
@@ -91,13 +89,15 @@ career:
 
         ## *"Why did you quit so fast?"*
 
-        It turned out my leadership was of ephemeral nature: any ways of working standards
-        worked out between the 3 Amigos and the team can be at any moment overturned by a mid-level
-        manager without asking me any questions or providing any explanations.
+        It turned out my leadership was of ephemeral nature: any
+        ways-of-working standards (worked out between the 3 Amigos and the team) can
+        be at any moment overturned by a mid-level manager without asking me any questions
+        or providing any explanations.
     - from: 2022-11
       to:   2023-01
       id: shred
       company:
+        location: London
         name: Schroders (inside IR35)
         link: https://www.schroders.com/en/global/individual/contact-us/worldwide-locations/uk/
       position:
@@ -116,11 +116,12 @@ career:
         exposed on all sides with a high-difficulty "partner" on each side. I need
         at least one solid wall to put my back against.
     - id: athena
-      from: 2020-04-01
-      to: 2021-10-01
+      from: 2020-04
+      to: 2021-10
       company:
         name: British Telecom (outside IR35)
         link: https://www.mediaandbroadcast.bt.com/vena.html
+        location: Ipswich (remote)
       position:
         name: SDET
         link: https://testguild.com/sdet/
@@ -150,6 +151,93 @@ career:
         link: http://fuseuniversal.com/
       position:
         name: Head of Test Engineering
+      description: |-
+        # Summary
+        I converted an ailing QA team into a functional Test Engineering chapter in a Scaling Agile model.
+
+        The process involved:
+        * defining roles and development paths for my engineers, then training them in the skills required to progress on those paths;
+        * identifying my engineers' individual strengths and leveraging them, adjusting their deployment to dev teams as needs changed;
+        * working closely with Product Lead developing BDD practices across the prod-tech teams and then fleshing out the squad=specific details with product owners;
+        * contributing to the evolving Scaling Agile model, inluding some of the company's first OKR's;
+        * steering the development of technical tools to keep the processes going smoothly, delegating as much of coding as possible to the engineers (against my natural tendencies which would interfere with my engineers' growth).
+
+        # Results
+        QA team with 2 permanent employees trying to move to Front End Development became a Test Engineering chapter with 2 contractors considered indispensable by their squads and 4 permanent engineers contributing to constant improvement of the product and their own skillsets, be it learning to create E2E frameworks, harnessing mobile testing regimes or using psychological wiles to sway the least BDD-open of product owners.
+
+        Unit test coverage for front-end code became an actual tracked parameter and jumped to over 70% within a few months since our initial spiking sessions for Mocha/Chai and React tools for testing.
+        # Daily duties
+        * BDD evangelism.
+        * Line management of the permanent employees, occasional intervention in the matters concering the remote contractors.
+        * Spikes, code reviews, code sketches. Pair programming, mentoring, letting people actually get on with their jobs.
+        * Planning and designing new testing regimes and processes in collaboration with others leaders of tech of product.
+    - id: duco
+      from: 2016-05
+      to: 2016-12
+      company:
+        name: DuCo
+        link: https://du.co
+      position:
+        name: QA Engineer
+      description: |-
+        An attempt to reconcile the demands of mature SQA processes with some of the most agile principles to be found in agile-working dev teams (i.e. working without pre-defined acceptance criteria).
+        # Duties
+        * Evolution of the [non]-"smoke" testing pipeline from Aframe, redesigned for much easier developer onboarding (by pairing with several prospective victims), re-wired to depend less on Selenium WebDriver capabilities and finally, fully integrated with existing development process in Bamboo. Delivery included installation scripts for local runs of the suite, Bamboo plans to allow remote use and training sessions for the team, from generic introduction to problem solving descents and troubleshooting approach.
+        * High-level design and initial coding of the framework for multi-tenancy isolation testing.
+        * High-level design for the actual smoke tests of production infrastracture and its staging copy.
+        * Tracking and helping the developers' work during release testing rushes. This included a test sheet in Google Docs, which initial content was imported from JIRA with a Capybara script (as opposed to using actual import facilities which would mark accepting of Google Docs as a decent test tracking tool).
+    - id: ctm
+      from: 2017-04
+      to: 2018-01
+      company:
+        name: Compare the Market
+        link: https://comparethemarket.com
+      position:
+        name: SDET
+      description: |-
+        Bringing SQA improvement patterns from London Start-Ups to a corporate environment.
+        # Stuff done
+        1. Deep refactoring and expansion of the sketch of Rewards Team's end-to-end regression suite, including running it against SauceLabs and within Amazon EC boxes orchestrated with Go Pipelines with Chrome and XVFB.
+        1. Spiking use of Pact.js as a contract testing as part of my work for the Testing Function in CtM.
+        1. Dogged insistence on keeping some basic principles of software development with agility.
+        1. Preaching BDD to anyone and everyone.
+        1. Calling the 3 Amigos sessions and playing the role of product owner, business analyst and the SDET while also reminding about the need for requirements to be expressed before the code gets written.
+        1. Reviewing Pull Requests from QA PoV - sadly, frequently leading to much deeper improvements than strictly testing related.
+        1. Finding compromises between company-wide official Immunisation scorecard for code quality and tech leads' fear of innovation.
+
+        The most satisfying outcome for me was the Systems Integration Testing suite, which started as an attempt to finally have some holistic functional regression suite for Rewards team and quickly grew into the first integration test of multiple company stacks, from customer profile through external enquiry and sales tracking to actual rewards and their distribution (this meant de facto functional testing of subsystems hosted either on-premise or in Amazon EC or in Kubernetes, using application stacks ranging from Node.js to C#).
+
+        Side effects included challenging the established model of testing environments, their hosting and their very meaning.
+    - id: aframe
+      from: 2012-09
+      to: 2016-02
+      company:
+        name: Aframe
+      position:
+        name: senior QA analyst
+      description: |-
+        A somewhat unstable path from a backend Ruby developer to QA "team founder" and then back to part-time developer - part-time QA.
+        # Duties
+        1.  Typical start-up mad coding, from professional video format metatags parsers to REST-ful'ish microservices, all tested BDD-style with rSpec.
+        1. Creation of acceptance tests platform, the wrongly named "Smoke" - both as a single replica of production system running the most reliable set of tests via load balancers etc., and as much smaller scale boxes contained each within a single Linux box.
+        1. Complementing the platform with a custom Git workflow standing in for a part
+        of a CI/CD pipeline we did not exactly have at the time.
+        1. Eliminating my position by starting a process of transition back towards no centralized QA and testing fully distributed among the developers.
+    - id: aframe
+      from: 2010-08
+      to: 2012-09
+      company:
+        name: Pramerica Systems Ireland
+      position:
+        name: systems tester
+      description: |-
+        Quality Assurance for Global Derivatives project of Prudential Bache Commodities.
+        # Duties
+        * Analysis and proposals of business requirements for corporate software;
+        * devising test scenarios and cases basing on the requirements;
+        * conducting the tests following the prepared scripts;
+        * analysis of test results, presenting conclusions, proposing solutions and workarounds;
+        * tooling created as WSH JS scripts, Java compilates and Quality Center scripts in Visual Basic (hired as a manual tester I had no access to normal tools).
 photo:
   width: 147px
   height: 147px

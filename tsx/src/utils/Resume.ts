@@ -22,7 +22,7 @@ export interface YAMLResume {
   career: {
     title?: string;
     jobs: Job[];
-  }
+  };
 }
 
 type ResumeStateSetter = React.Dispatch<
@@ -35,7 +35,7 @@ export const resume = {
   ): Promise<YAMLResume> => {
     const { data } = await httpClient.getDefaultCV();
     const structure = YAML.parse(data);
-    if(setState) setState(structure);
+    if (setState) setState(structure);
     return structure;
   },
   photoAsBackground: (structure: YAMLResume): React.CSSProperties => ({

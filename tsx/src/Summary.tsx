@@ -5,7 +5,7 @@ import { YAMLResume } from './utils/Resume';
 
 export interface SummaryItem {
   [key: string]: string;
-};
+}
 
 const renderSummaryItem = (item: SummaryItem) => {
   const [[title, markdown]] = Object.entries(item);
@@ -18,11 +18,13 @@ const renderSummaryItem = (item: SummaryItem) => {
 };
 
 export default function Summary(props: { currentResume: YAMLResume }) {
-  const { currentResume: { summary } } = props;
+  const {
+    currentResume: { summary },
+  } = props;
   return (
     <>
       <h1>Summary</h1>
       {(summary ?? []).map(renderSummaryItem)}
     </>
   );
-};
+}
