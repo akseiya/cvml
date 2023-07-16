@@ -11,6 +11,23 @@ main article.job header {
   flex-wrap: wrap;
 }
 
+article.job .unfolder {
+  display: none;
+}
+
+.rich article.job.old .unfolder {
+  display: inline-block;
+  cursor: pointer;
+  min-width: 1.3em;
+  border-radius: 1em;
+  background-color: #CBA;
+  text-align: center;
+}
+
+.rich article.job.old main {
+  display: none;
+}
+
 article.job header div {
   margin: 0;
   margin-right: 1em;

@@ -62,5 +62,15 @@ body {
 .resume-root pre {
   background-color: #eef;
   overflow-x: auto;
-  margin: 0;
+  margin: 0 0 0 2em;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.resume-root > .navbar {
+  text-align: center;
+  padding-bottom: 1em;
+}
+.resume-root > .navbar :not(:nth-last-child(1))::after {
+  content: ' ⦁ ';
 }

@@ -17,6 +17,7 @@ summary:
       fintech/banking/insurance.
 
       Troubleshooter, performance profiler, batch-, net- and DB-admin.
+
   - Areas of competence: |-
       * Quality Assistance in software development
         * *up to building a chapter within a Scaled Agile model.*
@@ -26,51 +27,24 @@ summary:
         * *implementation, tooling, spiking, preaching.*
       * Platform building and maintenance
         * *from z/OS's Control-M long ago to gitLab CI/CD recently.*
+
   - Business applications: |-
       # Social media and education
-      *   User activities and interactions with tracking and analysis.
-          *   Managing and leveraging digital communities.
-          *   Content authoring with 3rd party integrated software- text, video, SCORMs.
+        *   User activities and interactions with tracking and analysis (Fuse)
       # Fintech
         *   Reconciliation (DuCo)
-        *   Cash markets
-            *   Trading platforms: orders management, matching, post-processes.
-            *   Market data systems: feed handlers, aggregators, publishers.
-        *   Derivatives trading support
-            *   Third parties structure, trading, commissions, warehouse receipts.
-            *   Data migration and reconciliation, external interfaces.
-        *   Banking systems
-            *   Corporate tables, self-service access including security.
-            *   Customer contacts, statements and mailing.
-        *   Video production
-            *   Support for gathering rushes, approval, tagging, logging, transcoding and other tasks throughout the workflow from recording to broadcast.
-  - Technologies: |-
-        *   Fresh and sharp
-            *   Cucumber in many flavours and implementations
-            *   Python, Node.js and Ruby without Rails
-            *   gitLab CI/CD (in-depth)
-            *   Dockerfiles, helm templates, kubectl
-            *   POSIX (admin/scriptmaster) and Windows (power user who enables WSL anyway)
-            *   REST with its cousins and friends (openAPI, RAML)
-            *   The Web (HTML, CSS, JS, HAML, JQ, Marionette tricks etc)
-            *   webdrivers and add-ons (webdriver.io, Capybara, site Prism, pure Selenium)
-            *   pure SQL, postgres
-        *   A day's refresher will do it
-            *   `git rebase`s from hell
-            *   Bamboo, Jenkins, Go Pipelines
-            *   Browserstack and Saucelabs
-            *   Express.js, Sinatra, Grape
-            *   Rake, make, NPM runscripts and configs
-        *   Would require a week or two to use daily again
-            *   COBOL, JCL, PHP, C++, Visual Basic, Java
-            *   Mainframe tools (TSO/ISPF/SDSF, Control-M, CICS, Serena, Xpediter)
-            *   Sequel and DataMapper, Oracle procs, DB2 with tooling
+        *   Cash markets (NYSET)
+        *   Derivatives trading support (Pramerica)
+        *   Banking systems (Softbank)
+      # Video production
+        *   In the cloud! (AFrame)
+
 career:
   title: Career
   jobs:
-    - from: 2023-03-13
+    - id: GR
+      from: 2023-03-13
       to: 2023-06-30
-      id: GR
       company:
         name: Global Relay
         location: London
@@ -82,8 +56,8 @@ career:
         1.  Line management as per the corporate policies (including use of Trakstar
             for regulated performance tracking and reviews including peer ratings).
         1.  Serving as the testing Amigo, trying to drive the shift-left in the pod.
-        1.  Creating and refactoring testing frameworks and scripts (Pact.js, WDIO, Cucumber, Jest,
-            Playwright).
+        1.  Creating and refactoring testing frameworks and scripts (Pact.js, WDIO,
+            Cucumber, Jest, Playwright).
         1.  Spikes and research, sharing the results and propositions with the pod
             and the Quality Guild.
 
@@ -93,9 +67,10 @@ career:
         ways-of-working standards (worked out between the 3 Amigos and the team) can
         be at any moment overturned by a mid-level manager without asking me any questions
         or providing any explanations.
-    - from: 2022-11
+
+    - id: shred
+      from: 2022-11
       to:   2023-01
-      id: shred
       company:
         location: London
         name: Schroders (inside IR35)
@@ -108,13 +83,14 @@ career:
         Initially an attempt to liaise between 3 counterparties to deliver
         a learning project with associated materials and processes. After
         communications with the customer contact collapsing, I focused on
-        creating a code exercises sandbox inspired by W3Schools and the first
-        learning module delivered by it.
+        creating a [code exercises sandbox inspired by W3Schools and the first
+        learning module delivered by it](#the_w3schools_wannabe).
 
         The project served as a clear indication where my consultancy and management
         skills have their limits. That is: I don't really function well when completely
         exposed on all sides with a high-difficulty "partner" on each side. I need
         at least one solid wall to put my back against.
+
     - id: athena
       from: 2020-04
       to: 2021-10
@@ -126,23 +102,22 @@ career:
         name: SDET
         link: https://testguild.com/sdet/
       description: |-
+        Contracting as Hariel Imamiah Ltd for BT's Athena ("Vena") project.
+
         # Stuff done
+
         1.  Retiring a contraption based on Robot Framework (a perfect silo) and
             replacing it with a squad-maintained CCIT suite. This was my nominal
             job which took a few sprints since it needed to be in Java.
+        1.  Creating a well received E2E testing framework in Python, [Ergane](#ergane)
         1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
-            workflows.
-        1.  Creating a well received E2E testing framework in Python, where all Athena
-            project conventions (regarding k8s clusters, Hashicorp Vault secrets and
-            managing JSON API-s) were encapsulated so that all boilerplate for a new
-            API could consist of API's name and the name of squad that owned it
-            (while rebels and legacy code required merciful amounts of extra code)
-        1.  Creating, reshaping and maintaining auxiliary tools (standalone mocks,
-            proxies etc).
-        1.  BDD evangelism in the squad and around it, including introduction of Cucumber and
-            constant work towards having it used well and with intended benefits. It was my first
-            instance of improving the ways of working as a ground-level "influencer" rather than
-            an appointed leader, with some actual satisfying results.
+            workflows, auxiliary tools (standalone mocks, proxies etc).
+        1.  BDD and shift-left evangelism in the squad and around it, including
+            introduction of Cucumber and Pact. It was my first instance of achieving
+            a noticeable improvement in the ways of working as a ground-level "influencer"
+            rather than an appointed leader. I blame my squad (the excellent Olives) and
+            my main w.o.w. ally, Mr Tariq Juneja.
+
     - id: fuse
       from: 2018-05
       to: 2019-12
@@ -153,24 +128,36 @@ career:
         name: Head of Test Engineering
       description: |-
         # Summary
-        I converted an ailing QA team into a functional Test Engineering chapter in a Scaling Agile model.
+
+        I converted an ailing QA team into a functional Test Engineering chapter
+        in a Scaling Agile model.
 
         The process involved:
-        * defining roles and development paths for my engineers, then training them in the skills required to progress on those paths;
-        * identifying my engineers' individual strengths and leveraging them, adjusting their deployment to dev teams as needs changed;
-        * working closely with Product Lead developing BDD practices across the prod-tech teams and then fleshing out the squad=specific details with product owners;
-        * contributing to the evolving Scaling Agile model, inluding some of the company's first OKR's;
-        * steering the development of technical tools to keep the processes going smoothly, delegating as much of coding as possible to the engineers (against my natural tendencies which would interfere with my engineers' growth).
+        * defining roles and development paths for my engineers, then training them
+          in the skills required to progress on those paths;
+        * identifying my engineers' individual strengths and leveraging them, adjusting
+          their deployment to dev teams as needs changed;
+        * working closely with Product Lead developing BDD practices across the prod-tech
+          teams and then fleshing out the squad-specific details with product owners;
+        * contributing to the evolving Scaling Agile model, inluding some of the company's
+          first OKR's;
+        * steering the development of technical tools to keep the processes going
+          smoothly, delegating as much of coding as possible to the engineers (against
+          my natural tendencies which would interfere with my engineers' growth).
 
         # Results
-        QA team with 2 permanent employees trying to move to Front End Development became a Test Engineering chapter with 2 contractors considered indispensable by their squads and 4 permanent engineers contributing to constant improvement of the product and their own skillsets, be it learning to create E2E frameworks, harnessing mobile testing regimes or using psychological wiles to sway the least BDD-open of product owners.
 
-        Unit test coverage for front-end code became an actual tracked parameter and jumped to over 70% within a few months since our initial spiking sessions for Mocha/Chai and React tools for testing.
-        # Daily duties
-        * BDD evangelism.
-        * Line management of the permanent employees, occasional intervention in the matters concering the remote contractors.
-        * Spikes, code reviews, code sketches. Pair programming, mentoring, letting people actually get on with their jobs.
-        * Planning and designing new testing regimes and processes in collaboration with others leaders of tech of product.
+        QA team with 2 permanent employees trying to move to Front End Development became
+        a Test Engineering chapter with 2 contractors considered indispensable by their
+        squads and 4 permanent engineers contributing to constant improvement of the product
+        and their own skillsets, be it learning to create E2E frameworks, harnessing mobile
+        testing regimes or using psychological wiles to sway the least BDD-open of product
+        owners.
+
+        Unit test coverage for front-end code became an actual tracked parameter
+        and jumped to over 70% within a few months since our initial spiking sessions
+        for Mocha/Chai and React tools for testing.
+
     - id: duco
       from: 2016-05
       to: 2016-12
@@ -180,12 +167,29 @@ career:
       position:
         name: QA Engineer
       description: |-
-        An attempt to reconcile the demands of mature SQA processes with some of the most agile principles to be found in agile-working dev teams (i.e. working without pre-defined acceptance criteria).
+        A pre-mature attempt to deliver vision and strategy for a young startup's
+        Quality Engineering. While I managed to deliver a bunch of nifty tools and
+        processes, I resigned after realising I don't really yet have a vision
+        to share.
+
         # Duties
-        * Evolution of the [non]-"smoke" testing pipeline from Aframe, redesigned for much easier developer onboarding (by pairing with several prospective victims), re-wired to depend less on Selenium WebDriver capabilities and finally, fully integrated with existing development process in Bamboo. Delivery included installation scripts for local runs of the suite, Bamboo plans to allow remote use and training sessions for the team, from generic introduction to problem solving descents and troubleshooting approach.
-        * High-level design and initial coding of the framework for multi-tenancy isolation testing.
-        * High-level design for the actual smoke tests of production infrastracture and its staging copy.
-        * Tracking and helping the developers' work during release testing rushes. This included a test sheet in Google Docs, which initial content was imported from JIRA with a Capybara script (as opposed to using actual import facilities which would mark accepting of Google Docs as a decent test tracking tool).
+
+        * Evolution of the [non]-"smoke" testing pipeline from Aframe, redesigned for much
+          easier developer onboarding (by pairing with several prospective victims),
+          re-wired to depend less on Selenium WebDriver capabilities and finally, fully
+          integrated with existing development process in Bamboo. Delivery included
+          installation scripts for local runs of the suite, Bamboo plans to allow remote
+          use and training sessions for the team, from generic introduction to problem
+          solving descents and troubleshooting approach.
+        * High-level design and initial coding of the framework for multi-tenancy isolation
+          testing.
+        * High-level design for the actual smoke tests of production infrastracture and
+          its staging copy.
+        * Tracking and helping the developers' work during release testing rushes.
+          This included a test sheet in Google Docs, which initial content was imported
+          from JIRA with a Capybara script (as opposed to using actual import facilities
+          which would mark accepting of Google Docs as a decent test tracking tool).
+
     - id: ctm
       from: 2017-04
       to: 2018-01
@@ -196,18 +200,24 @@ career:
         name: SDET
       description: |-
         Bringing SQA improvement patterns from London Start-Ups to a corporate environment.
+
         # Stuff done
-        1. Deep refactoring and expansion of the sketch of Rewards Team's end-to-end regression suite, including running it against SauceLabs and within Amazon EC boxes orchestrated with Go Pipelines with Chrome and XVFB.
-        1. Spiking use of Pact.js as a contract testing as part of my work for the Testing Function in CtM.
-        1. Dogged insistence on keeping some basic principles of software development with agility.
-        1. Preaching BDD to anyone and everyone.
-        1. Calling the 3 Amigos sessions and playing the role of product owner, business analyst and the SDET while also reminding about the need for requirements to be expressed before the code gets written.
-        1. Reviewing Pull Requests from QA PoV - sadly, frequently leading to much deeper improvements than strictly testing related.
-        1. Finding compromises between company-wide official Immunisation scorecard for code quality and tech leads' fear of innovation.
 
-        The most satisfying outcome for me was the Systems Integration Testing suite, which started as an attempt to finally have some holistic functional regression suite for Rewards team and quickly grew into the first integration test of multiple company stacks, from customer profile through external enquiry and sales tracking to actual rewards and their distribution (this meant de facto functional testing of subsystems hosted either on-premise or in Amazon EC or in Kubernetes, using application stacks ranging from Node.js to C#).
+        1.  Deep refactoring and expansion of the sketch of Rewards Team's end-to-end
+            regression suite, including running it against SauceLabs and within Amazon EC
+            boxes orchestrated with Go Pipelines with Chrome and XVFB.
+        1.  Spiking use of Pact.js as a contract testing as part of my work for
+            the Testing Function in CtM.
+        1.  Dogged insistence on keeping some basic principles of software development
+            with agility.
+        1.  Preaching BDD to anyone and everyone.
+        1.  Calling the 3 Amigos sessions and playing the role of product owner, business
+            analyst and the SDET while also reminding about the need for requirements
+            to be expressed before the code gets written.
+        1.  Reviewing Pull Requests from QA PoV.
+        1.  Finding compromises between company-wide official Immunisation scorecard
+            for code quality and my squad's tech leads' fear of innovation.
 
-        Side effects included challenging the established model of testing environments, their hosting and their very meaning.
     - id: aframe
       from: 2012-09
       to: 2016-02
@@ -216,28 +226,233 @@ career:
       position:
         name: senior QA analyst
       description: |-
-        A somewhat unstable path from a backend Ruby developer to QA "team founder" and then back to part-time developer - part-time QA.
+        A somewhat unstable path from a backend Ruby developer to QA "team founder"
+        and then back to part-time developer - part-time QA.
+
         # Duties
-        1.  Typical start-up mad coding, from professional video format metatags parsers to REST-ful'ish microservices, all tested BDD-style with rSpec.
-        1. Creation of acceptance tests platform, the wrongly named "Smoke" - both as a single replica of production system running the most reliable set of tests via load balancers etc., and as much smaller scale boxes contained each within a single Linux box.
-        1. Complementing the platform with a custom Git workflow standing in for a part
-        of a CI/CD pipeline we did not exactly have at the time.
-        1. Eliminating my position by starting a process of transition back towards no centralized QA and testing fully distributed among the developers.
-    - id: aframe
+
+        1.  Typical start-up mad coding, from professional video format metatags parsers
+            to REST-ful'ish microservices, all tested BDD-style with rSpec.
+        1.  Creation of acceptance tests platform, the wrongly named "Smoke" - both
+            as a single replica of production system running the most reliable set of tests
+            via load balancers etc., and as much smaller scale boxes contained each within
+            a single Linux box.
+        1.  Complementing the platform with a custom Git workflow standing in for a part
+            of a CI/CD pipeline we did not exactly have at the time.
+        1.  Optimising my position out of the system by starting a process of transition
+            back towards testing fully distributed among the developers.
+
+    - id: nyse
       from: 2010-08
       to: 2012-09
+      company:
+        name: New York Stock Exchange Technologies
+      position:
+        name: senior QA analyst
+      description: |-
+        Quality Assurance for several projects related to Market Data and Trading Platforms.
+
+        # Duties
+
+        * developing tools for difficult environments automation and test [data
+        crunching](#orion);
+        * designing and implementing a cluster taskmaster/logbot engine
+          for performance tests;
+        * results synthesis across up to a 1000 boxes with self-developed
+          gnuplot/Web script;
+
+    - id: pramerica
+      from: 2007-12
+      to: 2010-02
       company:
         name: Pramerica Systems Ireland
       position:
         name: systems tester
       description: |-
         Quality Assurance for Global Derivatives project of Prudential Bache Commodities.
+
         # Duties
+
         * Analysis and proposals of business requirements for corporate software;
         * devising test scenarios and cases basing on the requirements;
         * conducting the tests following the prepared scripts;
-        * analysis of test results, presenting conclusions, proposing solutions and workarounds;
-        * tooling created as WSH JS scripts, Java compilates and Quality Center scripts in Visual Basic (hired as a manual tester I had no access to normal tools).
+        * analysis of test results, presenting conclusions, proposing solutions
+          and workarounds;
+        * tooling created as WSH JS scripts, Java compilates and Quality Center scripts
+          in Visual Basic (hired as a manual tester I had no access to normal tools).
+
+    - id: softbank
+      from: 2004-10
+      to: 2007-10
+      company:
+        name: Softbank SA
+        link: https://pl.asseco.com/en
+        location: Warsaw
+      position:
+        name: senior systems designer
+      description: |-
+        From not-even-a-graduate to a tech lead for 3 graduates.
+
+        # Duties
+
+        * Analysis of customer requirements and designing solutions;
+        * creating high level designs basing on solution designs;
+        * designing and supervising designs of components basing on high level designs;
+        * coding and testing the components and solutions;
+        * supervising the whole solution development process;
+        * supervising and managing team's documents library;
+        * developing tests, documents and coding standards;
+        * developing auxiliary tool for programmers;
+        * analysis of existing code, performance tuning, code tweaks;
+        * support for batch processing;
+        * designing and delivering trainings for project newcomers.
+
+    - id: wakac
+      from: "2002"
+      to: "2003"
+      company:
+        name: '"Klub Wakacyjny"'
+      position:
+        name: IT specialist
+      description: |-
+        IT support for a call-center in tourist scam industry
+
+        # Duties
+
+        * Linux/Windows network and workstations administration and service
+          internal helpdesk;
+        * conducting a text spam campaign using data scrapping and web automation;
+        * web design and office support.
+
+    - id: csopl
+      from: 2001-01
+      to: 2001-12
+      company:
+        name: Air Defence Training Centre
+        location: Koszalin
+      position:
+        name: '"staff private"'
+      description: |-
+        Compulsory military service
+
+        # Duties
+
+        * Internal helpdesk and office support
+          * *including creation of a 120MB flashy PowerPoint presentation*;
+        * writing down the Daily Order of the School Commander
+          * *using a FoxPro app and a holidays tracking app of my own (Borland Vision)*;
+        * support for soldiers distribution after initial training (military HR).
+
+projects:
+  - CVML: |-
+      This resume is a YAML document rendered with React.
+
+      "Flat mode" *(switch by using the red button up top, restore with the green one
+      it turns into)* is meant for HR and recruiters  who, for some dark purpose,
+      need to have in Word. It should be a bit easier to copypaste and format.
+
+      Career entries are expected to have start and end months etc (view the YAML to see
+      examples) for sorting (I actually managed to mis-order jobs when importing from
+      the old HTML version) and collapsing old enties, as well as some structure to
+      information about the companies and positions.
+
+      At some point I intend to make it fully interactive, including the options to
+      create/edit someone else's CV and export/load it as a YAML document or its
+      base64 blob.
+
+  - The W3Schools wannabe: |-
+      A jQuery-based course delivery system, working with concept of
+      learning modules and their stages as navigable sequences of web pages,
+      some of which can contain interactive code exercises.
+
+      The content authored in Markdown would be rendered with Showdown, while code
+      exercises have a bit more logic behind them (ultimately, a command gets executed
+      in the backend to run the tests), including expected phrases and hints for the
+      learner as well as basic protection against `rm -rf /` etc.
+
+      The exercise delivered while implementing the framework prototype is "API Testing
+      in C#", made for [Coforge](#career-shred).
+
+  - Ergane: |-
+      An ***almost*** run-of-the-mill, project-aligned, E2E testing framework.
+
+      Written in Python with *Behave* and *Request* for BT's [Athena/Vena
+      project](#career-athena).
+
+      Designed for boilerplate minimisation when extending, not just for page objects,
+      but - more importantly - for cluster-specific Vault paths, hostnames etc - leading
+      to a situation where typically adding support for a new API meant specifying
+      the core of its name.
+
+      A cascase of gradual overrides made sure that "rebels" and legacy code required
+      merciful amounts of extra code.
+
+      The framework came with tailored workflow and associated GitLab CI/CD pipeline
+      stages, including a way to run super-slow overnight e2e tests with physical
+      Juniper routers, a HA-Proxy instance allowing use of the same
+      cluster for internal and external E2E regimes, finally cross-poject hooks in
+      the pipelines to work around the missing budget for full GitLab license.
+
+  - Orion: |-
+      ...a.k.a. [NYSE's](#career-nyse) Next Generation Market Data System.
+
+      My chief effort was extensive scripting in Python, including:
+      * The Universal Playback Parser (**UPP**) for wide variety of market data formats,
+        from delimited ASCII to pure binary.
+        * The parser used CSV exports of business requirements (sheets with fields'
+        meaning) and a symbol-based language for specifying the feed's underlying
+        format.
+      * The Pretty Printer script filtering and presenting the UPP-decoded market
+        data in usable formats (JSON or human-readable).
+      * Automatic data checker, using the UPP to parse north and south side data:
+        * simulates key parts of Orion's functionality using a CSV spreadsheet with
+          mappings of messages, fields and logical conditions;
+        * scans current message routing configuration (XML) and simulates proper routing
+        * compares resulting data streams and reports items lost, modified and unexpected.
+
+extras:
+  - Technologies: |-
+      * fresh / reflexive
+        * code core
+          * Node.js, Python (no Django), Ruby off Rails
+        * the Web
+          * HTML, CSS, JS, HAML, jQ, React
+          * REST with its cousins and friends (Eve, Express.js, Swagger, RAML)
+        * testing
+          * Cucumber (.js, Behave, Ruby)
+          * Pact.js
+          * Jest, Mocha
+          * WDIO, Playwright, Selenium
+        * systems, devops
+          * POSIX (admin/scriptmaster) and Windows (power user who enables WSL anyway)
+          * Open Blue Ocean
+        * administration
+          * JIRA, TestRail, Confluence
+      * rusty / unmastered
+        * code core
+          * C#, PHP, Visual Basic
+          * *(very rusty):* COBOL, JCL, C++
+        * the Web
+          * Sinatra, Grape, Rake
+          * RAML
+        * testing
+          * rSpec, Capybara, sitePrism
+          * Browserstack, Saucelabs
+        * persistence
+          * pure SQL, postgres
+          * Sequel and DataMapper, Oracle procs, DB2 with tooling
+        * systems, devops
+          * gitLab CI/CD (in-depth), Docker, Helm, k8s, Jenkins, Go Pipelines
+          * *(very rusty):* TSO/ISPF/SDSF, Control-M, CICS, Serena, Xpediter
+        * administration
+          * Azure devOps
+
+  - Interests and hobbies: |-
+      * Gaming and [coding](https://github.com/akseiya);
+      * [photography](http://akseiya.deviantart.com/), music and literature;
+      * Japanese art & culture;
+      * religions and mythologies.
+
 photo:
   width: 147px
   height: 147px

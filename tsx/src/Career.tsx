@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-no-bind */
 import './Career.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 import { YAMLResume } from './utils/Resume';
@@ -16,13 +17,17 @@ export interface Job {
 }
 
 const fuzzDate = (dateSpec: string) => {
-  const precision = dateSpec.split('-').length - 1;
-  const date = new Date(dateSpec);
+  const dateStr = dateSpec.toString();
+  const precision = dateStr.split('-').length - 1;
+  if (precision < 1) return dateStr;
+  // Full YYYY-MM-DD dates are not really so super
+  // readable, so let's ignore the days even if it
+  // shortens my own Schroders gig by 30%.
+  // Future: for gigs inside a year, a format like
+  // YYYY Mmm DD - Mmm DD could be used
+  const date = new Date(dateStr);
   const month = date.toDateString().split(' ')[1];
-  if (precision < 1) return dateSpec;
-  // if(precision < 2)
   return `${month} ${date.getFullYear()}`;
-  // return date.toISOString().split('T')[0];
 };
 
 const getDuration = (job: Job) => {
@@ -41,15 +46,25 @@ const nameWithOptionalLink = (linkable?: LinkableName) => {
   );
 };
 
-const renderJob = (job: Job) => {
+const feshJobsNumber = 3;
+
+const renderJob = (job: Job, i: number) => {
+  const [unfolded, setUnfolded] = useState(false);
+  const folded = !unfolded && i + 1 > feshJobsNumber;
+  const unfold = () => setUnfolded(true);
   return (
-    <article className="job" key={`carrer:${job.id ?? Math.random()}`}>
+    <article
+      className={`job ${ folded ? 'old' : ''}`}
+      key={`carrer:${job.id ?? i}`}
+    >
+      <a id={`career-${job.id}`} />
       <header>
         <div>{getDuration(job)}</div>
         {nameWithOptionalLink(job.company)}
         {nameWithOptionalLink(job.position)}
+        <div className="unfolder" onClick={unfold}>🡇</div>
       </header>
-      <ReactMarkdown>{job.description}</ReactMarkdown>
+      <main><ReactMarkdown>{job.description}</ReactMarkdown></main>
     </article>
   );
 };
