@@ -1,6 +1,7 @@
 main h1 {
   font-size: 2em;
   text-align: center;
+  margin: 1em;
 }
 
 main article {
@@ -10,6 +11,8 @@ main article {
 .rich main article {
   border: 1px solid black;
   border-radius: 0.4em;
+  margin-bottom: 2em;
+  box-shadow: -6px 6px 6px #777;
 }
 
 main article header {

@@ -1,25 +1,36 @@
-.resume-root > header header {
-  font-size: 2em;
-  font-weight: bold;
-  text-align: left;
-  flex-grow: 2;
+.rich .pagetop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
 }
 
-.resume-root > header {
+.pagetop header header {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: right;
+  flex-grow: 2;
+  margin: 0.6em 0;
+}
+
+.resume-root > * > header {
   display: flex;
   margin-bottom: 1em;
+  max-width: 50em;
+  margin: 0 auto;
 }
 
 .resume-root header div {
   margin: 1em;
 }
 
-.resume-root > header div:nth-child(1) {
+.pagetop > header div:nth-child(1) {
   display: none;
 }
 
-@media screen and (min-width: 670px) {
-  .resume-root header div:nth-child(1) {
+@media screen and (min-width: 612px) {
+  .pagetop > header div:nth-child(1) {
     display: block;
   }
 }

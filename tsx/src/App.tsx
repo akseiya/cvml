@@ -34,39 +34,36 @@ export default function App() {
       ['summary', 'Summary'],
       ['career', 'Career'],
       ['projects', 'Key projects'],
-      ['extras', 'Additional info'],
-      ['source', 'Source!']
+      ['extras', 'Additional info']
     ].map(nbi => navLink(nbi[0],nbi[1]));
     return (<div className="navbar">{sections}</div>);
   };
 
   return (
     <div className={'resume-root' + (flatLayout ? '' : ' rich')}>
-      <CVHeader currentResume={currentResume} />
-      {navBar()}
+      <div className="pagetop">
+        <CVHeader currentResume={currentResume} />
+        {navBar()}
+        <a className="switchbox" onClick={flipLayout}>
+          {switchText}
+        </a>
+      </div>
       <main>
-        <a id="summary" />
+        <a className='scrolly' id="summary"/>
         <h1>Summary</h1>
         {(currentResume.summary ?? []).map(renderSummaryItem)}
 
-        <a id="career" />
+        <a className='scrolly' id="career" />
         <Career currentResume={currentResume} />
 
-        <a id="projects" />
+        <a className='scrolly' id="projects" />
         <h1>Key projects</h1>
         {(currentResume.projects ?? []).map(renderSummaryItem)}
 
-        <a id="extras" />
+        <a className='scrolly' id="extras" />
         <h1>Additional information</h1>
         {(currentResume.extras ?? []).map(renderSummaryItem)}
-
-        <a id="source" />
-        <h1>YAML source of this page</h1>
-        <div className='source'><pre>{currentResume.source}</pre></div>
       </main>
-      <a className="switchbox" onClick={flipLayout}>
-        {switchText}
-      </a>
     </div>
   );
 }

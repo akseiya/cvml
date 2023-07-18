@@ -19,9 +19,9 @@ summary:
       Troubleshooter, performance profiler, batch-, net- and DB-admin.
 
   - Areas of competence: |-
-      * Quality Assistance in software development
-        * *up to building a chapter within a Scaled Agile model.*
-      * Feature software development
+      * Software Quality Assistance
+        * *up to building a 6-strong QE chapter within a Scaled Agile model.*
+      * Software development
         * *from Cobol+DB2 on zOS all the way to Ruby/Python/Node on k8s).*
       * Ways of working and platform design and supervision
         * *implementation, tooling, spiking, preaching.*
@@ -32,8 +32,8 @@ summary:
       # Social media and education
         *   User activities and interactions with tracking and analysis (Fuse)
       # Fintech
-        *   Reconciliation (DuCo)
-        *   Cash markets (NYSET)
+        *   Reconciliation ([DuCo](#career-duco))
+        *   Cash markets ([NYSET](#career-nyse))
         *   Derivatives trading support (Pramerica)
         *   Banking systems (Softbank)
       # Video production
@@ -411,6 +411,13 @@ projects:
         * compares resulting data streams and reports items lost, modified and unexpected.
 
 extras:
+
+  - Interests and hobbies: |-
+      * Gaming and [coding](https://github.com/akseiya);
+      * [photography](http://akseiya.deviantart.com/), music and literature;
+      * Japanese art & culture;
+      * religions and mythologies.
+
   - Technologies: |-
       * fresh / reflexive
         * code core
@@ -446,12 +453,6 @@ extras:
           * *(very rusty):* TSO/ISPF/SDSF, Control-M, CICS, Serena, Xpediter
         * administration
           * Azure devOps
-
-  - Interests and hobbies: |-
-      * Gaming and [coding](https://github.com/akseiya);
-      * [photography](http://akseiya.deviantart.com/), music and literature;
-      * Japanese art & culture;
-      * religions and mythologies.
 
 photo:
   width: 147px

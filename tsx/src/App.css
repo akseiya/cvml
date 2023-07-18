@@ -8,23 +8,17 @@ body {
 }
 
 #root {
-  background-color: white;
+  height: 100vh;
 }
 
 .resume-root {
-  max-width: 50em;
   position: relative;
   margin: 0 auto;
-}
-
-.resume-root.rich {
   background-color: #fffffa;
-
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
 }
+
+/* .resume-root.rich {
+} */
 
 .resume-root.rich.dark {
   background-color: black;
@@ -54,23 +48,35 @@ body {
   width: 7.4em;
 }
 
-.rich main {
-  flex-grow: 10;
-  overflow-y: auto;
+.resume-root > main {
+  margin: 0 auto;
+  max-width: 50em;
 }
 
-.resume-root pre {
+.resume-root.rich > main {
+  margin-top: 13.6em;
+}
+
+a.scrolly {
+    scroll-margin-top: 15em;
+}
+
+.source {
+  text-align: left;
+}
+
+.source pre {
   background-color: #eef;
   overflow-x: auto;
-  margin: 0 0 0 2em;
+  margin: 0 1em 2em;
   padding: 1em;
   border-radius: 1em;
 }
 
-.resume-root > .navbar {
+.pagetop .navbar {
   text-align: center;
   padding-bottom: 1em;
 }
-.resume-root > .navbar :not(:nth-last-child(1))::after {
+.pagetop .navbar :not(:nth-last-child(1))::after {
   content: ' ⦁ ';
 }
