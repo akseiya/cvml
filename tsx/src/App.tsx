@@ -39,10 +39,13 @@ export default function App() {
     return (<div className="navbar">{sections}</div>);
   };
 
+  if(!currentResume.career) return (<div/>);
+  document.title = `Resume: ${currentResume.name}`;
+
   return (
     <div className={'resume-root' + (flatLayout ? '' : ' rich')}>
       <div className="pagetop">
-        <CVHeader currentResume={currentResume} />
+        <CVHeader currentResume={currentResume}/>
         {navBar()}
         <a className="switchbox" onClick={flipLayout}>
           {switchText}

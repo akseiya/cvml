@@ -45,7 +45,7 @@ export const resume = {
   photoAsBackground: (structure: YAMLResume): React.CSSProperties => ({
     ...(structure.photo
       ? {
-        backgroundImage: `url('data:${structure.photo?.type};base64,${structure.photo?.base64}')`,
+        backgroundImage: `url('data:${structure.photo?.type};base64,${structure.photo?.base64.replaceAll(/\n/g,'')}')`,
       }
       : {}),
     height: structure.photo?.height,

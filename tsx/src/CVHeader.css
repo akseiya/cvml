@@ -1,9 +1,15 @@
 .rich .pagetop {
-  position: fixed;
   top: 0;
   left: 0;
   background-color: white;
   width: 100%;
+}
+
+@media screen {
+  .rich .pagetop {
+    position: fixed;
+    box-shadow: 0 0.1em 0.5em #777;
+  }
 }
 
 .pagetop header header {

@@ -27,7 +27,8 @@ main article header {
   font-size: 1.2em;
   font-weight: bold;
   border-radius: 0.4em;
-  padding: 0.2em 0 0.5em 0.5em;
+  /* padding: 0.2em 0 0.5em 0.5em; */
+  padding: 0.6em;
 }
 
 main article h1,

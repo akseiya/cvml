@@ -2,8 +2,10 @@ import './CVHeader.css';
 
 import React from 'react';
 
+import { jcon } from './utils/debug';
 import { resume, YAMLResume } from './utils/Resume';
 
+// eslint-disable-next-line react/no-unused-prop-types
 export default function CVHeader(props: { currentResume: YAMLResume }) {
   const { currentResume } = props;
   if (!currentResume.name) {
@@ -21,6 +23,7 @@ export default function CVHeader(props: { currentResume: YAMLResume }) {
     );
   };
   const coreTable = Object.entries(core).map(coreLine);
+  jcon(resume.photoAsBackground(currentResume));
   return (
     <header>
       <div style={resume.photoAsBackground(currentResume)}>&nbsp;</div>

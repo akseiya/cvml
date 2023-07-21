@@ -1,6 +1,7 @@
 main article.job header {
   font-size: 1.2em;
   font-weight: 600;
+  align-items: center;
 }
 
 .rich main article.job header {

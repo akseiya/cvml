@@ -3,13 +3,11 @@
   font-size: 1em;
 }
 
-body {
-  background-color: black;
-}
-
 #root {
   height: 100vh;
 }
+
+/* body { background-color: bisque ;} */
 
 .resume-root {
   position: relative;
@@ -17,48 +15,71 @@ body {
   background-color: #fffffa;
 }
 
-/* .resume-root.rich {
-} */
-
 .resume-root.rich.dark {
   background-color: black;
 }
 
+.pagetop .navbar {
+  text-align: center;
+  padding-bottom: 1em;
+  width: 50em;
+  max-width: 50em;
+  margin: 0 auto;
+}
+
+.pagetop .navbar :not(:nth-last-child(1))::after {
+  content: ' ⦁ ';
+}
+
 .switchbox {
-  cursor: pointer;
-
-  font-family: sans-serif;
-  font-size: 1em;
-
-  position: absolute;
-  right: 0.5em;
-  top: 0.5em;
-
-  overflow: hidden;
-  width: 1.4em;
-  height: 1.4em;
-
-  transition: width 0.3s;
+  display: none;
 }
 
-.switchbox:hover {
-  width: 9.6em;
+@media screen {
+  .switchbox {
+    display: block;
+    cursor: pointer;
+  
+    font-family: sans-serif;
+    font-size: 1em;
+  
+    position: fixed;
+    right: 0.5em;
+    top: 0.5em;
+  
+    overflow: hidden;
+    width: 1.4em;
+    height: 1.4em;
+  
+    transition: width 0.3s;
+  }
+  
+  .switchbox:hover {
+    width: 9.6em;
+  }
+
+  .rich .switchbox:hover {
+    width: 7.4em;
+  }  
 }
-.rich .switchbox:hover {
-  width: 7.4em;
-}
+
 
 .resume-root > main {
   margin: 0 auto;
   max-width: 50em;
+  padding-bottom: 2em;
 }
 
-.resume-root.rich > main {
-  margin-top: 13.6em;
-}
-
-a.scrolly {
-    scroll-margin-top: 15em;
+@media screen {
+  .resume-root.rich > main {
+    margin-top: 14em;
+    padding-top: 0.3em;
+  }
+  
+  .rich a {
+      scroll-margin-top: 15em;
+  }
+   
 }
 
 .source {
@@ -71,12 +92,4 @@ a.scrolly {
   margin: 0 1em 2em;
   padding: 1em;
   border-radius: 1em;
-}
-
-.pagetop .navbar {
-  text-align: center;
-  padding-bottom: 1em;
-}
-.pagetop .navbar :not(:nth-last-child(1))::after {
-  content: ' ⦁ ';
 }
