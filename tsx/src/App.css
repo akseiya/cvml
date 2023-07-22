@@ -22,8 +22,6 @@
 .pagetop .navbar {
   text-align: center;
   padding-bottom: 1em;
-  width: 50em;
-  max-width: 50em;
   margin: 0 auto;
 }
 
@@ -70,7 +68,7 @@
   padding-bottom: 2em;
 }
 
-@media screen {
+@media screen and (min-height: 720px) {
   .resume-root.rich > main {
     margin-top: 14em;
     padding-top: 0.3em;

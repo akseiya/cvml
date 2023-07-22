@@ -7,8 +7,13 @@
 
 @media screen {
   .rich .pagetop {
-    position: fixed;
     box-shadow: 0 0.1em 0.5em #777;
+  }
+}
+
+@media screen and (min-height: 720px) {
+  .rich .pagetop {
+    position: fixed;  
   }
 }
 
