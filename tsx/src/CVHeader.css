@@ -20,7 +20,7 @@
 .pagetop header header {
   font-size: 1.4em;
   font-weight: bold;
-  text-align: right;
+  text-align: left;
   flex-grow: 2;
   margin: 0.6em 0;
   height: 2em;

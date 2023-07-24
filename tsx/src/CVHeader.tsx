@@ -3,7 +3,6 @@ import './CVHeader.css';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { jcon } from './utils/debug';
 import { resume, YAMLResume } from './utils/Resume';
 
 // eslint-disable-next-line react/no-unused-prop-types

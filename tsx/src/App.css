@@ -36,38 +36,41 @@
   .switchbox {
     display: block;
     cursor: pointer;
-  
+
     font-family: sans-serif;
     font-size: 1em;
-  
+
     position: fixed;
     right: 0.5em;
     top: 0.5em;
-  
+
     overflow: hidden;
     width: 1.4em;
     height: 1.4em;
-  
+
     transition: width 0.3s;
   }
-  
-  .switchbox:hover {
-    width: 9.6em;
-  }
+
+  .switchbox:hover { width: 9.6em; }
 
   .rich .switchbox:hover {
-    width: 7.4em;
-  }  
+    overflow: clip;
+  }
 
-  a.switchbox:nth-of-type(2) {
-    top: 1.9em;
+  a.switchbox:nth-of-type(2) { top: 1.9em; }
+  a.switchbox:nth-of-type(3) { top: 3.3em; }
+
+  a.switchbox:nth-of-type(2) b,
+  a.switchbox:nth-of-type(3) b {
+    font-size: 1.2em;
+    margin-left: 0.07em;
   }
 }
 
 
 /* On touch devices, always show the layout switcher unfolded
 and let it scroll out of view */
-@media (hover: none) {
+@media (hover: none) or (max-width: 767px) {
   .switchbox {
     position: absolute;
     width: 9.6em;
@@ -85,16 +88,15 @@ and let it scroll out of view */
 }
 
 /* On horizontally held phones, let the header scroll out */
-@media screen and (min-height: 720px) {
+@media screen and (min-height: 720px) and (min-width: 768px) {
   .resume-root.rich > main {
     margin-top: 14em;
     padding-top: 0.3em;
   }
-  
+
   .rich a {
       scroll-margin-top: 15em;
   }
-   
 }
 
 .source {

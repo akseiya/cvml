@@ -1,11 +1,23 @@
-### The code currently tries to render the main sections in the order present
-### in this YAML (name, fundamentals, summary, career, extras), except the
-### base64-encoded photo which due to the size is dumped at the end.
+### The code currently tries to render
+### the main sections in the order
+### present in this YAML (name,
+### fundamentals, summary, career,
+### extras), except the base64-encoded
+### photo which, due to its, size is
+### dumped at the end.
 
-### These are YAML comments, marked with triple ### to make it slightly
-### easier to tell them apart from headers in embedded Markdown (except
-### <h3> - if you want h3-s in your MD blocks, you might want to get rid
-### of the YAML comments first)
+### YAML comments are marked with triple ###
+### to make them slightly easier to tell
+### apart from headers in embedded Markdown
+### (except <h3> - if you want <h3>-s in
+### your MD blocks, you might want to get
+### rid of the YAML comments first).
+
+### Generally, a basic <textarea> is not
+### a great YAML/Markdown editor, you
+### probably will be better off copypasting
+### the source between this and an actual
+### source editor.
 
 name: Michał Lech
 
@@ -195,8 +207,8 @@ career:
       description: |-
         A pre-mature attempt to deliver vision and strategy for a young startup's
         Quality Engineering. While I managed to deliver a bunch of nifty tools and
-        processes, I resigned after realising I don't really yet have a vision
-        to share.
+        processes, I resigned after realising I don't really have much of a vision
+        to share just yet.
 
         # Duties
 

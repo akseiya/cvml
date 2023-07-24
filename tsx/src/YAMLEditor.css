@@ -5,26 +5,31 @@
     left: 0;
     right: 0;
     background-color: bisque;
+    padding: 0.5em;
+    display: flex;
+    flex-flow: column;
 }
 
 .yaml-editor button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto 1em auto;
     width: 5em;
     height: 2em;
+    margin: 0 0.5em 0.5em 0;
 }
 
 .yaml-editor textarea {
-    position: absolute;
-    top: 1em;
-    bottom: 4em;
-    left: 1em;
-    right: 1em;
-    font-size: 1.2em;
     white-space: nowrap;
     overflow-wrap: normal;
     padding: 0.2em;
+    resize: none;
+    font-size: 0.9em;
+    flex-grow: 1;
+}
+
+@media screen and (min-width: 600px) {
+    .yaml-editor textarea {
+        font-size: 1.2em;
+    }
+    .yaml-editor {
+        padding: 1em;
+    }
 }

@@ -1,0 +1,19 @@
+.main-menu {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+}
+
+.main-menu.folded {
+    font-size: 2em;
+    font-weight: bolder;
+    padding: 0.1em 0.4em;
+    background-color: bisque;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.main-menu.folded:hover {
+    color: white;
+    background-color: black;
+}

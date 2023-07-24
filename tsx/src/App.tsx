@@ -7,20 +7,34 @@ import React, { useEffect, useState } from 'react';
 
 import Career from './Career';
 import CVHeader from './CVHeader';
+import MainMenu from './MainMenu';
 import { renderSummaryItem } from './Summary';
 import { resume } from './utils/Resume';
 import YAMLEditor from './YAMLEditor';
 
 export default function App() {
   const [currentResume, setCurrentResume] = resume.useState();
+
   const [flatLayout, setFlatLayout] = useState(false);
-  const [editorActive, setEditorActive] = useState(false);
-  const flipLayout = () => {
+  const flipFlatLayout = () => {
     setFlatLayout(!flatLayout);
   };
+  const [editorActive, setEditorActive] = useState(false);
+
+  const emptyYamlHistory: string[] = [];
+  const [yamlHistory, setYamlHistory] = useState(emptyYamlHistory);
 
   const applyYAML = (YAML: string) => {
+    if (!YAML) return; // to avoid the destructive "Undo"
+    setYamlHistory([...yamlHistory, currentResume.source]);
     resume.loadData(YAML, setCurrentResume);
+  };
+
+  const undoYAMLChange = () => {
+    if (!yamlHistory.length) return;
+    const newYamlHistory = [...yamlHistory];
+    applyYAML(newYamlHistory.pop() as string);
+    setYamlHistory(newYamlHistory);
   };
 
   useEffect(() => {
@@ -58,12 +72,17 @@ export default function App() {
       <div className="pagetop">
         <CVHeader currentResume={currentResume}/>
         {navBar()}
-        <a className="switchbox" onClick={flipLayout}>
+        <MainMenu {...{flipFlatLayout}}/>
+        {/* <a className="switchbox" onClick={flipLayout}>
           {switchText}
         </a>
         <a className="switchbox" onClick={() => setEditorActive(true)}>
-        ✎ edit YAML
+          <b>✎</b> edit YAML
         </a>
+        { !yamlHistory.length ? null :
+          (<a className="switchbox" onClick={undoYAMLChange}>
+            <b>⭯</b> restore YAML
+          </a>) } */}
       </div>
       <main>
         <a className='scrolly' id="summary"/>

@@ -17,15 +17,26 @@ export default function YAMLEditor(props: YAMLEditorProps) {
     applyYAML,
     setEditorActive
   } = props;
-  const applyAndExit = () => {
-    const newYAML = document.getElementsByTagName('textarea')[0].value;
-    applyYAML(newYAML);
+
+  const editArea = () => document.getElementsByTagName('textarea')[0];
+  const editedYAML = () => editArea().value;
+  const apply = () => {
+    applyYAML(editedYAML());
     setEditorActive(false);
   };
+  const cancel = () => setEditorActive(false);
+  const restore = () => {
+    editArea().value = currentResume.source;
+  };
+
   return (
     <div className='yaml-editor'>
+      <div>
+        <button onClick={apply} type="button">Apply</button>
+        <button onClick={cancel} type="button">Cancel</button>
+        <button onClick={restore} type="button">Restore</button>
+      </div>
       <textarea defaultValue={currentResume.source}/>
-      <button onClick={applyAndExit} type="button">Apply</button>
     </div>
   );
 }
