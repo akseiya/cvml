@@ -24,4 +24,7 @@
     left: 1em;
     right: 1em;
     font-size: 1.2em;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    padding: 0.2em;
 }
