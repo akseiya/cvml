@@ -1,11 +1,22 @@
+# The code currently tries to render the main sections in the order present
+# in this YAML (name, fundamentals, summary, career, extras), except the
+# base64-encoded photo which due to the size is dumped at the end.
+
 name: Michał Lech
 fundamentals:
-  in IT business since: 1999
-  work permits:
-    - UK UE settled status
-    - UE citizen
-  top position: Head of Test Engineering
+  # These can actually be any header/content pairs with plain text headers
+  # and Markdown content, just bear in mind that a long header or content
+  # can overflow lines and interfere with the header's fixed (non-scrolling)
+  # positioning.
+  crafting since: '1999' # Without conversion, the CV won't render.
+  work permits: |-
+    [UE ⇒ UK settled status](https://www.gov.uk/government/publications/eu-settlement-scheme-introduction-for-employers/eu-settlement-scheme-introduction-for-employers)
+  top position: |-
+    [Head of Test Engineering](#career-fuse)
 summary:
+  # This is supposed to be a freeform introduction, that is the list of items
+  # will be rendered as provided here - that is any plain text headers can
+  # be used instead of "Core profile" etc.
   - Core profile: |-
       Front-line leader focused on supporting his people for ever further growth.
 
@@ -39,6 +50,10 @@ summary:
       # Video production
         *   In the cloud! (AFrame)
 
+# Job history items have flex headers while ReactMarkdown wants to use <p>-s,
+# hence the {company: {name: xxx, link: yyy}} structure used instead of
+# allowing Markdown links like in `fundamentals`
+
 career:
   title: Career
   jobs:
@@ -47,7 +62,7 @@ career:
       to: 2023-06-30
       company:
         name: Global Relay
-        location: London
+        location: London # Currently not used.
       position:
         name: '"Lead SDET"'
       description: |-
@@ -80,15 +95,15 @@ career:
       description: |-
         # Description
 
-        Initially an attempt to liaise between 3 counterparties to deliver
+        Initially an attempt to liaise between 3 parties to deliver
         a learning project with associated materials and processes. After
         communications with the customer contact collapsing, I focused on
         creating a [code exercises sandbox inspired by W3Schools and the first
         learning module delivered by it](#the_w3schools_wannabe).
 
         The project served as a clear indication where my consultancy and management
-        skills have their limits. That is: I don't really function well when completely
-        exposed on all sides with a high-difficulty "partner" on each side. I need
+        skills have their limits. That is: I don't really function well as an
+        unsupported hub with high-difficulty partners on all sides. I need
         at least one solid wall to put my back against.
 
     - id: athena
@@ -343,6 +358,10 @@ career:
           * *using a FoxPro app and a holidays tracking app of my own (Borland Vision)*;
         * support for soldiers distribution after initial training (military HR).
 
+# Just like "Summary", this is a free-form series of blocks.
+# For now, the navbar generation is hardcoded to use this, so think
+# of at least one project to describe.
+
 projects:
   - CVML: |-
       This resume is a YAML document rendered with React.
@@ -409,6 +428,8 @@ projects:
           mappings of messages, fields and logical conditions;
         * scans current message routing configuration (XML) and simulates proper routing
         * compares resulting data streams and reports items lost, modified and unexpected.
+
+# Again, a free-form series of blocks.
 
 extras:
 

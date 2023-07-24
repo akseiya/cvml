@@ -16,7 +16,7 @@ export interface YAMLResume {
   photo?: ResumePhoto;
   name: string;
   fundamentals: {
-    [key: string]: string | string[];
+    [key: string]: string;
   };
   summary: SummaryItem[];
   projects: SummaryItem[];
@@ -32,15 +32,20 @@ type ResumeStateSetter = React.Dispatch<
   React.SetStateAction<YAMLResume>
 >;
 
+const loadData = (data: string, setState?: ResumeStateSetter) => {
+  const structure = YAML.parse(data);
+  structure.source = data;
+  if (setState) setState(structure);
+  return structure;
+};
+
 export const resume = {
+  loadData,
   loadStaticDefault: async (
     setState?: ResumeStateSetter
   ): Promise<YAMLResume> => {
     const { data } = await httpClient.getDefaultCV();
-    const structure = YAML.parse(data);
-    structure.source = data;
-    if (setState) setState(structure);
-    return structure;
+    return loadData(data, setState);
   },
   photoAsBackground: (structure: YAMLResume): React.CSSProperties => ({
     ...(structure.photo

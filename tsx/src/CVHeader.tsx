@@ -1,6 +1,7 @@
 import './CVHeader.css';
 
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { jcon } from './utils/debug';
 import { resume, YAMLResume } from './utils/Resume';
@@ -12,18 +13,17 @@ export default function CVHeader(props: { currentResume: YAMLResume }) {
     return <header />;
   }
   const core = currentResume.fundamentals;
-  type CoreLine = [string, string | string[]];
+  type CoreLine = [string, string];
   const coreLine = (pair: CoreLine) => {
     const [key, value] = pair;
     return (
       <tr key={key}>
         <th>{key}:</th>
-        <td>{Array.isArray(value) ? value.join(', ') : value}</td>
+        <td><ReactMarkdown>{value}</ReactMarkdown></td>
       </tr>
     );
   };
   const coreTable = Object.entries(core).map(coreLine);
-  jcon(resume.photoAsBackground(currentResume));
   return (
     <header>
       <div style={resume.photoAsBackground(currentResume)}>&nbsp;</div>

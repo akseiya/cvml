@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-no-bind */
 import './App.css';
 import './App.mainblocks.css';
@@ -8,12 +9,18 @@ import Career from './Career';
 import CVHeader from './CVHeader';
 import { renderSummaryItem } from './Summary';
 import { resume } from './utils/Resume';
+import YAMLEditor from './YAMLEditor';
 
 export default function App() {
   const [currentResume, setCurrentResume] = resume.useState();
   const [flatLayout, setFlatLayout] = useState(false);
+  const [editorActive, setEditorActive] = useState(false);
   const flipLayout = () => {
     setFlatLayout(!flatLayout);
+  };
+
+  const applyYAML = (YAML: string) => {
+    resume.loadData(YAML, setCurrentResume);
   };
 
   useEffect(() => {
@@ -42,6 +49,10 @@ export default function App() {
   if(!currentResume.career) return (<div/>);
   document.title = `Resume: ${currentResume.name}`;
 
+  if(editorActive) return (
+    <YAMLEditor {...{currentResume, applyYAML, setEditorActive}}/>
+  );
+
   return (
     <div className={'resume-root' + (flatLayout ? '' : ' rich')}>
       <div className="pagetop">
@@ -49,6 +60,9 @@ export default function App() {
         {navBar()}
         <a className="switchbox" onClick={flipLayout}>
           {switchText}
+        </a>
+        <a className="switchbox" onClick={() => setEditorActive(true)}>
+        ✎ edit YAML
         </a>
       </div>
       <main>

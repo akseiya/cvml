@@ -7,8 +7,6 @@
   height: 100vh;
 }
 
-/* body { background-color: bisque ;} */
-
 .resume-root {
   position: relative;
   margin: 0 auto;
@@ -29,6 +27,7 @@
   content: ' ⦁ ';
 }
 
+/* Do not show switchbox in print.*/
 .switchbox {
   display: none;
 }
@@ -59,8 +58,25 @@
   .rich .switchbox:hover {
     width: 7.4em;
   }  
+
+  a.switchbox:nth-of-type(2) {
+    top: 1.9em;
+  }
 }
 
+
+/* On touch devices, always show the layout switcher unfolded
+and let it scroll out of view */
+@media (hover: none) {
+  .switchbox {
+    position: absolute;
+    width: 9.6em;
+  }
+
+  .rich .switchbox {
+    width: 7.4em;
+  }
+}
 
 .resume-root > main {
   margin: 0 auto;
@@ -68,6 +84,7 @@
   padding-bottom: 2em;
 }
 
+/* On horizontally held phones, let the header scroll out */
 @media screen and (min-height: 720px) {
   .resume-root.rich > main {
     margin-top: 14em;
