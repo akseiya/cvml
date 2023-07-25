@@ -18,12 +18,12 @@
 }
 
 .pagetop header header {
+  flex-grow: 1;
   font-size: 1.4em;
   font-weight: bold;
   text-align: left;
-  flex-grow: 2;
-  margin: 0.6em 0;
-  height: 2em;
+  margin: 0.6em 0 0 0;
+  vertical-align: bottom;
 }
 
 .resume-root > * > header {
@@ -44,6 +44,7 @@
 @media screen and (min-width: 612px) {
   .pagetop > header div:nth-child(1) {
     display: block;
+    border-radius: 0.4em;
   }
 }
 

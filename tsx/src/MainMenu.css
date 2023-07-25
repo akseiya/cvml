@@ -1,19 +1,71 @@
-.main-menu {
-    position: absolute;
-    top: 0.5em;
+#main-menu, #burger {
+    cursor:   pointer;
+    position: fixed;
+    top:   0.5em;
     right: 0.5em;
 }
 
-.main-menu.folded {
-    font-size: 2em;
-    font-weight: bolder;
-    padding: 0.1em 0.4em;
-    background-color: bisque;
-    border-radius: 1em;
-    cursor: pointer;
+#burger, #main-menu {
+    border-radius: 0.4em;
+}
+#main-menu > div:nth-child(1) {
+    border-top-left-radius:  0.4em;   
+    border-top-right-radius: 0.4em;   
+}
+#main-menu > div:nth-last-child(1) {
+    border-bottom-left-radius:  0.4em;   
+    border-bottom-right-radius: 0.4em;   
 }
 
-.main-menu.folded:hover {
-    color: white;
-    background-color: black;
+
+#burger {
+    font-family:      sans-serif;
+    background-color: #fcf7e8;
+    width:   2.4em;
+    height:  2.4em;
+    padding: 0.2em;
 }
+
+#burger > svg {
+    width:   2em;
+    height:  2em;
+    margin:  0;
+    padding: 0;
+}
+
+#burger:hover       { background-color: black; }
+#burger:hover > svg { color: white; }
+
+#main-menu { 
+    background-color: white;
+    box-shadow: -4px 4px 12px #777;
+}
+#main-menu > div {
+    padding: 0.3em;
+    display: flex;
+    align-items:    center;    
+    flex-direction: row;
+}
+#main-menu > div:hover {
+    background-color: #fcf7e8;
+}
+
+#main-menu svg {
+    width:  1.6em;
+    height: 1.6em;
+    margin-right: 0.4em;
+}
+
+#main-menu-modal-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: white;
+    opacity: 0.4;
+}
+
+.slide-in  { animation: slideInRight;  }
+.slide-out { animation: slideOutRight; }
+.slide-in, .slide-out {
+    animation-duration: 0.3s;    
+}
+

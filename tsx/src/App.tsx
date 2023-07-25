@@ -15,9 +15,9 @@ import YAMLEditor from './YAMLEditor';
 export default function App() {
   const [currentResume, setCurrentResume] = resume.useState();
 
-  const [flatLayout, setFlatLayout] = useState(false);
+  const [layoutIsFlat, setLayoutIsFlat] = useState(false);
   const flipFlatLayout = () => {
-    setFlatLayout(!flatLayout);
+    setLayoutIsFlat(!layoutIsFlat);
   };
   const [editorActive, setEditorActive] = useState(false);
 
@@ -30,12 +30,11 @@ export default function App() {
     resume.loadData(YAML, setCurrentResume);
   };
 
-  const undoYAMLChange = () => {
-    if (!yamlHistory.length) return;
+  const undoYAMLChange = yamlHistory.length ? () => {
     const newYamlHistory = [...yamlHistory];
     applyYAML(newYamlHistory.pop() as string);
     setYamlHistory(newYamlHistory);
-  };
+  } : false;
 
   useEffect(() => {
     resume.loadStaticDefault(setCurrentResume);
@@ -44,10 +43,6 @@ export default function App() {
       // this now gets called when the component unmounts
     };
   }, []);
-
-  const switchText = flatLayout
-    ? '🟢 restore rich layout'
-    : '⛔ flatten layout';
 
   const navLink = (href:string, label:string) => (<span><a href={`#${href}`}>{label}</a></span>);
   const navBar = () => {
@@ -68,12 +63,12 @@ export default function App() {
   );
 
   return (
-    <div className={'resume-root' + (flatLayout ? '' : ' rich')}>
-      <div className="pagetop">
-        <CVHeader currentResume={currentResume}/>
-        {navBar()}
-        <MainMenu {...{flipFlatLayout}}/>
-        {/* <a className="switchbox" onClick={flipLayout}>
+    <>
+      <div className={'resume-root' + (layoutIsFlat ? '' : ' rich')}>
+        <div className="pagetop">
+          <CVHeader currentResume={currentResume}/>
+          {navBar()}
+          {/* <a className="switchbox" onClick={flipLayout}>
           {switchText}
         </a>
         <a className="switchbox" onClick={() => setEditorActive(true)}>
@@ -83,23 +78,30 @@ export default function App() {
           (<a className="switchbox" onClick={undoYAMLChange}>
             <b>⭯</b> restore YAML
           </a>) } */}
+        </div>
+        <main>
+          <a className='scrolly' id="summary"/>
+          <h1>Summary</h1>
+          {(currentResume.summary ?? []).map(renderSummaryItem)}
+
+          <a className='scrolly' id="career" />
+          <Career currentResume={currentResume} />
+
+          <a className='scrolly' id="projects" />
+          <h1>Key projects</h1>
+          {(currentResume.projects ?? []).map(renderSummaryItem)}
+
+          <a className='scrolly' id="extras" />
+          <h1>Additional information</h1>
+          {(currentResume.extras ?? []).map(renderSummaryItem)}
+        </main>
       </div>
-      <main>
-        <a className='scrolly' id="summary"/>
-        <h1>Summary</h1>
-        {(currentResume.summary ?? []).map(renderSummaryItem)}
-
-        <a className='scrolly' id="career" />
-        <Career currentResume={currentResume} />
-
-        <a className='scrolly' id="projects" />
-        <h1>Key projects</h1>
-        {(currentResume.projects ?? []).map(renderSummaryItem)}
-
-        <a className='scrolly' id="extras" />
-        <h1>Additional information</h1>
-        {(currentResume.extras ?? []).map(renderSummaryItem)}
-      </main>
-    </div>
+      <MainMenu {...{
+        layoutIsFlat,
+        flipFlatLayout,
+        undoYAMLChange,
+        activateEditor: () => setEditorActive(true)
+      }}/>
+    </>
   );
 }
