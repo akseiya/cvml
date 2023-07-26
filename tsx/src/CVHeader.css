@@ -1,67 +1,88 @@
-.rich .pagetop {
+.rich > header {
   top: 0;
   left: 0;
-  background-color: white;
   width: 100%;
+  background-color: white;
 }
 
-@media screen {
-  .rich .pagetop {
-    box-shadow: 0 0.1em 0.5em #777;
-  }
-}
-
-@media screen and (min-height: 720px) and (min-width: 768px){
-  .rich .pagetop {
-    position: fixed;  
-  }
-}
-
-.pagetop header header {
-  flex-grow: 1;
-  font-size: 1.4em;
-  font-weight: bold;
-  text-align: left;
-  margin: 0.6em 0 0 0;
-  vertical-align: bottom;
-}
-
-.resume-root > * > header {
-  display: flex;
-  margin-bottom: 1em;
+.resume-root > header > div {
+  top: 0;
   max-width: 50em;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  
 }
 
-.resume-root header div {
-  margin: 1em;
+.resume-root > header > div > main {
+  min-height: 12em;
+  display: flex;
+  flex-direction: row;
+  align-items:stretch;
 }
 
-.pagetop > header div:nth-child(1) {
+/* photo container */
+.resume-root > header > div > main > header {
+  flex: 0 0 auto;
+  padding: 1em 0 1em 1em ;
+  overflow: hidden;
+}
+
+.photo {
+/*by default, do not show the photo, only when viewport
+  is wide enough as handled in Responsive.css */
   display: none;
 }
 
-@media screen and (min-width: 612px) {
-  .pagetop > header div:nth-child(1) {
-    display: block;
-    border-radius: 0.4em;
-  }
-}
-
-.resume-root header div:nth-child(2) {
-  flex-grow: 8;
-}
-
-.resume-root header div {
+.resume-root > header > div > main >  main {
+  flex: 1 1 auto;
+  margin: 0 1em;
   display: flex;
   flex-direction: column;
+  align-content:stretch;
+  flex-wrap: wrap;
 }
 
-.resume-root header th {
-  text-align: right;
-  padding-right: 0.5em;
+.resume-root > header main > main > header {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
 }
 
-.pagetop table p {
+.resume-root > header main main h1 {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
+
+.resume-root > header main main div {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+
+.resume-root > header main table {
+  flex: 0 1 auto;
+}
+
+.resume-root > header main table p {
   margin: 0;
 }
+
+.resume-root > header main th {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.resume-root > header .navbar {
+  text-align: center;
+  margin: 0.5em auto;
+}
+
+.resume-root > header .navbar :not(:nth-last-child(1))::after {
+  content: ' ⦁ ';
+}
+

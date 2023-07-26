@@ -1,10 +1,9 @@
 #main-menu, #burger {
     cursor:   pointer;
-    position: fixed;
+    position: absolute;
     top:   0.5em;
     right: 0.5em;
 }
-
 #burger, #main-menu {
     border-radius: 0.4em;
 }
@@ -69,3 +68,6 @@
     animation-duration: 0.3s;    
 }
 
+@media print {
+    #burger { display: none }
+};

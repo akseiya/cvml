@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-no-bind */
+// eslint-disable-next-line simple-import-sort/imports
 import './App.css';
 import './App.mainblocks.css';
 
@@ -11,6 +12,8 @@ import MainMenu from './MainMenu';
 import { renderSummaryItem } from './Summary';
 import { resume } from './utils/Resume';
 import YAMLEditor from './YAMLEditor';
+
+import './Responsive.css';
 
 export default function App() {
   const [currentResume, setCurrentResume] = resume.useState();
@@ -44,17 +47,6 @@ export default function App() {
     };
   }, []);
 
-  const navLink = (href:string, label:string) => (<span><a href={`#${href}`}>{label}</a></span>);
-  const navBar = () => {
-    const sections =  [
-      ['summary', 'Summary'],
-      ['career', 'Career'],
-      ['projects', 'Key projects'],
-      ['extras', 'Additional info']
-    ].map(nbi => navLink(nbi[0],nbi[1]));
-    return (<div className="navbar">{sections}</div>);
-  };
-
   if(!currentResume.career) return (<div/>);
   document.title = `Resume: ${currentResume.name}`;
 
@@ -65,20 +57,7 @@ export default function App() {
   return (
     <>
       <div className={'resume-root' + (layoutIsFlat ? '' : ' rich')}>
-        <div className="pagetop">
-          <CVHeader currentResume={currentResume}/>
-          {navBar()}
-          {/* <a className="switchbox" onClick={flipLayout}>
-          {switchText}
-        </a>
-        <a className="switchbox" onClick={() => setEditorActive(true)}>
-          <b>✎</b> edit YAML
-        </a>
-        { !yamlHistory.length ? null :
-          (<a className="switchbox" onClick={undoYAMLChange}>
-            <b>⭯</b> restore YAML
-          </a>) } */}
-        </div>
+        <CVHeader currentResume={currentResume}/>
         <main>
           <a className='scrolly' id="summary"/>
           <h1>Summary</h1>

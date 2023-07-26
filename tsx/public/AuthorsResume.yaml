@@ -47,8 +47,7 @@ summary:
       voluntary \"demotions\" so far, none regretted).*
 
       Veteran of 2 decades of every shade and flavour of software development
-      in fields ranging from military HR through video production to
-      fintech/banking/insurance.
+      in applications from military HR through finance to video production.
 
       Troubleshooter, performance profiler, batch-, net- and DB-admin.
 
@@ -389,28 +388,33 @@ projects:
   - CVML: |-
       This resume is a YAML document rendered with React.
 
-      "Flat mode" *(switch by using the red button up top, restore with the green one
-      it turns into)* is meant for HR and recruiters  who, for some dark purpose,
-      need to have in Word. It should be a bit easier to copypaste and format.
+      Use the hamburger icon **≡** in the top right corner to:
+      * flatten the CV's formatting for easy MS Word copypasting
+        for agencies/recruiters whose process never left the 90s;
+      * or to ***edit the YAML*** source and change currently
+        rendered content.
 
-      Career entries are expected to have start and end months etc (view the YAML to see
-      examples) for sorting (I actually managed to mis-order jobs when importing from
-      the old HTML version) and collapsed old entries, as well as some structure to
-      information about the companies and positions.
+      As long as the main sections (`name`, `fundamentals`,
+      `summary`, `career`, `projects`, `extras`) are present and
+      the format is conserved, any compatible data can be rendered,
+      including your own CV.
 
-      At some point I intend to make it fully interactive, including the options to
-      create/edit someone else's CV and export/load it as a YAML document or its
-      base64 blob.
+      Future plans:
+      * export as a link with massive base64 blob in query,
+      * edit in place (inside blocks)
+      * uploading the photo
 
   - The W3Schools wannabe: |-
       A jQuery-based course delivery system, working with concept of
       learning modules and their stages as navigable sequences of web pages,
       some of which can contain interactive code exercises.
 
-      The content authored in Markdown would be rendered with Showdown, while code
-      exercises have a bit more logic behind them (ultimately, a command gets executed
-      in the backend to run the tests), including expected phrases and hints for the
-      learner as well as basic protection against `rm -rf /` etc.
+      The content authored in Markdown would be rendered with
+      [Showdown](https://showdownjs.com/), while code exercises have
+      a bit more logic behind them (ultimately, a shell command gets executed
+      in the backend to run the tests), including expected phrases and
+      hints for the learner as well as basic protection against `rm -rf /`
+      and similar shenanigans.
 
       The exercise delivered while implementing the framework prototype is "API Testing
       in C#", made for [Coforge](#career-shred).

@@ -1,0 +1,45 @@
+/* 
+When the viewport is at least 40em high,
+the header is position:fixed and the main
+scrollable content is offset as well
+as scrolling less to prevent anchor clicks
+from scrolling the anchors and related headers
+under the main heading .pagetop
+*/
+
+@media screen and (min-height: 37.5em) {
+
+  #main-menu, #burger {
+    position: fixed;
+  }
+
+  .resume-root.rich > header {
+    position: fixed;
+  }
+
+  .resume-root.rich > main {
+    padding-top: 14em;
+  }
+
+  .rich a {
+    scroll-margin-top: 14em;
+  }
+}
+
+/* When the viewport is wide, show the photo */
+@media screen and (min-width: 36em) {
+  .photo {
+    display: block;
+    border-radius: 0.4em;
+  }
+}
+
+@media screen {
+  .resume-root.rich > header {
+    box-shadow: 0 0.1em 0.5em #777;
+  }
+}
+
+@media screen and (max-width: 20em) {
+  .navbar { display: none }
+}
