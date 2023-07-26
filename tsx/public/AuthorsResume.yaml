@@ -68,9 +68,9 @@ summary:
         *   Reconciliation ([DuCo](#career-duco))
         *   Cash markets ([NYSET](#career-nyse))
         *   Derivatives trading support ([Pramerica](#career-pramerica))
-        *   Banking systems ([Softbank](#care))
+        *   Banking systems ([Softbank](#career-softbank))
       # Video production
-        *   In the cloud! (AFrame)
+        *   In the cloud! ([AFrame](#career-aframe))
 
 ### Job history items have flex headers while ReactMarkdown wants to use <p>-s,
 ### hence the {company: {name: xxx, link: yyy}} structure used instead of

@@ -19,10 +19,12 @@
 
 #burger {
     font-family:      sans-serif;
-    background-color: #fcf7e8;
+    background-color: #330;
+    color: white;
     width:   2.4em;
     height:  2.4em;
     padding: 0.2em;
+    animation: heartBeat 0.5s;
 }
 
 #burger > svg {
@@ -32,8 +34,8 @@
     padding: 0;
 }
 
-#burger:hover       { background-color: black; }
-#burger:hover > svg { color: white; }
+#burger:hover       { background-color: bisque; }
+#burger:hover > svg { color: black; }
 
 #main-menu { 
     background-color: white;
