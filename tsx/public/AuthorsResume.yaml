@@ -81,7 +81,7 @@ summary:
 
 ### Job history items have flex headers while ReactMarkdown wants to use <p>-s,
 ### hence the {company: {name: xxx, link: yyy}} structure used instead of
-### allowing Markdown links like in `fundamentals`
+### allowing Markdown links like in `fundamentals`.
 
 career:
   title: Career
