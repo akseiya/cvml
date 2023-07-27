@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-no-bind */
 // eslint-disable-next-line simple-import-sort/imports
+import 'animate.css';
 import './App.css';
 import './App.mainblocks.css';
 

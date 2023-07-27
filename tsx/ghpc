@@ -1,16 +1,24 @@
 #!/bin/bash
 
-GHCP_DIR="../../../akseiya.github.io"
+ghpDir="../../../akseiya.github.io"
 
 npm run build &
 git add -A
 git commit -F -
 last_commit=`git log -1 --pretty=%B`
-rm -rf "$GHCP_DIR"/static
+rm -rf "$ghpDir"/static
 wait
 git push
-cp -r build/* "$GHCP_DIR"
-cd "$GHCP_DIR"
+cp -r build/* "$ghpDir"
+cd "$ghpDir"
 git add -A
 git commit -m "$last_commit"
+git push
+head -c 12 /dev/random | base64 > uniq.txt
+git add -A
+git commit -F - <<EOF
+    Dummy commit to nudge gitHub Pages.
+    Check out the previous commit:
+    $last_commit
+EOF
 git push

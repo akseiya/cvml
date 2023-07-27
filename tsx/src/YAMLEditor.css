@@ -23,6 +23,7 @@
     resize: none;
     font-size: 0.9em;
     flex-grow: 1;
+    border-radius: 0.4em;
 }
 
 @media screen and (min-width: 600px) {

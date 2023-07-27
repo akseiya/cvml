@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-no-bind */
-import 'animate.css';
 import './MainMenu.css';
 
 import React, { useState } from 'react';
