@@ -4,6 +4,12 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { resume, YAMLResume } from './utils/Resume';
+import { SVG } from './utils/svg';
+
+const email = (email: string) =>
+  <a href={`mailto:${email}`} id='mail-me'>
+    {SVG.envelope}
+  </a>;
 
 // eslint-disable-next-line react/no-unused-prop-types
 export default function CVHeader(props: { currentResume: YAMLResume }) {
@@ -22,8 +28,6 @@ export default function CVHeader(props: { currentResume: YAMLResume }) {
     ].map(nbi => navLink(nbi[0],nbi[1]));
     return sections;
   };
-
-
 
   const core = currentResume.fundamentals;
   type CoreLine = [string, string];
@@ -47,7 +51,9 @@ export default function CVHeader(props: { currentResume: YAMLResume }) {
               style={resume.photoAsBackground(currentResume)}>&nbsp;</div>
           </header>
           <main>
-            <header><h1>{currentResume.name}</h1></header>
+            <header>
+              <h1>{currentResume.name}</h1>
+            </header>
             <div>
               <table>
                 <tbody>{coreTable}</tbody>
@@ -55,8 +61,9 @@ export default function CVHeader(props: { currentResume: YAMLResume }) {
             </div>
           </main>
         </main>
-        <footer className='navbar'>{navBar()}</footer>        
+        <footer className='navbar'>{navBar()}</footer>
       </div>
+      { currentResume.email ? email(currentResume.email) : null }
     </header>
   );
 }

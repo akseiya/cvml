@@ -3,7 +3,7 @@ import './MainMenu.css';
 
 import React, { useState } from 'react';
 
-import DrawShape, { fatArrowUp, ShapeName } from '../../utils/DrawShape';
+import { SVG } from '../../utils/svg';
 
 type TrivialFunction = () => void;
 type MainMenuProps = {
@@ -17,7 +17,7 @@ const homeArrow = () =>
   <div id="home-arrow" onClick={() => {
     document.getElementById('root')?.scrollTo(0,0);
   }}>
-    {fatArrowUp()}
+    {SVG.fatArrowUp}
   </div>;
 
 // eslint-disable-next-line react/no-unused-prop-types
@@ -42,16 +42,16 @@ export default function MainMenu(props: MainMenuProps) {
   };
 
   const flattenDiv = <>
-    <DrawShape name={ShapeName.flatten}/>
+    {SVG.flatten}
     <div>flatten CV layout</div>
   </>;
   const unflattenDiv = <>
-    <DrawShape name={ShapeName.unflatten}/>
+    {SVG.unflatten}
     <div>restore rich layout</div>
   </>;
   const undoDiv = undoYAMLChange ? 
     <div onClick={() => fold(() => (undoYAMLChange as TrivialFunction)())}>
-      <DrawShape name={ShapeName.arrowCCW}/>
+      {SVG.arrowCCW}
       <div>undo YAML source change</div>        
     </div> : null;
 
@@ -61,14 +61,14 @@ export default function MainMenu(props: MainMenuProps) {
         { layoutIsFlat ? unflattenDiv : flattenDiv }
       </div>
       <div onClick={() => fold(() => activateEditor())}>
-        <DrawShape name={ShapeName.vectorPen}/>
+        {SVG.vectorPen}
         <div>edit YAML source</div>        
       </div>
       {undoDiv}
     </div>;
 
   const burger = <div className='pulse-me' id='burger' onClick={unfold}>
-    <DrawShape name={ShapeName.burgerMenu}/>
+    {SVG.burgerMenu}
   </div>;
 
   return unfolded ?

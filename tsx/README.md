@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+#   The YAML CV rendered in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*   Used by [my gitHub Page](https://akseiya.github.io), rendering 
+    [my own CV](./public/AuthorsResume.yaml).
+*   Allows ephemeral editions to the content, re-rendering as needed.
+    *   Currently, does it by putting the whole YAML source into a
+        `<textarea>`, sorry.
 
-## Available Scripts
+## Why bother?
 
-In the project directory, you can run:
+As a proud jumper, I update my CV relatively often. I made it a HTML document
+years ago as a way to quickly detect wrong placements but fiddling with raw
+HTML is a very peculiar concept for fun.
 
-### `npm start`
+That is, firstly for my own benefit.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Why in React?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To simplify the way I think of and process the CV data and how it gets rendered
+structurally. React's tree of JSX components fits my concept of CV information
+quite nicely. It also made the interactive bits rather trivial to
+introduce.
 
-### `npm test`
+Also, to show that I can use React. Recruiters often fail to realise SDET-s
+are programmers. Perhaps it will help.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## The data format
 
-### `npm run build`
+As the app is intended to deal specifically with CVs, so the YAML will never be
+fully free-form (also, in that case, just using Markdown would be better).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Optional sections are marked as such in [my own CV](./public/AuthorsResume.yaml)
+which is also intended to touch on all features of rendering and serve as
+exhaustive example.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## What does this do?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Right now, it renders a YAML CV as a web-page with a flat mode intended for
+copypasting into MS Word et al - not so good right now, as it misses out on
+Libre Office Writer's capability to retain headings (uses a lot of
+context-depended styling on H1-s instead of H levels).
 
-### `npm run eject`
+If provided, it renders the email as a `mailto:` link (side icon).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+It sorts the job history by start date.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+It folds job description after three most recent positions and allows unfolding.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+There is a degree of responsiveness at play. Have a go!
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Importantly, it does allow the user to change the local YAML and
+render possibly someone else's CV as long as it obeys the schema.
 
-## Learn More
+## What does it not do?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+No intelligent state handling yet, which is why the hamburger pulses after
+you apply the supposedly modified YAML.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This, no in-place edit with limited redraws, not yet.
+
+No option to persist your own CV except copypasting the YAML source, storing
+it somewhere else and pasting it back later.
+
+## What do you intend to make it do sometime soon?
+
+1.  Fix the flat format to use a lot of H-levels instead of different
+    styles for H1 as it defeats its purpose.
+1.  More contact options, with phone links expected to work on smartphones.
+1.  State refactor, possibly with a reducer as the hovering menu should not
+    consider YAML history its state, but it does need to change it, leading
+    to a possibly unsolvable tree problem.
+1.  A time zone widget for Mr Worldwides out there, telling the recruiter
+    how many hours ahead/behind the candidate's time they are.
+1.  Accepting a base64-encoded YAML from URL query
+    * should this even work? we're talking a dozen kilobyte link here
+    * or accepting a link instead and retrieving the YAML from there
+1.  In-place editing of particular job descriptions etc, like most commercial
+    jobseeker sites do.
+1.  Photo uploader converting to properly sized and compressed format.
+1.  More flexibility for free-form sections, especially the ones after
+    employment history.
+

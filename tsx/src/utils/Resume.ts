@@ -15,6 +15,7 @@ interface ResumePhoto {
 export interface YAMLResume {
   photo?: ResumePhoto;
   name: string;
+  email?: string;
   fundamentals: {
     [key: string]: string;
   };

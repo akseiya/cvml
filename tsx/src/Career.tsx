@@ -4,9 +4,9 @@ import './Career.css';
 import React, { useState } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
-import { doubleChevronDown } from './utils/DrawShape';
 import { YAMLResume } from './utils/Resume';
 import { LinkableName } from './utils/sharedTypes';
+import { SVG } from './utils/svg';
 
 export interface Job {
   id: string;
@@ -60,7 +60,7 @@ const renderJob = (job: Job, i: number) => {
     >
       <a className='scrolly' id={`career-${job.id}`} />
       <header>
-        <div className="unfolder" onClick={unfold}>{doubleChevronDown()}</div>
+        <div className="unfolder" onClick={unfold}>{SVG.doubleChevronDown}</div>
         <div>{getDuration(job)}</div>
         {nameWithOptionalLink(job.company)}
         {nameWithOptionalLink(job.position)}

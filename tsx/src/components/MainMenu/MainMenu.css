@@ -1,22 +1,33 @@
-#main-menu, #burger, #home-arrow {
-    cursor:   pointer;
+#main-menu,  #burger,
+#home-arrow, #mail-me {
     position: fixed;
-    right: 0.5em;
+    right:    0.5em;
+    cursor:   pointer;
     border-radius: 0.4em;
 }
-#main-menu, #burger {
-    top:   0.5em;
-}
-#home-arrow {
-    bottom:   0.5em;
-}
-#burger, #home-arrow {
-    background-color: #330;
-    color: white;
-    width:   2.4em;
-    height:  2.4em;
-    padding: 0.2em;
+
+#home-arrow         { bottom: 0.5em; }
+#main-menu, #burger {    top: 0.5em; }
+#mail-me            {    top: 3.4em; }
+
+
+#burger, #home-arrow, #mail-me {
+    width:      2.4em;
+    height:     2.4em;
+    padding:    0.2em;
     text-align: center;
+    color:    white;
+    background-color: #330;
+}
+#home-arrow:hover,
+    #burger:hover,
+   #mail-me:hover
+{
+    color: black;
+    background-color: bisque;
+}
+#mail-me {
+    padding: 0.4em;
 }
 
 #main-menu > div:nth-child(1) {
@@ -42,11 +53,6 @@
     height:  1.6em;
     margin-top: 0.2em;
 }
-
-    #burger:hover,
-#home-arrow:hover       { background-color: bisque; }
-#home-arrow:hover > svg,
-    #burger:hover > svg { color: black; }
 
 #main-menu {
     background-color: white;

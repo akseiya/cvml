@@ -19,14 +19,21 @@
 ### the source between this and an actual
 ### source editor.
 
+email: akseiya@gmail.com # Optional
 name: Michał Lech
+
+### It's not easy to anticipate name rendering when your own
+### full name has 10 chars and a space.
+# name: Wierzchosław Przemysław Lutosławski-Wachmistrowicz
+
 
 fundamentals:
 
   ### These can actually be any header/content pairs with plain text headers
   ### and Markdown content, just bear in mind that a long header or content
   ### can overflow lines and interfere with the header's fixed (non-scrolling)
-  ### positioning.
+  ### positioning. Generally, check how does your core information render,
+  ### especially on small phone screens.
 
   crafting since: '1999' # Without conversion, the CV won't render.
   work permits: |-
@@ -41,10 +48,10 @@ summary:
   ### be used instead of "Core profile" etc.
 
   - Core profile: |-
-      Front-line leader focused on supporting his people for ever further growth.
+      Front-line leader focused on supporting his engineers for ever further growth.
 
-      Mentor and teacher always ready to learn the craft anew himself *(two
-      voluntary \"demotions\" so far, none regretted).*
+      Mentor and teacher always ready to learn the digital craft anew himself *(two
+      voluntary "demotions" so far, none regretted).*
 
       Veteran of 2 decades of every shade and flavour of software development
       in applications from military HR through finance to video production.
@@ -81,12 +88,17 @@ career:
   jobs:
     - id: GR
       from: 2023-03-13
+      ### to: optional, will render "since ${from}" if no to: provided
       to: 2023-06-30
       company:
         name: Global Relay
-        location: London ### Currently not used.
+        ### link: optional
+        link: https://www.glassdoor.co.uk/Reviews/Global-Relay-Reviews-E295588.htm?sort.sortType=OR&sort.ascending=true&filter.iso3Language=eng#ReviewsFeed
       position:
+        ### Usual YAML caveats - to have quotes, you need more quotes
         name: '"Lead SDET"'
+      ### Markdown to be rendered with ReactMarkdown (so no raw tags and no entities),
+      ### probably will migrate to Showdown for some flexibility.
       description: |-
         # Duties
 
@@ -137,6 +149,7 @@ career:
         location: Ipswich (remote)
       position:
         name: SDET
+        ### link: optional
         link: https://testguild.com/sdet/
       description: |-
         Contracting as Hariel Imamiah Ltd for BT's Athena ("Vena") project.
@@ -152,8 +165,7 @@ career:
         1.  BDD and shift-left evangelism in the squad and around it, including
             introduction of Cucumber and Pact. It was my first instance of achieving
             a noticeable improvement in the ways of working as a ground-level "influencer"
-            rather than an appointed leader. I blame my squad (the excellent Olives) and
-            my main w.o.w. ally, Mr Tariq Juneja.
+            rather than an appointed leader.
 
     - id: fuse
       from: 2018-05
@@ -172,12 +184,13 @@ career:
         The process involved:
         * defining roles and development paths for my engineers, then training them
           in the skills required to progress on those paths;
-        * identifying my engineers' individual strengths and leveraging them, adjusting
-          their deployment to dev teams as needs changed;
-        * working closely with Product Lead developing BDD practices across the prod-tech
-          teams and then fleshing out the squad-specific details with product owners;
-        * contributing to the evolving Scaling Agile model, inluding some of the company's
-          first OKR's;
+        * identifying my engineers' individual strengths and leveraging them,
+          adjusting their deployment to squads as needs changed;
+        * working closely with Product Lead developing BDD practices across the
+          prod/tech teams and then fleshing out the squad-specific details with product
+          owners;
+        * contributing to the evolving Scaling Agile model, including some of
+          the company's first OKR's;
         * steering the development of technical tools to keep the processes going
           smoothly, delegating as much of coding as possible to the engineers (against
           my natural tendencies which would interfere with my engineers' growth).
@@ -220,7 +233,7 @@ career:
           solving descents and troubleshooting approach.
         * High-level design and initial coding of the framework for multi-tenancy isolation
           testing.
-        * High-level design for the actual smoke tests of production infrastracture and
+        * High-level design for the actual smoke tests of production infrastructure and
           its staging copy.
         * Tracking and helping the developers' work during release testing rushes.
           This included a test sheet in Google Docs, which initial content was imported
@@ -236,7 +249,7 @@ career:
       position:
         name: SDET
       description: |-
-        Bringing SQA improvement patterns from London Start-Ups to a corporate environment.
+        Bringing agile ways of working from London start-ups to a corporate environment.
 
         # Stuff done
 
@@ -380,29 +393,24 @@ career:
           * *using a FoxPro app and a holidays tracking app of my own (Borland Vision)*;
         * support for soldiers distribution after initial training (military HR).
 
-### Just like "Summary", this is a free-form series of blocks.
+### Just like "Summary", this is a series of free-form blocks.
 ### For now, the navbar generation is hardcoded to use this, so think
-### of at least one project to describe.
+### of at least one project to brag about.
 
 projects:
   - CVML: |-
       This resume is a YAML document rendered with React.
 
-      Use the hamburger icon **≡** in the top right corner to:
-      * flatten the CV's formatting for easy MS Word copypasting
-        for agencies/recruiters whose process never left the 90s;
-      * or to ***edit the YAML*** source and change currently
-        rendered content.
+      Use the hamburger icon **≡** in the top right corner to
+      ***edit the YAML*** source and change currently rendered content.
 
       As long as the main sections (`name`, `fundamentals`,
       `summary`, `career`, `projects`, `extras`) are present and
       the format is conserved, any compatible data can be rendered,
       including your own CV.
 
-      Future plans:
-      * export as a link with massive base64 blob in query,
-      * edit in place (inside blocks)
-      * uploading the photo
+      Under development. Future ideas will be added to its
+      [README](https://github.com/akseiya/cvml/tree/main/tsx#readme).
 
   - The W3Schools wannabe: |-
       A jQuery-based course delivery system, working with concept of
@@ -456,7 +464,7 @@ projects:
         * scans current message routing configuration (XML) and simulates proper routing
         * compares resulting data streams and reports items lost, modified and unexpected.
 
-### Again, a free-form series of blocks.
+### Again, a series of free-form blocks.
 
 extras:
   - Interests and hobbies: |-
@@ -499,7 +507,8 @@ extras:
           * *(very rusty):* TSO/ISPF/SDSF, Control-M, CICS, Serena, Xpediter
         * administration
           * Azure devOps
-
+### Even at 147px size and with EXIF, thumbnail etc cut out, this is
+### kilobytes large. Do bear this in mind when adding your own photo.
 photo:
   width: 147px
   height: 147px
@@ -609,4 +618,3 @@ photo:
     gx/x/wB5mAMVmOyryKdPEYATw77JUT4cjogp7iUPwh/v94hgtghxAVGbp6H93DJWFtMxdCh6rBgu
     1titd4Nr9wfWPs5f+QpBTQNUwoAVDUW8R4GG6uNDTtXF8T6Z8T6CfZBYsZnnY9w2+szv4jsFOIm8
     4iYfH8w/Q+zNkqdtZfP4m1zLe5//2Q==
-

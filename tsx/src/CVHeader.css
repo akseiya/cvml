@@ -55,6 +55,9 @@
   font-weight: bold;
   margin: 0;
   text-align: left;
+  flex: 0 1 auto;
+  background-color: white;
+  max-width: 86%;
 }
 
 .resume-root > header main main div {
@@ -83,6 +86,12 @@
 }
 
 .resume-root > header .navbar :not(:nth-last-child(1))::after {
-  content: ' ⦁ ';
+  content: ' :: ';
 }
 
+/*
+
+The email link and icon are styled in MainMenu.css
+to align with the hamburger and the "Home" arrow.
+
+*/
