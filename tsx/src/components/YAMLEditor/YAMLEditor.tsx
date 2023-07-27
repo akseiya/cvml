@@ -3,7 +3,7 @@ import './YAMLEditor.css';
 
 import React from 'react';
 
-import { YAMLResume } from './utils/Resume';
+import { YAMLResume } from '../../utils/Resume';
 
 export type YAMLEditorProps = {
   currentResume: YAMLResume,

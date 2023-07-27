@@ -9,10 +9,10 @@ import React, { useEffect, useState } from 'react';
 
 import Career from './Career';
 import CVHeader from './CVHeader';
-import MainMenu from './MainMenu';
+import MainMenu from './components/MainMenu/MainMenu';
 import { renderSummaryItem } from './Summary';
 import { resume } from './utils/Resume';
-import YAMLEditor from './YAMLEditor';
+import YAMLEditor from './components/YAMLEditor/YAMLEditor';
 
 import './Responsive.css';
 
@@ -50,7 +50,7 @@ export default function App() {
   }, []);
 
   if(!currentResume.career) return (<div/>);
-  document.title = `Resume: ${currentResume.name}`;
+  document.title = `Editable Resume: ${currentResume.name}`;
 
   if(editorActive) return (
     <YAMLEditor {...{currentResume, applyYAML, setEditorActive}}/>
@@ -61,18 +61,18 @@ export default function App() {
       <div className={'resume-root' + (layoutIsFlat ? '' : ' rich')}>
         <CVHeader currentResume={currentResume}/>
         <main>
-          <a className='scrolly' id="summary"/>
+          <a id="summary"/>
           <h1>Summary</h1>
           {(currentResume.summary ?? []).map(renderSummaryItem)}
 
-          <a className='scrolly' id="career" />
+          <a id="career" />
           <Career currentResume={currentResume} />
 
-          <a className='scrolly' id="projects" />
+          <a id="projects" />
           <h1>Key projects</h1>
           {(currentResume.projects ?? []).map(renderSummaryItem)}
 
-          <a className='scrolly' id="extras" />
+          <a id="extras" />
           <h1>Additional information</h1>
           {(currentResume.extras ?? []).map(renderSummaryItem)}
         </main>

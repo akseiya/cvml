@@ -1,19 +1,27 @@
 #!/bin/bash
 
+die() {
+    echo "$@" > /dev/stderr
+    exit 1
+}
+
+set -e
+
 ghpDir="../../../akseiya.github.io"
 
-npm run build &
 git add -A
 git commit -F -
 last_commit=`git log -1 --pretty=%B`
-rm -rf "$ghpDir"/static
-wait
 git push
+
+rm -rf "$ghpDir"/*
 cp -r build/* "$ghpDir"
+
 cd "$ghpDir"
 git add -A
 git commit -m "$last_commit"
 git push
+
 head -c 12 /dev/random | base64 > uniq.txt
 git add -A
 git commit -F - <<EOF

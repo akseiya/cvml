@@ -3,7 +3,7 @@ import './MainMenu.css';
 
 import React, { useState } from 'react';
 
-import DrawShape, { fatArrowUp, ShapeName } from './utils/DrawShape';
+import DrawShape, { fatArrowUp, ShapeName } from '../../utils/DrawShape';
 
 type TrivialFunction = () => void;
 type MainMenuProps = {
@@ -67,7 +67,7 @@ export default function MainMenu(props: MainMenuProps) {
       {undoDiv}
     </div>;
 
-  const burger = <div className='folded' id='burger' onClick={unfold}>
+  const burger = <div className='pulse-me' id='burger' onClick={unfold}>
     <DrawShape name={ShapeName.burgerMenu}/>
   </div>;
 

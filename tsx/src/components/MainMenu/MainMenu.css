@@ -28,7 +28,7 @@
     border-bottom-right-radius: 0.4em;
 }
 
-#burger {
+.pulse-me {
     animation: heartBeat 0.5s;
 }
 
