@@ -4,6 +4,11 @@ main h1 {
   margin: 1em;
 }
 
+.rich a {
+  scroll-margin-top: 1.8em;
+}
+
+
 main article {
   margin: 1em;
 }

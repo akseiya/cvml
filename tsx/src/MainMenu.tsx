@@ -4,7 +4,7 @@ import './MainMenu.css';
 
 import React, { useState } from 'react';
 
-import DrawShape, { ShapeName } from './utils/DrawShape';
+import DrawShape, { fatArrowUp, ShapeName } from './utils/DrawShape';
 
 type TrivialFunction = () => void;
 type MainMenuProps = {
@@ -13,6 +13,13 @@ type MainMenuProps = {
   undoYAMLChange: TrivialFunction | boolean
   layoutIsFlat: boolean;
 };
+
+const homeArrow = () =>
+  <div id="home-arrow" onClick={() => {
+    document.getElementById('root')?.scrollTo(0,0);
+  }}>
+    {fatArrowUp()}
+  </div>;
 
 // eslint-disable-next-line react/no-unused-prop-types
 export default function MainMenu(props: MainMenuProps) {
@@ -65,8 +72,14 @@ export default function MainMenu(props: MainMenuProps) {
     <DrawShape name={ShapeName.burgerMenu}/>
   </div>;
 
-  return (unfolded ?
-    <>{burger}<div id='main-menu-modal-bg' onClick={() => fold()}/>{menu}</> :
-    burger
-  );
+  return unfolded ?
+    <>
+      {burger}
+      <div id='main-menu-modal-bg' onClick={() => fold()}/>
+      {menu}
+    </> :
+    <>
+      {burger}
+      {homeArrow()}
+    </>;
 }

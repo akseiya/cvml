@@ -3,6 +3,8 @@ import React from 'react';
 export enum ShapeName {
   arrowCCW,
   arrowBarDown,
+  dChevDown,
+  fatArrowUp,
   burgerMenu,
   flatten,
   unflatten,
@@ -18,6 +20,24 @@ const arrowCCW = () =>
 const arrowBarDown = () =>
   <svg className="bi bi-arrow-bar-down" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
     <path d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z" fillRule="evenodd"/>
+  </svg>;
+
+export const doubleChevronDown = () =>
+  <svg className="jam jam-chevrons-circle-down-f" fill="#currentColor" preserveAspectRatio="xMinYMin" viewBox="-2 -2 24 24" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+    <g id="SVGRepo_iconCarrier">
+      <path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm.009-7.377l-2.122-2.12a1 1 0 0 0-1.414 1.413l2.828 2.829a1 1 0 0 0 1.415 0l2.828-2.829a1 1 0 1 0-1.414-1.414l-2.121 2.121zm0-5l-2.122-2.12a1 1 0 0 0-1.414 1.413l2.828 2.829a1 1 0 0 0 1.415 0l2.828-2.829a1 1 0 1 0-1.414-1.414l-2.121 2.121z" />
+    </g>
+  </svg>;
+
+export const fatArrowUp = () =>
+  <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+    <g id="SVGRepo_iconCarrier">
+      <path d="M7 10v8h6v-8h5l-8-8-8 8h5z" />
+    </g>
   </svg>;
 
 const burgerMenu = () =>
@@ -46,6 +66,8 @@ export default function DrawShape(props: { name: ShapeName }) {
   switch(name) {
   case ShapeName.arrowCCW:     return arrowCCW();
   case ShapeName.arrowBarDown: return arrowBarDown();
+  case ShapeName.dChevDown:    return doubleChevronDown();
+  case ShapeName.fatArrowUp:   return fatArrowUp();
   case ShapeName.burgerMenu:   return burgerMenu();
   case ShapeName.flatten:      return flatten();
   case ShapeName.unflatten:    return unflatten();

@@ -6,7 +6,6 @@ main article.job header {
 
 .rich main article.job header {
   font-size: 1em;
-  font-weight: 600;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -19,10 +18,13 @@ article.job .unfolder {
 .rich article.job.old .unfolder {
   display: inline-block;
   cursor: pointer;
-  min-width: 1.3em;
-  border-radius: 1em;
-  background-color: #CBA;
+  max-height: 1.4em;
   text-align: center;
+}
+
+.unfolder svg {
+  width: 1.4em;
+  height: 1.4em;
 }
 
 .rich article.job.old main {

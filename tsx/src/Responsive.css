@@ -9,10 +9,6 @@ under the main heading .pagetop
 
 @media screen and (min-height: 37.5em) {
 
-  #main-menu, #burger {
-    position: fixed;
-  }
-
   .resume-root.rich > header {
     position: fixed;
   }

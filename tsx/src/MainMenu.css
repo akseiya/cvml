@@ -1,50 +1,61 @@
-#main-menu, #burger {
+#main-menu, #burger, #home-arrow {
     cursor:   pointer;
-    position: absolute;
-    top:   0.5em;
+    position: fixed;
     right: 0.5em;
-}
-#burger, #main-menu {
     border-radius: 0.4em;
 }
-#main-menu > div:nth-child(1) {
-    border-top-left-radius:  0.4em;   
-    border-top-right-radius: 0.4em;   
+#main-menu, #burger {
+    top:   0.5em;
 }
-#main-menu > div:nth-last-child(1) {
-    border-bottom-left-radius:  0.4em;   
-    border-bottom-right-radius: 0.4em;   
+#home-arrow {
+    bottom:   0.5em;
 }
-
-
-#burger {
-    font-family:      sans-serif;
+#burger, #home-arrow {
     background-color: #330;
     color: white;
     width:   2.4em;
     height:  2.4em;
     padding: 0.2em;
+    text-align: center;
+}
+
+#main-menu > div:nth-child(1) {
+    border-top-left-radius:  0.4em;
+    border-top-right-radius: 0.4em;
+}
+#main-menu > div:nth-last-child(1) {
+    border-bottom-left-radius:  0.4em;
+    border-bottom-right-radius: 0.4em;
+}
+
+#burger {
     animation: heartBeat 0.5s;
 }
 
-#burger > svg {
+#burger > svg, #home-arrow > svg {
     width:   2em;
     height:  2em;
-    margin:  0;
-    padding: 0;
+    margin:  auto;
+}
+#home-arrow > svg {
+    width:   1.6em;
+    height:  1.6em;
+    margin-top: 0.2em;
 }
 
-#burger:hover       { background-color: bisque; }
-#burger:hover > svg { color: black; }
+    #burger:hover,
+#home-arrow:hover       { background-color: bisque; }
+#home-arrow:hover > svg,
+    #burger:hover > svg { color: black; }
 
-#main-menu { 
+#main-menu {
     background-color: white;
     box-shadow: -4px 4px 12px #777;
 }
 #main-menu > div {
     padding: 0.3em;
     display: flex;
-    align-items:    center;    
+    align-items:    center;
     flex-direction: row;
 }
 #main-menu > div:hover {
@@ -67,9 +78,9 @@
 .slide-in  { animation: slideInRight;  }
 .slide-out { animation: slideOutRight; }
 .slide-in, .slide-out {
-    animation-duration: 0.3s;    
+    animation-duration: 0.3s;
 }
 
 @media print {
-    #burger { display: none }
+    #burger, #home-arrow { display: none }
 };

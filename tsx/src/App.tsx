@@ -15,6 +15,8 @@ import YAMLEditor from './YAMLEditor';
 
 import './Responsive.css';
 
+const emptyYamlHistory: string[] = [];
+
 export default function App() {
   const [currentResume, setCurrentResume] = resume.useState();
 
@@ -24,7 +26,6 @@ export default function App() {
   };
   const [editorActive, setEditorActive] = useState(false);
 
-  const emptyYamlHistory: string[] = [];
   const [yamlHistory, setYamlHistory] = useState(emptyYamlHistory);
 
   const applyYAML = (YAML: string) => {
