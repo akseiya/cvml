@@ -36,9 +36,8 @@ exhaustive example.
 ## What does this do?
 
 Right now, it renders a YAML CV as a web-page with a flat mode intended for
-copypasting into MS Word et al - not so good right now, as it misses out on
-Libre Office Writer's capability to retain headings (uses a lot of
-context-depended styling on H1-s instead of H levels).
+copypasting into MS Word et al - tested with LibreOffice Writer - it's not
+beautiful, but it does have the right header styles in the right places.
 
 If provided, it renders the email as a `mailto:` link (side icon).
 
@@ -63,12 +62,10 @@ it somewhere else and pasting it back later.
 
 ## What do you intend to make it do sometime soon?
 
-1.  Fix the flat format to use a lot of H-levels instead of different
-    styles for H1 as it defeats its purpose.
 1.  More contact options, with phone links expected to work on smartphones.
 1.  State refactor, possibly with a reducer as the hovering menu should not
-    consider YAML history its state, but it does need to change it, leading
-    to a possibly unsolvable tree problem.
+    consider YAML history its state, but it does need to change it, 
+    requiring a state that is not just lifted.
 1.  A time zone widget for Mr Worldwides out there, telling the recruiter
     how many hours ahead/behind the candidate's time they are.
 1.  Accepting a base64-encoded YAML from URL query
