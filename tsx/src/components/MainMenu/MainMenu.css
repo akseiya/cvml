@@ -19,12 +19,14 @@
     color:    white;
     background-color: #330;
 }
-#home-arrow:hover,
+@media screen and (hover: hover) {
+    #home-arrow:hover,
     #burger:hover,
-   #mail-me:hover
-{
-    color: black;
-    background-color: bisque;
+    #mail-me:hover
+    {
+        color: black;
+        background-color: bisque;
+    }
 }
 #mail-me {
     padding: 0.4em;

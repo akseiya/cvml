@@ -23,8 +23,8 @@ export default function CVHeader(props: { currentResume: YAMLResume }) {
     const sections =  [
       ['summary', 'Summary'],
       ['career', 'Career'],
-      ['projects', 'Key projects'],
-      ['extras', 'Additional info']
+      ['projects', 'Projects'],
+      ['extras', 'Bits & bobs']
     ].map(nbi => navLink(nbi[0],nbi[1]));
     return sections;
   };
