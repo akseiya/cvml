@@ -12,6 +12,10 @@ main article {
   margin: 1em;
 }
 
+main article > main {
+  padding: 0 1em;
+}
+
 .rich main article {
   border: 1px solid black;
   border-radius: 0.4em;
@@ -19,33 +23,42 @@ main article {
   box-shadow: -6px 6px 6px #777;
 }
 
-main article header {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-top: 2em;
+main article header, main article h2 {
+  background-color: #fcf7e8;
 }
 
 .rich main article header {
-  background-color: #fcf7e8;
   margin-top: 0;
-  font-size: 1.2em;
-  font-weight: bold;
   border-radius: 0.4em;
   padding: 0.6em;
 }
 
-main article h1,
-main article h2 {
-  font-weight: bold;
-  text-align: left;
-  margin-left: 1em;
+article header h2 {
+  font-size: 1.4em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-main article h1 {
-  font-size: 1.1em;
+article main * {
+  margin-block-start: 0.6em;
+  margin-block-end: 0.6em;
 }
 
-main article p {
-  margin-left: 1em;
-  margin-right: 1em;
+article main li {
+  margin-block-start: 0.1em;
+  margin-block-end: 0.1em;
+}
+
+article main h3 {
+  font-size: 1.2em;
+}
+
+ul, ol {
+  padding-left: 1.0em;
+  margin-left: 0.2em;
+}
+
+li > ol, li > ul {
+  margin-top: 0;
+  margin-bottom: 0;
 }

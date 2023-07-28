@@ -66,7 +66,7 @@ export default function App() {
           {(currentResume.summary ?? []).map(renderSummaryItem)}
 
           <a id="career" />
-          <Career currentResume={currentResume} />
+          <Career {...{currentResume, layoutIsFlat}} />
 
           <a id="projects" />
           <h1>Key projects</h1>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
+import NestedMarkdown from './utils/NestedMarkdown';
 import { YAMLResume } from './utils/Resume';
 
 export interface SummaryItem {
@@ -11,13 +11,20 @@ const autoAnchor = (title: string) =>
   title.
     replaceAll(/[\W]/g,'_').replaceAll(/_+/g,'_').toLocaleLowerCase();
 
+export const nestedMarkdown = (markdown: string) => 
+  <NestedMarkdown>
+    {markdown.replaceAll(/(^|\s)#+\s/g, (hN) => hN.replace('#', '###'))}
+  </NestedMarkdown>;
+
 export const renderSummaryItem = (item: SummaryItem) => {
   const [[title, markdown]] = Object.entries(item);
   return (
     <article key={`summary: ${title}`}>
       <a id={autoAnchor(title)}/>
-      <header>{title}</header>
-      <ReactMarkdown>{markdown}</ReactMarkdown>
+      <header><h2>{title}</h2></header>
+      <NestedMarkdown>
+        {markdown}
+      </NestedMarkdown>
     </article>
   );
 };

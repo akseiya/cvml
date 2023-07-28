@@ -5,9 +5,16 @@ die() {
     exit 1
 }
 
+cd "${0%/*}"
+[ -f .env ] && source .env
+echo "Usage target directory $ghpDir"
+
 set -e
 
-ghpDir="../../../akseiya.github.io"
+# GitHub Pages repo directory is required
+[ "$ghpDir" ]
+# Die if target dir not where expected
+stat "$ghpDir" > /dev/null
 
 git add -A
 git commit -F -

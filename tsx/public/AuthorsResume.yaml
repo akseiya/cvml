@@ -86,9 +86,35 @@ summary:
 career:
   title: Career
   jobs:
+      ### Athena project listed out of order as it happens to use all options
+      ### for specifying a job
+    - id: athena       ### Each job panel is preceded with a `#career-${id}` anchor.
+      from: 2020-04-01 ### Day of the month is ignored in default format anyway!
+      to: 2021-10      ### When this is omitted, timing is rendered as "since Mon YYYY"
+      company:
+        name: British Telecom (outside IR35)
+        link: https://www.mediaandbroadcast.bt.com/vena.html  ### Optional
+      position:
+        name: SDET
+        link: https://testguild.com/sdet/                     ### Optional
+      description: |-
+        Contracting as Hariel Imamiah Ltd for BT's Athena ("Vena") project.
+
+        # Stuff done
+
+        1.  Retiring a contraption based on Robot Framework (a perfect silo) and
+            replacing it with a squad-maintained CCIT suite. This was my nominal
+            job which took a few sprints since it needed to be in Java.
+        1.  Creating a well received E2E testing framework in Python, [Ergane](#ergane)
+        1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
+            workflows, auxiliary tools (standalone mocks, proxies etc).
+        1.  BDD and shift-left evangelism in the squad and around it, including
+            introduction of Cucumber and Pact. It was my first instance of achieving
+            a noticeable improvement in the ways of working as a ground-level "influencer"
+            rather than an appointed leader.
+
     - id: GR
       from: 2023-03-13
-      ### to: optional, will render "since ${from}" if no to: provided
       to: 2023-06-30
       company:
         name: Global Relay
@@ -110,18 +136,17 @@ career:
         1.  Spikes and research, sharing the results and propositions with the pod
             and the Quality Guild.
 
-        ## *"Why did you quit so fast?"*
+        ## *"Why did you quit **that** fast?"*
 
-        It turned out my leadership was of ephemeral nature: any
-        ways-of-working standards (worked out between the 3 Amigos and the team) can
-        be at any moment overturned by a mid-level manager without asking me any questions
-        or providing any explanations.
+        It turned out my leadership was of ephemeral nature: the
+        ways-of-working standards, painstakingly worked out between the 3 Amigos
+        and the rest of the pod got abruptly overturned by a mid-level manager
+        without asking me any questions or providing any explanations.
 
     - id: shred
       from: 2022-11
       to:   2023-01
       company:
-        location: London
         name: Schroders (inside IR35)
         link: https://www.schroders.com/en/global/individual/contact-us/worldwide-locations/uk/
       position:
@@ -132,40 +157,14 @@ career:
         Initially an attempt to liaise between 3 parties to deliver
         a learning project with associated materials and processes. After
         communications with the customer contact collapsing, I focused on
-        creating a [code exercises sandbox inspired by W3Schools and the first
-        learning module delivered by it](#the_w3schools_wannabe).
+        creating
+        * a [code exercises sandbox](#the_w3schools_wannabe) inspired by W3Schools and
+        * the first learning module delivered by it.
 
         The project served as a clear indication where my consultancy and management
         skills have their limits. That is: I don't really function well as an
         unsupported hub with high-difficulty partners on all sides. I need
         at least one solid wall to put my back against.
-
-    - id: athena
-      from: 2020-04
-      to: 2021-10
-      company:
-        name: British Telecom (outside IR35)
-        link: https://www.mediaandbroadcast.bt.com/vena.html
-        location: Ipswich (remote)
-      position:
-        name: SDET
-        ### link: optional
-        link: https://testguild.com/sdet/
-      description: |-
-        Contracting as Hariel Imamiah Ltd for BT's Athena ("Vena") project.
-
-        # Stuff done
-
-        1.  Retiring a contraption based on Robot Framework (a perfect silo) and
-            replacing it with a squad-maintained CCIT suite. This was my nominal
-            job which took a few sprints since it needed to be in Java.
-        1.  Creating a well received E2E testing framework in Python, [Ergane](#ergane)
-        1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
-            workflows, auxiliary tools (standalone mocks, proxies etc).
-        1.  BDD and shift-left evangelism in the squad and around it, including
-            introduction of Cucumber and Pact. It was my first instance of achieving
-            a noticeable improvement in the ways of working as a ground-level "influencer"
-            rather than an appointed leader.
 
     - id: fuse
       from: 2018-05

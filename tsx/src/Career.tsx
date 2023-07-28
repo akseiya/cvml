@@ -4,6 +4,7 @@ import './Career.css';
 import React, { useState } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
+import NestedMarkdown from './utils/NestedMarkdown';
 import { YAMLResume } from './utils/Resume';
 import { LinkableName } from './utils/sharedTypes';
 import { SVG } from './utils/svg';
@@ -47,32 +48,44 @@ const nameWithOptionalLink = (linkable?: LinkableName) => {
   );
 };
 
-const feshJobsNumber = 3;
+const freshJobsNumber = 3;
 
-const renderJob = (job: Job, i: number) => {
+const renderFlattableJob = (flat: boolean, job: Job, i: number) => {
   const [unfolded, setUnfolded] = useState(false);
-  const folded = !unfolded && i + 1 > feshJobsNumber;
+  const folded = !unfolded && i + 1 > freshJobsNumber;
   const unfold = () => setUnfolded(true);
+
+  const headingContent = !flat ?
+    <header>
+      <div className="unfolder" onClick={unfold}>{SVG.doubleChevronDown}</div>
+      {nameWithOptionalLink(job.position)}
+      <div>{getDuration(job)}</div>
+      {nameWithOptionalLink(job.company)}
+    </header> :
+    <h2>
+      {`${getDuration(job)}: ${job.position.name} for ${job.company.name}`}
+    </h2>;
+
   return (
     <article
       className={`job ${ folded ? 'old' : ''}`}
       key={`carrer:${job.id ?? i}`}
     >
       <a className='scrolly' id={`career-${job.id}`} />
-      <header>
-        <div className="unfolder" onClick={unfold}>{SVG.doubleChevronDown}</div>
-        <div>{getDuration(job)}</div>
-        {nameWithOptionalLink(job.company)}
-        {nameWithOptionalLink(job.position)}
-      </header>
-      <main><ReactMarkdown>{job.description}</ReactMarkdown></main>
+      {headingContent}
+      <NestedMarkdown>{job.description}</NestedMarkdown>
     </article>
   );
 };
 
+const renderJob =
+  (flat: boolean) => (job: Job, i: number) => renderFlattableJob(flat, job, i);
 
-export default function Career(props: { currentResume: YAMLResume }) {
-  const { currentResume } = props;
+export default function Career(props: {
+  currentResume: YAMLResume,
+  layoutIsFlat: boolean
+}) {
+  const { currentResume, layoutIsFlat } = props;
   const { career } = currentResume;
   const { jobs } = career ?? {};
 
@@ -84,7 +97,7 @@ export default function Career(props: { currentResume: YAMLResume }) {
       <h1>Career</h1>
       {(jobs ?? [])
         .sort(chronologically)
-        .map(renderJob)}
+        .map(renderJob(layoutIsFlat))}
     </>
   );
 }

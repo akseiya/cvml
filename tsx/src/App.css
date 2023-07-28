@@ -35,3 +35,9 @@
   padding: 1em;
   border-radius: 1em;
 }
+
+a, a:visited {
+  color: #24A;
+  background-color: rgba(34, 68, 170, 0.03);
+  border-radius: 0.6em;
+}

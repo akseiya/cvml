@@ -37,20 +37,6 @@ article.job header div {
   white-space: pre;
 }
 
-article ul,
-article ol {
-  margin-right: 1em;
-  padding-left: 1em;
-}
-
-article > ul,
-article > ol,
-article > main > ul,
-article > main > ol {
-  margin-left: 2em;
-}
-
-
 .rich article.job header div:nth-child(2) {
   flex-grow: 4;
   text-align: left;
