@@ -2,7 +2,6 @@
 import './Career.css';
 
 import React, { useState } from 'react';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 import NestedMarkdown from './utils/NestedMarkdown';
 import { YAMLResume } from './utils/Resume';
