@@ -21,6 +21,8 @@ git commit -F -
 last_commit=`git log -1 --pretty=%B`
 git push
 
+# Decide if you want auto-build.
+npm run build
 rm -rf "$ghpDir"/*
 cp -r build/* "$ghpDir"
 

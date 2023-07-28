@@ -36,8 +36,12 @@ fundamentals:
   ### especially on small phone screens.
 
   crafting since: '1999' # Without conversion, the CV won't render.
+  ### ReactMarkdown requires at least one blank line before
+  ### reference-style links definitions.
   work permits: |-
-    [UE ⇒ UK settled status](https://www.gov.uk/government/publications/eu-settlement-scheme-introduction-for-employers/eu-settlement-scheme-introduction-for-employers)
+    [UK settled][settle] UE citizen
+
+    [settle]: https://www.gov.uk/government/publications/eu-settlement-scheme-introduction-for-employers/eu-settlement-scheme-introduction-for-employers
   top position: |-
     [Head of Test Engineering](#career-fuse)
 
