@@ -86,7 +86,7 @@
 }
 
 .resume-root > header .navbar :not(:nth-last-child(1))::after {
-  content: ' :: ';
+  content: ' ● ';
 }
 
 /*

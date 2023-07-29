@@ -3,7 +3,7 @@
 ### present in this YAML (name,
 ### fundamentals, summary, career,
 ### extras), except the base64-encoded
-### photo which, due to its, size is
+### photo which, due to its size is
 ### dumped at the end.
 
 ### YAML comments are marked with triple ###
@@ -19,13 +19,8 @@
 ### the source between this and an actual
 ### source editor.
 
-email: akseiya@gmail.com # Optional
+email: akseiya@gmail.com    ### Optional
 name: Michał Lech
-
-### It's not easy to anticipate name rendering when your own
-### full name has 10 chars and a space.
-# name: Wierzchosław Przemysław Lutosławski-Wachmistrowicz
-
 
 fundamentals:
 
@@ -35,11 +30,12 @@ fundamentals:
   ### positioning. Generally, check how does your core information render,
   ### especially on small phone screens.
 
-  crafting since: '1999' # Without conversion, the CV won't render.
+  crafting since: '1999'      ### Without conversion, the CV won't render.
+
   ### ReactMarkdown requires at least one blank line before
   ### reference-style links definitions.
   work permits: |-
-    [UK settled][settle] UE citizen
+    [UK-settled][settle] UE citizen
 
     [settle]: https://www.gov.uk/government/publications/eu-settlement-scheme-introduction-for-employers/eu-settlement-scheme-introduction-for-employers
   top position: |-
@@ -52,9 +48,9 @@ summary:
   ### be used instead of "Core profile" etc.
 
   - Core profile: |-
-      Front-line leader focused on supporting his engineers for ever further growth.
+      Front line leader focused on supporting his engineers for ever further growth.
 
-      Mentor and teacher always ready to learn the digital craft anew himself *(two
+      Mentor and teacher, always ready to learn the digital craft anew himself *(two
       voluntary "demotions" so far, none regretted).*
 
       Veteran of 2 decades of every shade and flavour of software development
@@ -66,7 +62,7 @@ summary:
       * Software Quality Assistance
         * *up to building a 6-strong QE chapter within a Scaled Agile model.*
       * Software development
-        * *from Cobol+DB2 on zOS all the way to Ruby/Python/Node on k8s).*
+        * *from Cobol+DB2 on zOS all the way to Ruby / Python / Node on k8s).*
       * Ways of working and platform design and supervision
         * *implementation, tooling, spiking, preaching.*
       * Platform building and maintenance
@@ -366,9 +362,9 @@ career:
       company:
         name: '"Klub Wakacyjny"'
       position:
-        name: IT specialist
+        name: the IT  guy
       description: |-
-        IT support for a call-center in tourist scam industry
+        IT support for a call-center in touristic scam industry
 
         # Duties
 
@@ -420,7 +416,7 @@ projects:
       learning modules and their stages as navigable sequences of web pages,
       some of which can contain interactive code exercises.
 
-      The content authored in Markdown would be rendered with
+      The content authored in Markdown is rendered with
       [Showdown](https://showdownjs.com/), while code exercises have
       a bit more logic behind them (ultimately, a shell command gets executed
       in the backend to run the tests), including expected phrases and
@@ -433,7 +429,7 @@ projects:
   - Ergane: |-
       An ***almost*** run-of-the-mill, project-aligned, E2E testing framework.
 
-      Written in Python with *Behave* and *Request* for BT's [Athena/Vena
+      Written in Python with *Behave* and *Request* for BT's [Athena / Vena
       project](#career-athena).
 
       Designed for boilerplate minimisation when extending, not just for page objects,
@@ -476,40 +472,35 @@ extras:
       * Japanese art & culture;
       * religions and mythologies.
   - Technologies: |-
-      * fresh / reflexive
-        * code core
-          * Node.js, Python (no Django), Ruby off Rails
-        * the Web
-          * HTML, CSS, JS, HAML, jQ, React
-          * REST with its cousins and friends (Eve, Express.js, Swagger, RAML)
-        * testing
-          * Cucumber (.js, Behave, Ruby)
-          * Pact.js
-          * Jest, Mocha
-          * WDIO, Playwright, Selenium
-        * systems, devops
-          * POSIX (admin/scriptmaster) and Windows (power user who enables WSL anyway)
-          * Open Blue Ocean (Jenkins)
-        * administration
-          * JIRA, TestRail, Confluence
-      * rusty / unmastered
-        * code core
-          * C#, PHP, Visual Basic
-          * *(very rusty):* COBOL, JCL, C++
-        * the Web
-          * Sinatra, Grape, Rake
-          * RAML
-        * testing
-          * rSpec, Capybara, sitePrism
-          * Browserstack, Saucelabs
-        * persistence
-          * pure SQL, postgres
-          * Sequel and DataMapper, Oracle procs, DB2 with tooling
-        * systems, devops
-          * gitLab CI/CD (in-depth), Docker, Helm, k8s, Jenkins, Go Pipelines
-          * *(very rusty):* TSO/ISPF/SDSF, Control-M, CICS, Serena, Xpediter
-        * administration
-          * Azure devOps
+      # Fresh / reflexive
+      * code core
+        * Node.js, Python (no Django), Ruby off Rails
+      * the Web
+        * HTML, CSS, JS, HAML, jQ, React.js
+        * REST with its cousins and friends (Eve, Express.js, Swagger)
+      * testing
+        * Cucumber (.js, Behave, Ruby), Jest, Mocha
+        * Pact.js, WDIO, Playwright, Selenium
+      * systems, devops
+        * POSIX *(admin/scriptmaster)* and Windows *(power user who enables WSL anyway)*
+        * Open Blue Ocean (Jenkins)
+      * administration
+        * JIRA, TestRail, Confluence, Trakstar
+      # Rusty / unmastered
+      * code core
+        * C#, PHP, COBOL, C[++], Visual Basic
+      * the Web
+        * Sinatra, RAML
+      * testing
+        * rSpec, Capybara, sitePrism
+        * Browserstack, Saucelabs
+      * persistence
+        * pure SQL, postgres, Sequel and DataMapper, Oracle procs, DB2 with tooling
+      * systems, devops
+        * gitLab CI/CD (in-depth), Docker, Helm, k8s, deep Jenkins, Go Pipelines
+        * *(**very** rusty):* TSO/ISPF, Control-M, CICS, JCL, Serena, Xpediter
+      * administration
+        * Azure devOps
 ### Even at 147px size and with EXIF, thumbnail etc cut out, this is
 ### kilobytes large. Do bear this in mind when adding your own photo.
 photo:

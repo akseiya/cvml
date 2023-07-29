@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "Cabin";
+  src: url("/public/fonts/Cabin-VariableFont_wdth,wght.ttf");
+}
+
 body {
   background-color: white;
   margin: 0;
-  font-family: Cabin, sans-serif;
+  font-family: "Cabin", sans-serif;
+  font-style: normal;
   font-size: 110%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

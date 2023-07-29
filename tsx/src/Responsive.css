@@ -36,6 +36,6 @@ under the main heading .pagetop
   }
 }
 
-@media screen and (max-width: 20em) {
+@media screen and (max-width: 26em) {
   .navbar { display: none }
 }
