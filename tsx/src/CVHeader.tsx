@@ -3,7 +3,7 @@ import './CVHeader.css';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { resume, YAMLResume } from './utils/Resume';
+import { resume, YAMLResume } from './utils/resume';
 import { SVG } from './utils/svg';
 
 const email = (email: string) =>

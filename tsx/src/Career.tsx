@@ -4,7 +4,7 @@ import './Career.css';
 import React, { useState } from 'react';
 
 import NestedMarkdown from './utils/NestedMarkdown';
-import { YAMLResume } from './utils/Resume';
+import { YAMLResume } from './utils/resume';
 import { LinkableName } from './utils/sharedTypes';
 import { SVG } from './utils/svg';
 

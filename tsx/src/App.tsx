@@ -5,40 +5,47 @@ import 'animate.css';
 import './App.css';
 import './App.mainblocks.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useReducer } from 'react';
 
 import Career from './Career';
 import CVHeader from './CVHeader';
-import MainMenu from './components/MainMenu/MainMenu';
+import { MainMenu, YAMLEditor } from './components';
 import { renderSummaryItem } from './Summary';
-import { resume } from './utils/Resume';
-import YAMLEditor from './components/YAMLEditor/YAMLEditor';
+import { resume } from './utils/resume';
 
 import './Responsive.css';
+import { updateYAMLHistory } from './utils/reducers';
+import { emptyYAMLHistory } from './utils/contexts';
 
-const emptyYamlHistory: string[] = [];
+const nonReducedEmptyYamlHistory: string[] = [];
 
 export default function App() {
+  const [yamlHistory, yamlDispatch] = useReducer(
+    updateYAMLHistory,
+    emptyYAMLHistory
+  );
+
   const [currentResume, setCurrentResume] = resume.useState();
 
   const [layoutIsFlat, setLayoutIsFlat] = useState(false);
-  const flipFlatLayout = () => {
-    setLayoutIsFlat(!layoutIsFlat);
-  };
-  const [editorActive, setEditorActive] = useState(false);
+  const [editorIsActive, setEditorIsActive] = useState(false);
+  const [burgerWasClicked, setBurgerWasClicked] = useState(true);
+  const [nrYAMLHistory, setNrYAMLHistory] = useState(nonReducedEmptyYamlHistory);
 
-  const [yamlHistory, setYamlHistory] = useState(emptyYamlHistory);
+  const flipFlatLayout = () => { setLayoutIsFlat(!layoutIsFlat); };
+  const closeEditor = () => { setEditorIsActive(false); };
+  const openEditor = () => { setEditorIsActive(true); };
 
   const applyYAML = (YAML: string) => {
     if (!YAML) return; // to avoid the destructive "Undo"
-    setYamlHistory([...yamlHistory, currentResume.source]);
+    setNrYAMLHistory([...nrYAMLHistory, currentResume.source]);
     resume.loadData(YAML, setCurrentResume);
   };
 
-  const undoYAMLChange = yamlHistory.length ? () => {
-    const newYamlHistory = [...yamlHistory];
+  const undoYAMLChange = nrYAMLHistory.length ? () => {
+    const newYamlHistory = [...nrYAMLHistory];
     applyYAML(newYamlHistory.pop() as string);
-    setYamlHistory(newYamlHistory);
+    setNrYAMLHistory(newYamlHistory);
   } : false;
 
   useEffect(() => {
@@ -52,8 +59,14 @@ export default function App() {
   if(!currentResume.career) return (<div/>);
   document.title = `Editable Resume: ${currentResume.name}`;
 
-  if(editorActive) return (
-    <YAMLEditor {...{currentResume, applyYAML, setEditorActive}}/>
+  if(editorIsActive) return (
+    <YAMLEditor {...{
+      currentResume,
+      applyYAML,
+      closeEditor,
+      yamlHistory,
+      yamlDispatch
+    }}/>
   );
 
   return (
@@ -81,7 +94,9 @@ export default function App() {
         layoutIsFlat,
         flipFlatLayout,
         undoYAMLChange,
-        activateEditor: () => setEditorActive(true)
+        openEditor,
+        burgerWasClicked,
+        setBurgerWasClicked
       }}/>
     </>
   );

@@ -5,14 +5,14 @@ import { Job } from '../Career';
 import httpClient from '../http/client';
 import { SummaryItem } from '../Summary';
 
-interface ResumePhoto {
+type ResumePhoto = {
   base64: string;
   width: string;
   height: string;
   type: string;
 }
 
-export interface YAMLResume {
+export type YAMLResume = {
   photo?: ResumePhoto;
   name: string;
   email?: string;

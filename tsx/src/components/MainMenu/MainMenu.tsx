@@ -7,10 +7,12 @@ import { SVG } from '../../utils/svg';
 
 type TrivialFunction = () => void;
 type MainMenuProps = {
-  flipFlatLayout: TrivialFunction,
-  activateEditor: TrivialFunction,
-  undoYAMLChange: TrivialFunction | boolean
   layoutIsFlat: boolean;
+  flipFlatLayout: TrivialFunction,
+  openEditor: TrivialFunction,
+  undoYAMLChange: TrivialFunction | boolean,
+  burgerWasClicked: boolean,
+  setBurgerWasClicked: React.Dispatch<React.SetStateAction<boolean>>
 };
 
 const homeArrow = () =>
@@ -21,17 +23,23 @@ const homeArrow = () =>
   </div>;
 
 // eslint-disable-next-line react/no-unused-prop-types
-export default function MainMenu(props: MainMenuProps) {
+export function MainMenu(props: MainMenuProps) {
   const {
     flipFlatLayout,
-    activateEditor,
+    openEditor,
     undoYAMLChange,
-    layoutIsFlat
+    layoutIsFlat,
+    burgerWasClicked,
+    setBurgerWasClicked
   } = props;
 
   const [ unfolded, setUnfolded ] = useState(false);
 
-  const unfold = () => setUnfolded(true);
+  const unfold = () => {
+    setBurgerWasClicked(false);
+    setUnfolded(true);
+  };
+
   const fold = (action?: TrivialFunction) => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const fader: HTMLElement = document.getElementById('main-menu')!;
@@ -60,16 +68,17 @@ export default function MainMenu(props: MainMenuProps) {
       <div onClick={() => fold(() => flipFlatLayout())}>
         { layoutIsFlat ? unflattenDiv : flattenDiv }
       </div>
-      <div onClick={() => fold(() => activateEditor())}>
+      <div onClick={() => fold(() => openEditor())}>
         {SVG.vectorPen}
         <div>edit YAML source</div>        
       </div>
       {undoDiv}
     </div>;
 
-  const burger = <div className='pulse-me' id='burger' onClick={unfold}>
-    {SVG.burgerMenu}
-  </div>;
+  const burger = 
+    <div className={burgerWasClicked ? 'pulse-me' : ''} id='burger' onClick={unfold}>
+      {SVG.burgerMenu}
+    </div>;
 
   return unfolded ?
     <>

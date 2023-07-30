@@ -11,7 +11,11 @@
 ### apart from headers in embedded Markdown
 ### (except <h3> - if you want <h3>-s in
 ### your MD blocks, you might want to get
-### rid of the YAML comments first).
+### rid of the YAML comments first). BTW,
+### Markdown rendered in panels will automatically
+### downgrade the headers by 2 stops for
+### Writer/Word exportability (that is,
+### "# Big Header" will render as a <h3>)
 
 ### Generally, a basic <textarea> is not
 ### a great YAML/Markdown editor, you
