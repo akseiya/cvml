@@ -1,12 +1,24 @@
 import React from 'react';
 
-const arrowCCW = () =>
-  <svg className="bi bi-arrow-counterclockwise" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" fillRule="evenodd"/>
-    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+const arrowCCW = () =>  
+  <svg baseProfile="full" enableBackground="new 0 0 76.00 76.00" fill="currentColor" version="1.1" viewBox="0 0 76 76" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVG_arrCCW_bgCarrier" strokeWidth="0" />
+    <g id="SVG_arrCCW_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+    <g id="SVG_arrCCW_iconCarrier"> 
+      <path d="M 19,57L 34,57L 34,42L 28.8076,47.1924C 26.4551,44.8399 25,41.5899 25,38C 25,30.8203 30.8203,25 38,25C 45.1797,25 51,30.8203 51,38C 51,42.6137 48.5965,46.6661 44.9734,48.9734L 49.2862,53.2862C 53.9658,49.8254 57,44.2671 57,38C 57,27.5066 48.4934,19 38,19C 27.5066,19 19,27.5066 19,38C 19,43.2467 21.1266,47.9967 24.565,51.435L 19,57 Z " fill="#000000" fillOpacity="1" strokeLinejoin="round" strokeWidth="0.2" /> 
+    </g>
   </svg>;
 
-const arrowBarDown = () =>
+const arrowCW = () =>
+  <svg baseProfile="full" enableBackground="new 0 0 76.00 76.00" fill="currentColor" version="1.1" viewBox="0 0 76 76" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVG_arrCW_bgCarrier" strokeWidth="0" />
+    <g id="SVG_arrCW_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+    <g id="SVG_arrCW_iconCarrier"> 
+      <path d="M 57,57L 42,57L 42,42L 47.1924,47.1924C 49.5449,44.8399 51,41.5899 51,38C 51,30.8203 45.1797,25 38,25C 30.8203,25 25,30.8203 25,38C 25,42.6137 27.4035,46.6661 31.0266,48.9734L 26.7138,53.2862C 22.0342,49.8254 19,44.2671 19,38C 19,27.5066 27.5066,19 38,19C 48.4934,19 57,27.5066 57,38C 57,43.2467 54.8734,47.9967 51.435,51.435L 57,57 Z " fill="#000000" fillOpacity="1" strokeLinejoin="round" strokeWidth="0.2" /> 
+    </g>
+  </svg>;
+
+const arrowBarDown = () =>  
   <svg className="bi bi-arrow-bar-down" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
     <path d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z" fillRule="evenodd"/>
   </svg>;
@@ -61,6 +73,7 @@ const envelope = () =>
 
 export const SVG = {
   get arrowCCW()          { return arrowCCW();          },
+  get arrowCW()           { return arrowCW();           },
   get arrowBarDown()      { return arrowBarDown();      },
   get doubleChevronDown() { return doubleChevronDown(); },
   get fatArrowUp()        { return fatArrowUp();        },

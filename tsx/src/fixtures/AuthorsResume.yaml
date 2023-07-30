@@ -1,0 +1,618 @@
+### The code currently tries to render
+### the main sections in the order
+### present in this YAML (name,
+### fundamentals, summary, career,
+### extras), except the base64-encoded
+### photo which, due to its size is
+### dumped at the end.
+
+### YAML comments are marked with triple ###
+### to make them slightly easier to tell
+### apart from headers in embedded Markdown
+### (except <h3> - if you want <h3>-s in
+### your MD blocks, you might want to get
+### rid of the YAML comments first). BTW,
+### Markdown rendered in panels will automatically
+### downgrade the headers by 2 stops for
+### Writer/Word exportability (that is,
+### "# Big Header" will render as a <h3>)
+
+### Generally, a basic <textarea> is not
+### a great YAML/Markdown editor, you
+### probably will be better off copypasting
+### the source between this and an actual
+### source editor.
+
+email: akseiya@gmail.com    ### Optional
+name: Michał Lech
+
+fundamentals:
+
+  ### These can actually be any header/content pairs with plain text headers
+  ### and Markdown content, just bear in mind that a long header or content
+  ### can overflow lines and interfere with the header's fixed (non-scrolling)
+  ### positioning. Generally, check how does your core information render,
+  ### especially on small phone screens.
+
+  crafting since: '1999'      ### Without conversion, the CV won't render.
+
+  ### ReactMarkdown requires at least one blank line before
+  ### reference-style links definitions.
+  work permits: |-
+    [UK-settled][settle] UE citizen
+
+    [settle]: https://www.gov.uk/government/publications/eu-settlement-scheme-introduction-for-employers/eu-settlement-scheme-introduction-for-employers
+  top position: |-
+    [Head of Test Engineering](#career-fuse)
+
+summary:
+
+  ### This is supposed to be a freeform introduction, that is the list of items
+  ### will be rendered as provided here - that is any plain text headers can
+  ### be used instead of "Core profile" etc.
+
+  - Core profile: |-
+      Front line leader focused on supporting his engineers for ever further growth.
+
+      Mentor and teacher, always ready to learn the digital craft anew himself *(two
+      voluntary "demotions" so far, none regretted).*
+
+      Veteran of 2 decades of every shade and flavour of software development
+      in applications from military HR through finance to video production.
+
+      Troubleshooter, performance profiler, batch-, net- and DB-admin.
+
+  - Areas of competence: |-
+      * Software Quality Assistance
+        * *up to building a 6-strong QE chapter within a Scaled Agile model.*
+      * Software development
+        * *from Cobol+DB2 on zOS all the way to Ruby / Python / Node on k8s).*
+      * Ways of working and platform design and supervision
+        * *implementation, tooling, spiking, preaching.*
+      * Platform building and maintenance
+        * *from z/OS's Control-M long ago to gitLab CI/CD recently.*
+
+  - Business applications: |-
+      # Social media and education
+        *   User activities and interactions with tracking and analysis (Fuse)
+      # Fintech
+        *   Reconciliation ([DuCo](#career-duco))
+        *   Cash markets ([NYSET](#career-nyse))
+        *   Derivatives trading support ([Pramerica](#career-pramerica))
+        *   Banking systems ([Softbank](#career-softbank))
+      # Video production
+        *   In the cloud! ([AFrame](#career-aframe))
+
+### Job history items have flex headers while ReactMarkdown wants to use <p>-s,
+### hence the {company: {name: xxx, link: yyy}} structure used instead of
+### allowing Markdown links like in `fundamentals`.
+
+career:
+  title: Career
+  jobs:
+      ### Athena project listed out of order as it happens to use all options
+      ### for specifying a job
+    - id: athena       ### Each job panel is preceded with a `#career-${id}` anchor.
+      from: 2020-04-01 ### Day of the month is ignored in default format anyway!
+      to: 2021-10      ### When this is omitted, timing is rendered as "since Mon YYYY"
+      company:
+        name: British Telecom (outside IR35)
+        link: https://www.mediaandbroadcast.bt.com/vena.html  ### Optional
+      position:
+        name: SDET
+        link: https://testguild.com/sdet/                     ### Optional
+      description: |-
+        Contracting as Hariel Imamiah Ltd for BT's Athena ("Vena") project.
+
+        # Stuff done
+
+        1.  Retiring a contraption based on Robot Framework (a perfect silo) and
+            replacing it with a squad-maintained CCIT suite. This was my nominal
+            job which took a few sprints since it needed to be in Java.
+        1.  Creating a well received E2E testing framework in Python, [Ergane](#ergane)
+        1.  The devops side: deployment scripts (k8s), Helm charts and gitLab CI/CD
+            workflows, auxiliary tools (standalone mocks, proxies etc).
+        1.  BDD and shift-left evangelism in the squad and around it, including
+            introduction of Cucumber and Pact. It was my first instance of achieving
+            a noticeable improvement in the ways of working as a ground-level "influencer"
+            rather than an appointed leader.
+
+    - id: GR
+      from: 2023-03-13
+      to: 2023-06-30
+      company:
+        name: Global Relay
+        ### link: optional
+        link: https://www.glassdoor.co.uk/Reviews/Global-Relay-Reviews-E295588.htm?sort.sortType=OR&sort.ascending=true&filter.iso3Language=eng#ReviewsFeed
+      position:
+        ### Usual YAML caveats - to have quotes, you need more quotes
+        name: '"Lead SDET"'
+      ### Markdown to be rendered with ReactMarkdown (so no raw tags and no entities),
+      ### probably will migrate to Showdown for some flexibility.
+      description: |-
+        # Duties
+
+        1.  Line management as per the corporate policies (including use of Trakstar
+            for regulated performance tracking and reviews including peer ratings).
+        1.  Serving as the testing Amigo, trying to drive the shift-left in the pod.
+        1.  Creating and refactoring testing frameworks and scripts (Pact.js, WDIO,
+            Cucumber, Jest, Playwright).
+        1.  Spikes and research, sharing the results and propositions with the pod
+            and the Quality Guild.
+
+        ## *"Why did you quit **that** fast?"*
+
+        It turned out my leadership was of ephemeral nature: the
+        ways-of-working standards, painstakingly worked out between the 3 Amigos
+        and the rest of the pod got abruptly overturned by a mid-level manager
+        without asking me any questions or providing any explanations.
+
+    - id: shred
+      from: 2022-11
+      to:   2023-01
+      company:
+        name: Schroders (inside IR35)
+        link: https://www.schroders.com/en/global/individual/contact-us/worldwide-locations/uk/
+      position:
+        name: QE learning lead
+      description: |-
+        # Description
+
+        Initially an attempt to liaise between 3 parties to deliver
+        a learning project with associated materials and processes. After
+        communications with the customer contact collapsing, I focused on
+        creating
+        * a [code exercises sandbox](#the_w3schools_wannabe) inspired by W3Schools and
+        * the first learning module delivered by it.
+
+        The project served as a clear indication where my consultancy and management
+        skills have their limits. That is: I don't really function well as an
+        unsupported hub with high-difficulty partners on all sides. I need
+        at least one solid wall to put my back against.
+
+    - id: fuse
+      from: 2018-05
+      to: 2019-12
+      company:
+        name: Fuse Universal
+        link: http://fuseuniversal.com/
+      position:
+        name: Head of Test Engineering
+      description: |-
+        # Summary
+
+        I converted an ailing QA team into a functional Test Engineering chapter
+        in a Scaling Agile model.
+
+        The process involved:
+        * defining roles and development paths for my engineers, then training them
+          in the skills required to progress on those paths;
+        * identifying my engineers' individual strengths and leveraging them,
+          adjusting their deployment to squads as needs changed;
+        * working closely with Product Lead developing BDD practices across the
+          prod/tech teams and then fleshing out the squad-specific details with product
+          owners;
+        * contributing to the evolving Scaling Agile model, including some of
+          the company's first OKR's;
+        * steering the development of technical tools to keep the processes going
+          smoothly, delegating as much of coding as possible to the engineers (against
+          my natural tendencies which would interfere with my engineers' growth).
+
+        # Results
+
+        QA team with 2 permanent employees trying to move to Front End Development became
+        a Test Engineering chapter with 2 contractors considered indispensable by their
+        squads and 4 permanent engineers contributing to constant improvement of the product
+        and their own skillsets, be it learning to create E2E frameworks, harnessing mobile
+        testing regimes or using psychological wiles to sway the least BDD-open of product
+        owners.
+
+        Unit test coverage for front-end code became an actual tracked parameter
+        and jumped to over 70% within a few months since our initial spiking sessions
+        for Mocha/Chai and React tools for testing.
+
+    - id: duco
+      from: 2016-05
+      to: 2016-12
+      company:
+        name: DuCo
+        link: https://du.co
+      position:
+        name: QA Engineer
+      description: |-
+        A pre-mature attempt to deliver vision and strategy for a young startup's
+        Quality Engineering. While I managed to deliver a bunch of nifty tools and
+        processes, I resigned after realising I don't really have much of a vision
+        to share just yet.
+
+        # Duties
+
+        * Evolution of the [non]-"smoke" testing pipeline from Aframe, redesigned for much
+          easier developer onboarding (by pairing with several prospective victims),
+          re-wired to depend less on Selenium WebDriver capabilities and finally, fully
+          integrated with existing development process in Bamboo. Delivery included
+          installation scripts for local runs of the suite, Bamboo plans to allow remote
+          use and training sessions for the team, from generic introduction to problem
+          solving descents and troubleshooting approach.
+        * High-level design and initial coding of the framework for multi-tenancy isolation
+          testing.
+        * High-level design for the actual smoke tests of production infrastructure and
+          its staging copy.
+        * Tracking and helping the developers' work during release testing rushes.
+          This included a test sheet in Google Docs, which initial content was imported
+          from JIRA with a Capybara script (as opposed to using actual import facilities
+          which would mark accepting of Google Docs as a decent test tracking tool).
+
+    - id: ctm
+      from: 2017-04
+      to: 2018-01
+      company:
+        name: Compare the Market
+        link: https://comparethemarket.com
+      position:
+        name: SDET
+      description: |-
+        Bringing agile ways of working from London start-ups to a corporate environment.
+
+        # Stuff done
+
+        1.  Deep refactoring and expansion of the sketch of Rewards Team's end-to-end
+            regression suite, including running it against SauceLabs and within Amazon EC
+            boxes orchestrated with Go Pipelines with Chrome and XVFB.
+        1.  Spiking use of Pact.js as a contract testing as part of my work for
+            the Testing Function in CtM.
+        1.  Dogged insistence on keeping some basic principles of software development
+            with agility.
+        1.  Preaching BDD to anyone and everyone.
+        1.  Calling the 3 Amigos sessions and playing the role of product owner, business
+            analyst and the SDET while also reminding about the need for requirements
+            to be expressed before the code gets written.
+        1.  Reviewing Pull Requests from QA PoV.
+        1.  Finding compromises between company-wide official Immunisation scorecard
+            for code quality and my squad's tech leads' fear of innovation.
+
+    - id: aframe
+      from: 2012-09
+      to: 2016-02
+      company:
+        name: Aframe
+      position:
+        name: senior QA analyst
+      description: |-
+        A somewhat unstable path from a backend Ruby developer to QA "team founder"
+        and then back to part-time developer - part-time QA.
+
+        # Duties
+
+        1.  Typical start-up mad coding, from professional video format metatags parsers
+            to REST-ful'ish microservices, all tested BDD-style with rSpec.
+        1.  Creation of acceptance tests platform, the wrongly named "Smoke" - both
+            as a single replica of production system running the most reliable set of tests
+            via load balancers etc., and as much smaller scale boxes contained each within
+            a single Linux box.
+        1.  Complementing the platform with a custom Git workflow standing in for a part
+            of a CI/CD pipeline we did not exactly have at the time.
+        1.  Optimising my position out of the system by starting a process of transition
+            back towards testing fully distributed among the developers.
+
+    - id: nyse
+      from: 2010-08
+      to: 2012-09
+      company:
+        name: New York Stock Exchange Technologies
+      position:
+        name: senior QA analyst
+      description: |-
+        Quality Assurance for several projects related to Market Data and Trading Platforms.
+
+        # Duties
+
+        * developing tools for difficult environments automation and test [data
+        crunching](#orion);
+        * designing and implementing a cluster taskmaster/logbot engine
+          for performance tests;
+        * results synthesis across up to a 1000 boxes with self-developed
+          gnuplot/Web script;
+
+    - id: pramerica
+      from: 2007-12
+      to: 2010-02
+      company:
+        name: Pramerica Systems Ireland
+      position:
+        name: systems tester
+      description: |-
+        Quality Assurance for Global Derivatives project of Prudential Bache Commodities.
+
+        # Duties
+
+        * Analysis and proposals of business requirements for corporate software;
+        * devising test scenarios and cases basing on the requirements;
+        * conducting the tests following the prepared scripts;
+        * analysis of test results, presenting conclusions, proposing solutions
+          and workarounds;
+        * tooling created as WSH JS scripts, Java compilates and Quality Center scripts
+          in Visual Basic (hired as a manual tester I had no access to normal tools).
+
+    - id: softbank
+      from: 2004-10
+      to: 2007-10
+      company:
+        name: Softbank SA
+        link: https://pl.asseco.com/en
+        location: Warsaw
+      position:
+        name: senior systems designer
+      description: |-
+        From not-even-a-graduate to a tech lead for 3 graduates.
+
+        # Duties
+
+        * Analysis of customer requirements and designing solutions;
+        * creating high level designs basing on solution designs;
+        * designing and supervising designs of components basing on high level designs;
+        * coding and testing the components and solutions;
+        * supervising the whole solution development process;
+        * supervising and managing team's documents library;
+        * developing tests, documents and coding standards;
+        * developing auxiliary tool for programmers;
+        * analysis of existing code, performance tuning, code tweaks;
+        * support for batch processing;
+        * designing and delivering trainings for project newcomers.
+
+    - id: wakac
+      from: "2002"
+      to: "2003"
+      company:
+        name: '"Klub Wakacyjny"'
+      position:
+        name: the IT  guy
+      description: |-
+        IT support for a call-center in touristic scam industry
+
+        # Duties
+
+        * Linux/Windows network and workstations administration and service
+          internal helpdesk;
+        * conducting a text spam campaign using data scrapping and web automation;
+        * web design and office support.
+
+    - id: csopl
+      from: 2001-01
+      to: 2001-12
+      company:
+        name: Air Defence Training Centre
+        location: Koszalin
+      position:
+        name: '"staff private"'
+      description: |-
+        Compulsory military service
+
+        # Duties
+
+        * Internal helpdesk and office support
+          * *including creation of a 120MB flashy PowerPoint presentation*;
+        * writing down the Daily Order of the School Commander
+          * *using a FoxPro app and a holidays tracking app of my own (Borland Vision)*;
+        * support for soldiers distribution after initial training (military HR).
+
+### Just like "Summary", this is a series of free-form blocks.
+### For now, the navbar generation is hardcoded to use this, so think
+### of at least one project to brag about.
+
+projects:
+  - CVML: |-
+      This resume is a YAML document rendered with React.
+
+      Use the hamburger icon **≡** in the top right corner to
+      ***edit the YAML*** source and change currently rendered content.
+
+      As long as the main sections (`name`, `fundamentals`,
+      `summary`, `career`, `projects`, `extras`) are present and
+      the format is conserved, any compatible data can be rendered,
+      including your own CV.
+
+      Under development. Future ideas will be added to its
+      [README](https://github.com/akseiya/cvml/tree/main/tsx#readme).
+
+  - The W3Schools wannabe: |-
+      A jQuery-based course delivery system, working with concept of
+      learning modules and their stages as navigable sequences of web pages,
+      some of which can contain interactive code exercises.
+
+      The content authored in Markdown is rendered with
+      [Showdown](https://showdownjs.com/), while code exercises have
+      a bit more logic behind them (ultimately, a shell command gets executed
+      in the backend to run the tests), including expected phrases and
+      hints for the learner as well as basic protection against `rm -rf /`
+      and similar shenanigans.
+
+      The exercise delivered while implementing the framework prototype is "API Testing
+      in C#", made for [Coforge](#career-shred).
+
+  - Ergane: |-
+      An ***almost*** run-of-the-mill, project-aligned, E2E testing framework.
+
+      Written in Python with *Behave* and *Request* for BT's [Athena / Vena
+      project](#career-athena).
+
+      Designed for boilerplate minimisation when extending, not just for page objects,
+      but - more importantly - for cluster-specific Vault paths, hostnames etc - leading
+      to a situation where typically adding support for a new API meant specifying
+      the core of its name.
+
+      A cascase of gradual overrides made sure that "rebels" and legacy code required
+      merciful amounts of extra code.
+
+      The framework came with tailored workflow and associated GitLab CI/CD pipeline
+      stages, including a way to run super-slow overnight e2e tests with physical
+      Juniper routers, a HA-Proxy instance allowing use of the same
+      cluster for internal and external E2E regimes, finally cross-poject hooks in
+      the pipelines to work around the missing budget for full GitLab license.
+
+  - Orion: |-
+      ...a.k.a. [NYSE's](#career-nyse) Next Generation Market Data System.
+
+      My chief effort was extensive scripting in Python, including:
+      * The Universal Playback Parser (**UPP**) for wide variety of market data formats,
+        from delimited ASCII to pure binary.
+        * The parser used CSV exports of business requirements (sheets with fields'
+        meaning) and a symbol-based language for specifying the feed's underlying
+        format.
+      * The Pretty Printer script filtering and presenting the UPP-decoded market
+        data in usable formats (JSON or human-readable).
+      * Automatic data checker, using the UPP to parse north and south side data:
+        * simulates key parts of Orion's functionality using a CSV spreadsheet with
+          mappings of messages, fields and logical conditions;
+        * scans current message routing configuration (XML) and simulates proper routing
+        * compares resulting data streams and reports items lost, modified and unexpected.
+
+### Again, a series of free-form blocks.
+
+extras:
+  - Interests and hobbies: |-
+      * Gaming and [coding](https://github.com/akseiya);
+      * [photography](http://akseiya.deviantart.com/), music and literature;
+      * Japanese art & culture;
+      * religions and mythologies.
+  - Technologies: |-
+      # Fresh / reflexive
+      * code core
+        * Node.js, Python (no Django), Ruby off Rails
+      * the Web
+        * HTML, CSS, JS, HAML, jQ, React.js
+        * REST with its cousins and friends (Eve, Express.js, Swagger)
+      * testing
+        * Cucumber (.js, Behave, Ruby), Jest, Mocha
+        * Pact.js, WDIO, Playwright, Selenium
+      * systems, devops
+        * POSIX *(admin/scriptmaster)* and Windows *(power user who enables WSL anyway)*
+        * Open Blue Ocean (Jenkins)
+      * administration
+        * JIRA, TestRail, Confluence, Trakstar
+      # Rusty / unmastered
+      * code core
+        * C#, PHP, COBOL, C[++], Visual Basic
+      * the Web
+        * Sinatra, RAML
+      * testing
+        * rSpec, Capybara, sitePrism
+        * Browserstack, Saucelabs
+      * persistence
+        * pure SQL, postgres, Sequel and DataMapper, Oracle procs, DB2 with tooling
+      * systems, devops
+        * gitLab CI/CD (in-depth), Docker, Helm, k8s, deep Jenkins, Go Pipelines
+        * *(**very** rusty):* TSO/ISPF, Control-M, CICS, JCL, Serena, Xpediter
+      * administration
+        * Azure devOps
+### Even at 147px size and with EXIF, thumbnail etc cut out, this is
+### kilobytes large. Do bear this in mind when adding your own photo.
+photo:
+  width: 147px
+  height: 147px
+  type: image/jpeg
+  base64: |-
+    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
+    4iYfH8w/Q+zNkqdtZfP4m1zLe5//2Q==

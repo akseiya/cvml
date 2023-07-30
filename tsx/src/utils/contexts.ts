@@ -1,10 +1,5 @@
 import { createContext } from 'react';
 
-import { YAMLHistoryObject } from './sharedTypes';
+import { YAMLHistory } from '../data/YAMLHistory';
 
-export const emptyYAMLHistory: YAMLHistoryObject = {
-  current: -1,
-  versions: []
-};
-
-export const yamlHistory = createContext(emptyYAMLHistory);
+export const crateYAMLHistoryContext = createContext(YAMLHistory.createEmpty());

@@ -1,35 +1,21 @@
-import { YAMLHistoryChange, YAMLHistoryObject } from './sharedTypes';
-
-const yhUndo = (
-  history: YAMLHistoryObject,
-) => {
-  if (history.current < 1) throw 'No more undos, why button drawn?';
-  history.current--;
-};
-
-const yhUpdate = (
-  history: YAMLHistoryObject,
-  newContent: string
-) => {
-  const { versions, current } = history;
-  const cutUndos = versions.slice(0, current + 1);
-  history.versions = [...cutUndos, newContent];
-  history.current++;
-};
+import {
+  YAMLHistory,
+  YAMLHistoryChange,
+  YAMLHistoryData
+} from '../data/YAMLHistory';
 
 export const updateYAMLHistory = (
-  history: YAMLHistoryObject,
+  history: YAMLHistoryData,
   action: YAMLHistoryChange
-): YAMLHistoryObject => {
-  const newHistory = {...history};
+): YAMLHistoryData => {
   switch(action.type) {
-  case 'undo':  yhUndo(newHistory); break;
-  case 'update':
-    if(!action.newContent) throw 'A YAML update needs to exist';
-    yhUpdate(newHistory, action.newContent);
-    break;
+  case 'undo':   return YAMLHistory.undo(history);
+  case 'redo':   return YAMLHistory.redo(history);
+  case 'update': return YAMLHistory.update(history, action.newContent);
+  // 'update' dispatch cannot be used, as it adds a new version to the list
+  // which leads to double addition in Strict mode dev server!
+  case 'load-default': return YAMLHistory.setToSingleVersion(action.newContent);
   default:
     throw `Invalid YAML history action: ${action.type}`;
   }
-  return newHistory;
 };

@@ -1,37 +1,33 @@
 /* eslint-disable react/jsx-no-bind */
 import './YAMLEditor.css';
 
-import { formToJSON } from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 
-import { YAMLResume } from '../../utils/resume';
-import { YAMLHistoryChange, YAMLHistoryObject } from '../../utils/sharedTypes';
+import {
+  YAMLHistory,
+  YAMLHistoryChange,
+  YAMLHistoryData
+} from '../../data/YAMLHistory';
 
 export type YAMLEditorProps = {
-  currentResume: YAMLResume,
-  applyYAML: (YAML: string) => void,
   closeEditor: () => void,
-  yamlHistory: YAMLHistoryObject,
+  yamlHistory: YAMLHistoryData,
   yamlDispatch: React.Dispatch<YAMLHistoryChange>
 };
 
 export function YAMLEditor(props: YAMLEditorProps) {
   const { 
-    currentResume,
-    applyYAML,
     closeEditor,
     yamlHistory,
     yamlDispatch
   } = props;
 
-  const currentYAML = yamlHistory.versions[yamlHistory.current];
-
+  const currentYAML = YAMLHistory.getCurrent(yamlHistory);
   /*
   YAML text is dozen+ kB. There is not a lot to be gained from
   it being either state or ref updated on textarea change, but it
   does cost a hook update weighing dozen+ kB.
   */
-  // const [ newYAML, setNewYAML ] = useState(currentYAML);
   const editArea = () => document.getElementsByTagName('textarea')[0];
   const apply = () => {
     const editedYAML = editArea().value;
@@ -41,15 +37,11 @@ export function YAMLEditor(props: YAMLEditorProps) {
       newContent: editedYAML
     };
     yamlDispatch(update);
-
-    // FIXME: to be factored out
-    applyYAML(editedYAML);
-
     closeEditor();
   };
   const cancel = () => closeEditor();
   const restore = () => {
-    editArea().value = currentResume.source;
+    editArea().value = currentYAML;
   };
 
   return (
@@ -59,7 +51,7 @@ export function YAMLEditor(props: YAMLEditorProps) {
         <button onClick={cancel} type="button">Cancel</button>
         <button onClick={restore} type="button">Restore</button>
       </div>
-      <textarea defaultValue={currentResume.source}/>
+      <textarea defaultValue={currentYAML}/>
     </div>
   );
 }

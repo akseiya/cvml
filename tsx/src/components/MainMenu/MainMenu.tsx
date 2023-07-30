@@ -3,6 +3,7 @@ import './MainMenu.css';
 
 import React, { useState } from 'react';
 
+import { YAMLHistory, YAMLHistoryChange, YAMLHistoryData } from '../../data/YAMLHistory';
 import { SVG } from '../../utils/svg';
 
 type TrivialFunction = () => void;
@@ -10,7 +11,9 @@ type MainMenuProps = {
   layoutIsFlat: boolean;
   flipFlatLayout: TrivialFunction,
   openEditor: TrivialFunction,
-  undoYAMLChange: TrivialFunction | boolean,
+  // undoYAMLChange: TrivialFunction | boolean,
+  yamlHistory: YAMLHistoryData,
+  yamlDispatch: React.Dispatch<YAMLHistoryChange>,
   burgerWasClicked: boolean,
   setBurgerWasClicked: React.Dispatch<React.SetStateAction<boolean>>
 };
@@ -27,7 +30,9 @@ export function MainMenu(props: MainMenuProps) {
   const {
     flipFlatLayout,
     openEditor,
-    undoYAMLChange,
+    // undoYAMLChange,
+    yamlDispatch,
+    yamlHistory,
     layoutIsFlat,
     burgerWasClicked,
     setBurgerWasClicked
@@ -57,10 +62,15 @@ export function MainMenu(props: MainMenuProps) {
     {SVG.unflatten}
     <div>restore rich layout</div>
   </>;
-  const undoDiv = undoYAMLChange ? 
-    <div onClick={() => fold(() => (undoYAMLChange as TrivialFunction)())}>
+  const undoDiv = yamlHistory.current > 0 ? 
+    <div onClick={() => fold(() => yamlDispatch({type: 'undo'}))}>
       {SVG.arrowCCW}
       <div>undo YAML source change</div>        
+    </div> : null;
+  const redoDiv = YAMLHistory.canRedo(yamlHistory) ?
+    <div onClick={() => fold(() => yamlDispatch({type: 'redo'}))}>
+      {SVG.arrowCW}
+      <div>redo YAML source change</div>
     </div> : null;
 
   const menu = 
@@ -73,6 +83,7 @@ export function MainMenu(props: MainMenuProps) {
         <div>edit YAML source</div>        
       </div>
       {undoDiv}
+      {redoDiv}
     </div>;
 
   const burger = 

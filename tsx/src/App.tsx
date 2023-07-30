@@ -6,63 +6,64 @@ import './App.css';
 import './App.mainblocks.css';
 
 import React, { useEffect, useState, useReducer } from 'react';
+import YAML from 'yaml';
 
 import Career from './Career';
 import CVHeader from './CVHeader';
 import { MainMenu, YAMLEditor } from './components';
 import { renderSummaryItem } from './Summary';
-import { resume } from './utils/resume';
+import { YAMLResume } from './utils/resume';
+import { updateYAMLHistory } from './utils/reducers';
 
 import './Responsive.css';
-import { updateYAMLHistory } from './utils/reducers';
-import { emptyYAMLHistory } from './utils/contexts';
-
-const nonReducedEmptyYamlHistory: string[] = [];
+import { httpClient } from './http/client';
+import { YAMLHistory } from './data/YAMLHistory';
 
 export default function App() {
   const [yamlHistory, yamlDispatch] = useReducer(
     updateYAMLHistory,
-    emptyYAMLHistory
+    YAMLHistory.createEmpty()
   );
-
-  const [currentResume, setCurrentResume] = resume.useState();
 
   const [layoutIsFlat, setLayoutIsFlat] = useState(false);
   const [editorIsActive, setEditorIsActive] = useState(false);
   const [burgerWasClicked, setBurgerWasClicked] = useState(true);
-  const [nrYAMLHistory, setNrYAMLHistory] = useState(nonReducedEmptyYamlHistory);
 
   const flipFlatLayout = () => { setLayoutIsFlat(!layoutIsFlat); };
   const closeEditor = () => { setEditorIsActive(false); };
   const openEditor = () => { setEditorIsActive(true); };
 
-  const applyYAML = (YAML: string) => {
-    if (!YAML) return; // to avoid the destructive "Undo"
-    setNrYAMLHistory([...nrYAMLHistory, currentResume.source]);
-    resume.loadData(YAML, setCurrentResume);
-  };
-
-  const undoYAMLChange = nrYAMLHistory.length ? () => {
-    const newYamlHistory = [...nrYAMLHistory];
-    applyYAML(newYamlHistory.pop() as string);
-    setNrYAMLHistory(newYamlHistory);
-  } : false;
-
   useEffect(() => {
-    resume.loadStaticDefault(setCurrentResume);
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const unMountCallback = (() => {});
+    // History length check is for development server
+    if (yamlHistory.current > -1) return unMountCallback;
+    console.log('\n\nUsing Effect\n\n');
+    if (yamlHistory.current < 0)
+      httpClient.
+        getDefaultCV().
+        then((defaultYAML) => {
+          if (yamlHistory.current < 0)
+            yamlDispatch({
+              type: 'load-default',
+              newContent: defaultYAML.data
+            });
+        });
 
-    return () => {
-      // this now gets called when the component unmounts
-    };
-  }, []);
+    return unMountCallback;
+  }, []);  
 
-  if(!currentResume.career) return (<div/>);
+  // console.log('Rendering app');
+  // YAMLHistory.report(yamlHistory);
+  if (yamlHistory.versions.length < 1) return <div>Loading the default CV...</div>;
+  
+  const currentYAML = YAMLHistory.getCurrent(yamlHistory);
+  const currentResume: YAMLResume = YAML.parse(currentYAML);
+  
   document.title = `Editable Resume: ${currentResume.name}`;
 
   if(editorIsActive) return (
     <YAMLEditor {...{
-      currentResume,
-      applyYAML,
       closeEditor,
       yamlHistory,
       yamlDispatch
@@ -93,7 +94,8 @@ export default function App() {
       <MainMenu {...{
         layoutIsFlat,
         flipFlatLayout,
-        undoYAMLChange,
+        yamlHistory,
+        yamlDispatch,
         openEditor,
         burgerWasClicked,
         setBurgerWasClicked

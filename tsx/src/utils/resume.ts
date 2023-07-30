@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import YAML from 'yaml';
 
 import { Job } from '../Career';
-import httpClient from '../http/client';
+import { httpClient } from '../http/client';
 import { SummaryItem } from '../Summary';
 
 type ResumePhoto = {
