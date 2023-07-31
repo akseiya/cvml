@@ -3,19 +3,9 @@ import './Career.css';
 
 import React, { useState } from 'react';
 
-import NestedMarkdown from './utils/NestedMarkdown';
-import { YAMLResume } from './utils/resume';
-import { LinkableName } from './utils/sharedTypes';
-import { SVG } from './utils/svg';
-
-export interface Job {
-  id: string;
-  from: string;
-  to?: string;
-  position: LinkableName;
-  company: LinkableName;
-  description: string;
-}
+import { Job, LinkableName, YAMLResume } from '../../../data/resume';
+import NestedMarkdown from '../../../utils/NestedMarkdown';
+import { SVG } from '../../../utils/svg';
 
 const fuzzDate = (dateSpec: string) => {
   const dateStr = dateSpec.toString();
@@ -80,7 +70,7 @@ const renderFlattableJob = (flat: boolean, job: Job, i: number) => {
 const renderJob =
   (flat: boolean) => (job: Job, i: number) => renderFlattableJob(flat, job, i);
 
-export default function Career(props: {
+export function Career(props: {
   currentResume: YAMLResume,
   layoutIsFlat: boolean
 }) {

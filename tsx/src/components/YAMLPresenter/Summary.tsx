@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NestedMarkdown from './utils/NestedMarkdown';
+import NestedMarkdown from '../../utils/NestedMarkdown';
 
 export interface SummaryItem {
   [key: string]: string;

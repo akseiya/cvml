@@ -1,0 +1,52 @@
+import React from 'react';
+
+import { SummaryItem } from '../components/YAMLPresenter/Summary';
+
+export type LinkableName = {
+  name:   string;
+  link?:  string;
+}
+
+export type Job = {
+  id:   string;
+  to?:  string;
+  from: string;
+  company:  LinkableName;
+  position: LinkableName;
+  description:  string;
+}
+
+type ResumePhoto = {
+  base64: string;
+  width:  string;
+  height: string;
+  type:   string;
+}
+
+export type YAMLResume = {
+  name:   string;
+  email?: string;
+  photo?: ResumePhoto;
+  summary:  SummaryItem[];
+  projects: SummaryItem[];
+  extras:   SummaryItem[];
+  fundamentals: {
+    [key: string]: string;
+  };
+  career: {
+    title?: string;
+    jobs: Job[];
+  };
+}
+
+export const photoAsBackground = (resume: YAMLResume): React.CSSProperties => {
+  const { photo } = resume;
+  if (!photo) return {};
+  const { width, height, type, base64 } = photo;
+  const flatB64 = base64.replaceAll(/\n/g,'');
+  const dataURL = `data:${type};base64,${flatB64}`;
+  return {
+    width, height,
+    backgroundImage: `url('${dataURL}')`
+  };
+};

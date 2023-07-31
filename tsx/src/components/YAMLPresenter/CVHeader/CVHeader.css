@@ -28,12 +28,6 @@
   overflow: hidden;
 }
 
-.photo {
-/*by default, do not show the photo, only when viewport
-  is wide enough as handled in Responsive.css */
-  display: none;
-}
-
 .resume-root > header > div > main >  main {
   flex: 1 1 auto;
   margin: 0 1em;

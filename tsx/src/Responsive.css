@@ -1,4 +1,22 @@
-/* 
+/*
+
+Normally, design would be mobile-first: all
+default styling would be mobile-friendly and
+then get overriden, for sufficiently capable
+output devices, with more space-hungry
+variations.
+
+React, however, is too retarded to acknowledge this.
+
+It will make the sub-component CSS imports
+overwrite this and to stop it you'd have to import
+this file as the last, immediately breaking Reacts's
+default ESLint demand to have your imports sorted.
+
+*/
+
+
+/*
 When the viewport is at least 40em high,
 the header is position:fixed and the main
 scrollable content is offset as well
@@ -22,6 +40,8 @@ under the main heading .pagetop
   }
 }
 
+
+.photo { display: none; }
 /* When the viewport is wide, show the photo */
 @media screen and (min-width: 36em) {
   .photo {
