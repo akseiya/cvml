@@ -32,7 +32,6 @@ export default function App() {
     const unMountCallback = (() => {});
     // History length check is for development server
     if (history.current > -1) return unMountCallback;
-    console.log('\n\nUsing Effect\n\n');
     if (history.current < 0)
       httpClient.
         getDefaultCV().
@@ -59,7 +58,6 @@ export default function App() {
 
   const currentYAML = YAMLHistory.getCurrent(history);
   const currentResume: YAMLResume = YAML.parse(currentYAML);
-
 
   return (
     <>

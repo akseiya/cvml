@@ -11,7 +11,6 @@ type MainMenuProps = {
   layoutIsFlat: boolean;
   flipFlatLayout: TrivialFunction,
   openEditor: TrivialFunction,
-  // undoYAMLChange: TrivialFunction | boolean,
   yamlHistory: YAMLHistoryData,
   yamlDispatch: React.Dispatch<YAMLHistoryChange>,
   burgerWasClicked: boolean,
@@ -30,7 +29,6 @@ export function MainMenu(props: MainMenuProps) {
   const {
     flipFlatLayout,
     openEditor,
-    // undoYAMLChange,
     yamlDispatch,
     yamlHistory,
     layoutIsFlat,
@@ -47,26 +45,32 @@ export function MainMenu(props: MainMenuProps) {
 
   const fold = (action?: TrivialFunction) => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const fader: HTMLElement = document.getElementById('main-menu')!;
+    const fader = document.getElementById('main-menu');
+    if(!fader) throw 'Somehow, main menu is gone...';
     fader.classList.remove('slide-in');
     fader.classList.add('slide-out');
-    setUnfolded(false);
     if (action) action();
+    fader.addEventListener('animationend', () => {
+      setUnfolded(false);
+    });
   };
 
   const flattenDiv = <>
     {SVG.flatten}
     <div>flatten CV layout</div>
   </>;
+
   const unflattenDiv = <>
     {SVG.unflatten}
     <div>restore rich layout</div>
   </>;
+
   const undoDiv = yamlHistory.current > 0 ? 
     <div onClick={() => fold(() => yamlDispatch({type: 'undo'}))}>
       {SVG.arrowCCW}
       <div>undo YAML source change</div>        
     </div> : null;
+
   const redoDiv = YAMLHistory.canRedo(yamlHistory) ?
     <div onClick={() => fold(() => yamlDispatch({type: 'redo'}))}>
       {SVG.arrowCW}

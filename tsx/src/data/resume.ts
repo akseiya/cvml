@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { SummaryItem } from '../components/YAMLPresenter/Summary';
+export type SummaryItem = {
+  [key: string]: string;
+}
 
 export type LinkableName = {
   name:   string;

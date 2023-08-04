@@ -6,3 +6,4 @@ export const jcon = (wat: unknown) => {
   return wat;
 };
 export const jdbg = (wat:unknown) => process.env.DEBUG ? jcon(wat) : wat;
+export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));

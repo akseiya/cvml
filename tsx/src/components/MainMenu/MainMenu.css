@@ -90,5 +90,5 @@
 }
 
 @media print {
-    #burger, #home-arrow { display: none }
+    #burger, #home-arrow, #mail-me { display: none }
 }

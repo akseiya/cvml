@@ -4,7 +4,6 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { photoAsBackground,YAMLResume } from '../../../data/resume';
-import { jcon } from '../../../utils/debug';
 import { SVG } from '../../../utils/svg';
 
 const email = (email: string) =>
@@ -41,10 +40,10 @@ export function CVHeader(props: { currentResume: YAMLResume }) {
       </tr>
     );
   };
+
   const coreTable = Object.entries(core).map(coreLine);
-  const { photo } = currentResume;
   const photoStyle = photoAsBackground(currentResume);
-  jcon(photoStyle);
+
   return (
     <header>
       <div>

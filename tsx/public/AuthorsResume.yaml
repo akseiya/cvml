@@ -31,7 +31,7 @@ fundamentals:
   ### These can actually be any header/content pairs with plain text headers
   ### and Markdown content, just bear in mind that a long header or content
   ### can overflow lines and interfere with the header's fixed (non-scrolling)
-  ### positioning. Generally, check how does your core information render,
+  ### positioning. Check how does your core information render,
   ### especially on small phone screens.
 
   crafting since: '1999'      ### Without conversion, the CV won't render.
