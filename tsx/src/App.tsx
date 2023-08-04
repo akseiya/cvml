@@ -5,17 +5,16 @@ import './App.css';
 import './App.mainblocks.css';
 import './Responsive.css';
 
-import React, { useEffect, useReducer,useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import YAML from 'yaml';
 
 import { CVMLEditor, CVMLPresenter, MainMenu } from './components';
-import { History } from './data/History';
-import { Resume } from './data/resume';
+import { History, Resume } from './data';
 import { httpClient } from './utils/client';
-import { updateYAMLHistory } from './utils/reducers';
+import { updateHistory } from './utils/reducers';
 export default function App() {
-  const [history, yamlDispatch] = useReducer(
-    updateYAMLHistory,
+  const [history, historyDispatch] = useReducer(
+    updateHistory,
     History.createEmpty()
   );
 
@@ -39,7 +38,7 @@ export default function App() {
         getDefaultCV().
         then((defaultYAML) => {
           if (history.current < 0)
-            yamlDispatch({
+            historyDispatch({
               type: 'load-default',
               newContent: defaultYAML
             });
@@ -53,8 +52,8 @@ export default function App() {
   if(editorIsActive) return (
     <CVMLEditor {...{
       closeEditor,
-      yamlHistory: history,
-      yamlDispatch
+      history,
+      dispatch: historyDispatch
     }}/>
   );
 
@@ -68,7 +67,7 @@ export default function App() {
         layoutIsFlat,
         flipFlatLayout,
         yamlHistory: history,
-        yamlDispatch,
+        yamlDispatch: historyDispatch,
         openEditor,
         burgerWasClicked,
         setBurgerWasClicked

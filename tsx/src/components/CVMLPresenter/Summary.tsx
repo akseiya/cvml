@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SummaryItem } from '../../data/resume';
-import NestedMarkdown from '../../utils/NestedMarkdown';
+import NestedMarkdown from './NestedMarkdown';
 
 const autoAnchor = (title: string) =>
   title.

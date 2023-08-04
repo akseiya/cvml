@@ -11,18 +11,18 @@ import {
 
 export type YAMLEditorProps = {
   closeEditor: () => void,
-  yamlHistory: HistoryData,
-  yamlDispatch: React.Dispatch<HistoryChange>
+  history: HistoryData,
+  dispatch: React.Dispatch<HistoryChange>
 };
 
 export function CVMLEditor(props: YAMLEditorProps) {
   const { 
     closeEditor,
-    yamlHistory,
-    yamlDispatch
+    history,
+    dispatch
   } = props;
 
-  const currentYAML = History.getCurrent(yamlHistory);
+  const currentYAML = History.getCurrent(history);
   /*
   YAML text is dozen+ kB. There is not a lot to be gained from
   it being either state or ref updated on textarea change, but it
@@ -36,7 +36,7 @@ export function CVMLEditor(props: YAMLEditorProps) {
       type: 'update',
       newContent: editedYAML
     };
-    yamlDispatch(update);
+    dispatch(update);
     closeEditor();
   };
   const cancel = () => closeEditor();

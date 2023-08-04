@@ -57,7 +57,7 @@ const setToSingleVersion = (
   versions: [newContent]
 });
 
-export const report = (history: HistoryData) =>
+const report = (history: HistoryData) =>
   jcon({
     current: history.current,
     versions: history.versions.map(s => s.slice(0,40))

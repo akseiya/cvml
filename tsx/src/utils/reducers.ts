@@ -1,8 +1,10 @@
 import {
   History,
-  HistoryChange,  HistoryData} from '../data/History';
+  HistoryChange,
+  HistoryData
+} from '../data/History';
 
-export const updateYAMLHistory = (
+export const updateHistory = (
   history: HistoryData,
   action: HistoryChange
 ): HistoryData => {
@@ -14,6 +16,6 @@ export const updateYAMLHistory = (
   // which leads to double addition in Strict mode dev server!
   case 'load-default': return History.setToSingleVersion(action.newContent);
   default:
-    throw `Invalid YAML history action: ${action.type}`;
+    throw `Invalid resume history action: ${action.type}`;
   }
 };

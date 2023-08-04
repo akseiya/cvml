@@ -4,8 +4,8 @@ import './Career.css';
 import React, { useState } from 'react';
 
 import { Job, LinkableName, Resume } from '../../../data/resume';
-import NestedMarkdown from '../../../utils/NestedMarkdown';
 import { SVG } from '../../../utils/svg';
+import NestedMarkdown from '../NestedMarkdown';
 
 const fuzzDate = (dateSpec: string) => {
   const dateStr = dateSpec.toString();
