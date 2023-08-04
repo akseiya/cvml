@@ -8,15 +8,15 @@ import './Responsive.css';
 import React, { useEffect, useReducer,useState } from 'react';
 import YAML from 'yaml';
 
-import { MainMenu, YAMLEditor, YAMLPresenter } from './components';
-import { YAMLResume } from './data/resume';
-import { YAMLHistory } from './data/YAMLHistory';
+import { CVMLEditor, CVMLPresenter, MainMenu } from './components';
+import { History } from './data/History';
+import { Resume } from './data/resume';
 import { httpClient } from './utils/client';
 import { updateYAMLHistory } from './utils/reducers';
 export default function App() {
   const [history, yamlDispatch] = useReducer(
     updateYAMLHistory,
-    YAMLHistory.createEmpty()
+    History.createEmpty()
   );
 
   const [layoutIsFlat, setLayoutIsFlat] = useState(false);
@@ -30,7 +30,9 @@ export default function App() {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     const unMountCallback = (() => {});
-    // History length check is for development server
+    // development server renders all components twice, which can
+    // lead to a pointless http call (this does not prevent it, just
+    // allows avoiding it )
     if (history.current > -1) return unMountCallback;
     if (history.current < 0)
       httpClient.
@@ -49,19 +51,19 @@ export default function App() {
   if (history.versions.length < 1) return <div>Loading the default CV...</div>;
 
   if(editorIsActive) return (
-    <YAMLEditor {...{
+    <CVMLEditor {...{
       closeEditor,
       yamlHistory: history,
       yamlDispatch
     }}/>
   );
 
-  const currentYAML = YAMLHistory.getCurrent(history);
-  const currentResume: YAMLResume = YAML.parse(currentYAML);
+  const currentYAML = History.getCurrent(history);
+  const currentResume: Resume = YAML.parse(currentYAML);
 
   return (
     <>
-      <YAMLPresenter {...{currentResume, layoutIsFlat}}/>
+      <CVMLPresenter {...{currentResume, layoutIsFlat}}/>
       <MainMenu {...{
         layoutIsFlat,
         flipFlatLayout,

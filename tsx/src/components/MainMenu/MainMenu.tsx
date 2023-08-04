@@ -3,7 +3,10 @@ import './MainMenu.css';
 
 import React, { useState } from 'react';
 
-import { YAMLHistory, YAMLHistoryChange, YAMLHistoryData } from '../../data/YAMLHistory';
+import {
+  History,
+  HistoryChange,
+  HistoryData} from '../../data/History';
 import { SVG } from '../../utils/svg';
 
 type TrivialFunction = () => void;
@@ -11,8 +14,8 @@ type MainMenuProps = {
   layoutIsFlat: boolean;
   flipFlatLayout: TrivialFunction,
   openEditor: TrivialFunction,
-  yamlHistory: YAMLHistoryData,
-  yamlDispatch: React.Dispatch<YAMLHistoryChange>,
+  yamlHistory: HistoryData,
+  yamlDispatch: React.Dispatch<HistoryChange>,
   burgerWasClicked: boolean,
   setBurgerWasClicked: React.Dispatch<React.SetStateAction<boolean>>
 };
@@ -71,7 +74,7 @@ export function MainMenu(props: MainMenuProps) {
       <div>undo YAML source change</div>        
     </div> : null;
 
-  const redoDiv = YAMLHistory.canRedo(yamlHistory) ?
+  const redoDiv = History.canRedo(yamlHistory) ?
     <div onClick={() => fold(() => yamlDispatch({type: 'redo'}))}>
       {SVG.arrowCW}
       <div>redo YAML source change</div>

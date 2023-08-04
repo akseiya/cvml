@@ -25,7 +25,7 @@ type ResumePhoto = {
   type:   string;
 }
 
-export type YAMLResume = {
+export type Resume = {
   name:   string;
   email?: string;
   photo?: ResumePhoto;
@@ -41,7 +41,7 @@ export type YAMLResume = {
   };
 }
 
-export const photoAsBackground = (resume: YAMLResume): React.CSSProperties => {
+export const photoAsBackground = (resume: Resume): React.CSSProperties => {
   const { photo } = resume;
   if (!photo) return {};
   const { width, height, type, base64 } = photo;

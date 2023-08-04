@@ -1,19 +1,19 @@
 import { jcon } from '../utils/debug';
 
-export type YAMLHistoryData = {
+export type HistoryData = {
   current: number;
   versions: string[];
 };
 
-export type YAMLHistoryChangeType = 'update' | 'undo' | 'redo' | 'load-default';
-export type YAMLHistoryChange = {
-  type: YAMLHistoryChangeType,
+export type HistoryChangeType = 'update' | 'undo' | 'redo' | 'load-default';
+export type HistoryChange = {
+  type: HistoryChangeType,
   newContent?: string;
 }
 
 const undo = (
-  history: YAMLHistoryData,
-): YAMLHistoryData => {
+  history: HistoryData,
+): HistoryData => {
   let { current } = history;
   if (current < 1) throw 'No more undos, why button drawn?';
   current--;
@@ -24,8 +24,8 @@ const undo = (
 };
 
 const redo = (
-  history: YAMLHistoryData,
-): YAMLHistoryData => {
+  history: HistoryData,
+): HistoryData => {
   let { current } = history;
   current++;
   if (current + 1 > history.versions.length) throw 'No more redos, why button drawn?';
@@ -36,9 +36,9 @@ const redo = (
 };
 
 const update = (
-  history: YAMLHistoryData,
+  history: HistoryData,
   newContent?: string
-): YAMLHistoryData => {
+): HistoryData => {
   if(!newContent) throw 'No new content to update history with';
   
   const { versions, current } = history;
@@ -52,29 +52,29 @@ const update = (
 
 const setToSingleVersion = (
   newContent = 'BORKED DISPATCH.'
-): YAMLHistoryData => ({
+): HistoryData => ({
   current: 0,
   versions: [newContent]
 });
 
-export const report = (history: YAMLHistoryData) =>
+export const report = (history: HistoryData) =>
   jcon({
     current: history.current,
     versions: history.versions.map(s => s.slice(0,40))
   });
 
-export const YAMLHistory = {
+export const History = {
   report,
   undo,
   redo,
   update,
   setToSingleVersion,
-  createEmpty: (): YAMLHistoryData => ({
+  createEmpty: (): HistoryData => ({
     current: -1,
     versions: []
   }),
-  getCurrent: (history: YAMLHistoryData): string =>
+  getCurrent: (history: HistoryData): string =>
     history.versions[history.current],
-  canRedo: (history: YAMLHistoryData): boolean =>
+  canRedo: (history: HistoryData): boolean =>
     history.current + 1 < history.versions.length
 };

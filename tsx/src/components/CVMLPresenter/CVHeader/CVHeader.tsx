@@ -3,7 +3,7 @@ import './CVHeader.css';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { photoAsBackground,YAMLResume } from '../../../data/resume';
+import { photoAsBackground ,Resume } from '../../../data/resume';
 import { SVG } from '../../../utils/svg';
 
 const email = (email: string) =>
@@ -12,7 +12,7 @@ const email = (email: string) =>
   </a>;
 
 // eslint-disable-next-line react/no-unused-prop-types
-export function CVHeader(props: { currentResume: YAMLResume }) {
+export function CVHeader(props: { currentResume: Resume }) {
   const { currentResume } = props;
 
   const navLink = (href:string, label:string) =>

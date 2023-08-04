@@ -1,28 +1,28 @@
 /* eslint-disable react/jsx-no-bind */
-import './YAMLEditor.css';
+import './CVMLEditor.css';
 
 import React from 'react';
 
 import {
-  YAMLHistory,
-  YAMLHistoryChange,
-  YAMLHistoryData
-} from '../../data/YAMLHistory';
+  History,
+  HistoryChange,
+  HistoryData
+} from '../../data/History';
 
 export type YAMLEditorProps = {
   closeEditor: () => void,
-  yamlHistory: YAMLHistoryData,
-  yamlDispatch: React.Dispatch<YAMLHistoryChange>
+  yamlHistory: HistoryData,
+  yamlDispatch: React.Dispatch<HistoryChange>
 };
 
-export function YAMLEditor(props: YAMLEditorProps) {
+export function CVMLEditor(props: YAMLEditorProps) {
   const { 
     closeEditor,
     yamlHistory,
     yamlDispatch
   } = props;
 
-  const currentYAML = YAMLHistory.getCurrent(yamlHistory);
+  const currentYAML = History.getCurrent(yamlHistory);
   /*
   YAML text is dozen+ kB. There is not a lot to be gained from
   it being either state or ref updated on textarea change, but it
@@ -32,7 +32,7 @@ export function YAMLEditor(props: YAMLEditorProps) {
   const apply = () => {
     const editedYAML = editArea().value;
     if (editedYAML == currentYAML) return alert('No change to apply');
-    const update: YAMLHistoryChange = {
+    const update: HistoryChange = {
       type: 'update',
       newContent: editedYAML
     };

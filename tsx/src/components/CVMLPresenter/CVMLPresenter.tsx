@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-import { YAMLResume } from '../../data/resume';
+import { Resume } from '../../data/resume';
 import { Career, CVHeader, renderSummaryItem } from '.';
 
-export function YAMLPresenter(props: {
-  currentResume: YAMLResume,
+export function CVMLPresenter(props: {
+  currentResume: Resume,
   layoutIsFlat: boolean
 }) {
   const {currentResume, layoutIsFlat} = props;

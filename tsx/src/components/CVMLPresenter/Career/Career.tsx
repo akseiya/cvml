@@ -3,7 +3,7 @@ import './Career.css';
 
 import React, { useState } from 'react';
 
-import { Job, LinkableName, YAMLResume } from '../../../data/resume';
+import { Job, LinkableName, Resume } from '../../../data/resume';
 import NestedMarkdown from '../../../utils/NestedMarkdown';
 import { SVG } from '../../../utils/svg';
 
@@ -71,7 +71,7 @@ const renderJob =
   (flat: boolean) => (job: Job, i: number) => renderFlattableJob(flat, job, i);
 
 export function Career(props: {
-  currentResume: YAMLResume,
+  currentResume: Resume,
   layoutIsFlat: boolean
 }) {
   const { currentResume, layoutIsFlat } = props;
