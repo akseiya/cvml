@@ -7,7 +7,7 @@ const autoAnchor = (title: string) =>
   title.
     replaceAll(/[\W]/g,'_').replaceAll(/_+/g,'_').toLocaleLowerCase();
 
-export const renderSummaryItem = (item: SummaryItem) => {
+const renderSummaryItem = (item: SummaryItem) => {
   const [[title, markdown]] = Object.entries(item);
   return (
     <article key={`summary: ${title}`}>
@@ -19,3 +19,20 @@ export const renderSummaryItem = (item: SummaryItem) => {
     </article>
   );
 };
+
+type PanelSetProps = {
+  title: string;
+  anchor: string;
+  panelsData: SummaryItem[] | null;
+}
+export function PanelSet(props: PanelSetProps) {
+  const { title, anchor, panelsData } = props;
+  if (!panelsData) return null;
+  return (<>
+    <a id={ anchor }/>
+    <h1>{ title }</h1>
+    { panelsData.map(renderSummaryItem) }
+  </>
+  );
+
+}
