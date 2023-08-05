@@ -8,22 +8,25 @@ import './Responsive.css';
 import React, { useEffect, useReducer, useState } from 'react';
 
 import { CVMLEditor, CVMLPresenter, MainMenu } from './components';
-import { History } from './data';
+import { ResumeHistory } from './data';
 import { httpClient } from './utils/client';
-import { DispatchContext, HistoryContext } from './utils/contexts';
-import { updateHistory } from './utils/reducers';
+import { AppContextProvider } from './utils/contexts';
+import { updatePresenter } from './utils/reducers';
 
 export default function App() {
-  const [history, dispatch] = useReducer(
-    updateHistory,
-    History.createEmpty()
+  const [present, dispatch] = useReducer(
+    updatePresenter,
+    {
+      history: ResumeHistory.createEmpty(),
+      flags: {flatView: false}
+    }
   );
+  const { history } = present;
 
-  const [layoutIsFlat,     setLayoutIsFlat]     = useState(false);
   const [editorIsActive,   setEditorIsActive]   = useState(false);
   const [burgerWasClicked, setBurgerWasClicked] = useState(true);
 
-  const flipFlatLayout = () => { setLayoutIsFlat(!layoutIsFlat); };
+  // const flipFlatLayout = () => { setLayoutIsFlat(!layoutIsFlat); };
   const closeEditor    = () => { setEditorIsActive(false);       };
   const openEditor     = () => { setEditorIsActive(true);        };
 
@@ -50,37 +53,23 @@ export default function App() {
 
   if (history.versions.length < 1) return <div>Loading the default CV...</div>;
 
-  let mainContent: JSX.Element;
-  if (editorIsActive) {
-    mainContent = <CVMLEditor {...{
-      closeEditor,
-      history,
-      dispatch
-    }}/>;
-  } else {
-    /*
-    Preventing burger pulse needs to happen in its parent.
-    Main menu is not shown at all in the YAML editor.
-    Flat layout flag to be put in the context.
-    */
-    const mainMenuWiring = {
-      layoutIsFlat,
-      flipFlatLayout,
-      openEditor,
-      burgerWasClicked,
-      setBurgerWasClicked
-    };
-    mainContent = <>
-      <CVMLPresenter {...{layoutIsFlat}}/>
-      <MainMenu {...mainMenuWiring } />
-    </>;
-  }
+  const inContext = (children: React.ReactNode) =>
+    <AppContextProvider {...{ present, dispatch }}>
+      { children }
+    </AppContextProvider>;
 
-  return (
-    <HistoryContext.Provider value={history}>
-      <DispatchContext.Provider value={dispatch}>
-        {mainContent}
-      </DispatchContext.Provider>
-    </HistoryContext.Provider>
+  if (editorIsActive) return inContext(
+    <CVMLEditor {...{ closeEditor }}/>
+  );
+
+  const mainMenuWiring = {
+    openEditor,
+    burgerWasClicked,
+    setBurgerWasClicked
+  };
+
+  return inContext(
+    <><CVMLPresenter/>
+      <MainMenu {...mainMenuWiring } /></>
   );
 }

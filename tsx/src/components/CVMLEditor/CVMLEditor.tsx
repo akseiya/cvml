@@ -1,28 +1,32 @@
 /* eslint-disable react/jsx-no-bind */
 import './CVMLEditor.css';
 
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
-  History,
   HistoryChange,
-  HistoryData
+  ResumeHistory
 } from '../../data/History';
+import {
+  DispatchContext,
+  PresenterContext
+} from '../../utils/contexts';
 
 export type YAMLEditorProps = {
   closeEditor: () => void,
-  history: HistoryData,
-  dispatch: React.Dispatch<HistoryChange>
 };
 
 export function CVMLEditor(props: YAMLEditorProps) {
   const { 
     closeEditor,
-    history,
-    dispatch
   } = props;
 
-  const currentYAML = History.getCurrent(history);
+  const present = useContext(PresenterContext);
+  const dispatch = useContext(DispatchContext);
+  if (!(present && dispatch)) throw 'Trying to render MainMenu without context';
+  const { history } = present;
+
+  const currentYAML = ResumeHistory.getCurrent(history);
   /*
   YAML text is dozen+ kB. There is not a lot to be gained from
   it being either state or ref updated on textarea change, but it

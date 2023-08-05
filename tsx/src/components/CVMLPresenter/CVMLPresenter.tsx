@@ -1,21 +1,20 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from 'react';
 
-import { History } from '../../data';
-import { HistoryContext } from '../../utils/contexts';
+import { ResumeHistory } from '../../data';
+import { PresenterContext } from '../../utils/contexts';
 import { Career, CVHeader, renderSummaryItem } from '.';
 
-export function CVMLPresenter(props: {
-  layoutIsFlat: boolean
-}) {
-  const { layoutIsFlat } = props;
-  const history = useContext(HistoryContext);
-  if (!history) throw 'CVMLPresenter shouldn\'t be rendered with empty history!';
-  const currentResume = History.parseCurrent(history);
+export function CVMLPresenter() {
+  const present = useContext(PresenterContext);
+  if (!present) throw 'CVMLPresenter shouldn\'t be rendered with empty history!';
+  const { history, flags: { flatView } } = present;
+
+  const currentResume = ResumeHistory.parseCurrent(history);
 
   document.title = `Editable Resume: ${currentResume.name}`;
 
-  return <div className={'resume-root' + (layoutIsFlat ? '' : ' rich')}>
+  return <div className={'resume-root' + (flatView ? '' : ' rich')}>
     <CVHeader currentResume={currentResume}/>
     <main id="long-content">
       <a id="summary"/>
@@ -23,7 +22,8 @@ export function CVMLPresenter(props: {
       {(currentResume.summary ?? []).map(renderSummaryItem)}
 
       <a id="career" />
-      <Career {...{currentResume, layoutIsFlat}} />
+      {/* FIXME: Use the context! */}
+      <Career {...{currentResume, layoutIsFlat: flatView}} />
 
       <a id="projects" />
       <h1>Key projects</h1>

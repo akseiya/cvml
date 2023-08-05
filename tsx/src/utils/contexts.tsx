@@ -1,26 +1,37 @@
 import React, { createContext } from 'react';
 
-import { HistoryChange, HistoryData } from '../data';
+import {
+  // HistoryChange,
+  HistoryData
+} from '../data';
+import { Action } from './reducers';
 
-// type PresenterContext = {
-//   history: HistoryData,
-//   flags: {
-//     layoutIsFlat: boolean;
-//   }
-// };
+export type PresenterContext = {
+  history: HistoryData,
+  flags: {
+    flatView: boolean;
+  }
+};
 
-export const HistoryContext =
-  createContext<HistoryData | null>(null);
+export const PresenterContext =
+  createContext<PresenterContext | null>(null);
 
 export const DispatchContext =
-  createContext<React.Dispatch<HistoryChange> | null>(null);
+  createContext<React.Dispatch<Action> | null>(null);
 
-export function HistoryProvider() {
+type MainAppContextProps = {
+  children: React.ReactNode;
+  present: PresenterContext;
+  dispatch: React.Dispatch<Action>;
+}
+
+export function AppContextProvider(props: MainAppContextProps) {
+  const { children, present, dispatch } = props;
   return (
-    <HistoryContext.Provider value={null}>
-      <DispatchContext.Provider value={null}>
-        goose
+    <PresenterContext.Provider value={present}>
+      <DispatchContext.Provider value={dispatch}>
+        { children }
       </DispatchContext.Provider>
-    </HistoryContext.Provider>
+    </PresenterContext.Provider>
   );
 };

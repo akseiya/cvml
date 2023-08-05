@@ -72,7 +72,7 @@ const getCurrent = (history: HistoryData): string =>
 const parseCurrent = (history: HistoryData): Resume =>
   YAML.parse(getCurrent(history));
 
-export const History = {
+export const ResumeHistory = {
   report,
   undo,
   redo,
