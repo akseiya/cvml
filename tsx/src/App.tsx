@@ -18,7 +18,7 @@ export default function App() {
     updatePresenter,
     {
       history: ResumeHistory.createEmpty(),
-      flags: {flatView: false}
+      flags: { flatView: false }
     }
   );
   const { history } = present;

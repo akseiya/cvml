@@ -5,7 +5,7 @@ import React, { useContext, useState } from 'react';
 
 import { ResumeHistory } from '../../data/History';
 import { DispatchContext, PresenterContext } from '../../utils/contexts';
-import { FlagSwitchType } from '../../utils/reducers';
+import { ActionType } from '../../utils/reducers';
 import { SVG } from '../../utils/svg';
 
 
@@ -53,8 +53,8 @@ export function MainMenu(props: MainMenuProps) {
     });
   };
 
-  const foldispatch = (type: FlagSwitchType) =>
-    fold(() => dispatch({type: type }));
+  const foldispatch = (type: ActionType) =>
+    fold(() => dispatch({ type }));
 
   const flattenDiv = <div onClick={() => foldispatch('flatten')}>
     {SVG.flatten}
@@ -67,13 +67,13 @@ export function MainMenu(props: MainMenuProps) {
   </div>;
 
   const undoDiv = ResumeHistory.canUndo(history) ?
-    <div onClick={() => fold(() => dispatch({type: 'undo'}))}>
+    <div onClick={() => foldispatch('undo')}>
       {SVG.arrowCCW}
       <div>undo YAML source change</div>
     </div> : null;
 
   const redoDiv = ResumeHistory.canRedo(history) ?
-    <div onClick={() => fold(() => dispatch({type: 'redo'}))}>
+    <div onClick={() => foldispatch('redo')}>
       {SVG.arrowCW}
       <div>redo YAML source change</div>
     </div> : null;

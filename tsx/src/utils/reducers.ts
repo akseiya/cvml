@@ -1,12 +1,14 @@
 import {
   HistoryChange,
+  HistoryChangeType,
   ResumeHistory
 } from '../data/History';
 import { PresenterContext } from './contexts';
 
 export type FlagSwitchType = 'flatten' | 'unflatten';
+export type ActionType = HistoryChangeType | FlagSwitchType;
 export type FlagSwitch = {
-  type: FlagSwitchType;
+  type: ActionType;
 }
 
 export type Action = HistoryChange | FlagSwitch;
