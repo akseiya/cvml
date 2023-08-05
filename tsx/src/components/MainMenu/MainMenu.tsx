@@ -1,43 +1,40 @@
 /* eslint-disable react/jsx-no-bind */
 import './MainMenu.css';
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
-import {
-  History,
-  HistoryChange,
-  HistoryData} from '../../data/History';
+import { History } from '../../data/History';
+import { DispatchContext, HistoryContext } from '../../utils/contexts';
 import { SVG } from '../../utils/svg';
+
 
 type TrivialFunction = () => void;
 type MainMenuProps = {
   layoutIsFlat: boolean;
   flipFlatLayout: TrivialFunction,
   openEditor: TrivialFunction,
-  yamlHistory: HistoryData,
-  yamlDispatch: React.Dispatch<HistoryChange>,
   burgerWasClicked: boolean,
   setBurgerWasClicked: React.Dispatch<React.SetStateAction<boolean>>
 };
 
 const homeArrow = () =>
-  <div id="home-arrow" onClick={() => {
-    document.getElementById('root')?.scrollTo(0,0);
-  }}>
+  <a href="#summary" id="home-arrow">
     {SVG.fatArrowUp}
-  </div>;
+  </a>;
 
 // eslint-disable-next-line react/no-unused-prop-types
 export function MainMenu(props: MainMenuProps) {
   const {
     flipFlatLayout,
     openEditor,
-    yamlDispatch,
-    yamlHistory,
     layoutIsFlat,
     burgerWasClicked,
     setBurgerWasClicked
   } = props;
+
+  const history = useContext(HistoryContext);
+  const dispatch = useContext(DispatchContext);
+  if (!(history && dispatch)) throw 'Trying to render MainMenu without context';
 
   const [ unfolded, setUnfolded ] = useState(false);
 
@@ -68,32 +65,32 @@ export function MainMenu(props: MainMenuProps) {
     <div>restore rich layout</div>
   </>;
 
-  const undoDiv = yamlHistory.current > 0 ? 
-    <div onClick={() => fold(() => yamlDispatch({type: 'undo'}))}>
+  const undoDiv = History.canUndo(history) ?
+    <div onClick={() => fold(() => dispatch({type: 'undo'}))}>
       {SVG.arrowCCW}
-      <div>undo YAML source change</div>        
+      <div>undo YAML source change</div>
     </div> : null;
 
-  const redoDiv = History.canRedo(yamlHistory) ?
-    <div onClick={() => fold(() => yamlDispatch({type: 'redo'}))}>
+  const redoDiv = History.canRedo(history) ?
+    <div onClick={() => fold(() => dispatch({type: 'redo'}))}>
       {SVG.arrowCW}
       <div>redo YAML source change</div>
     </div> : null;
 
-  const menu = 
+  const menu =
     <div className='unfolded slide-in' id='main-menu'>
       <div onClick={() => fold(() => flipFlatLayout())}>
         { layoutIsFlat ? unflattenDiv : flattenDiv }
       </div>
       <div onClick={() => fold(() => openEditor())}>
         {SVG.vectorPen}
-        <div>edit YAML source</div>        
+        <div>edit YAML source</div>
       </div>
       {undoDiv}
       {redoDiv}
     </div>;
 
-  const burger = 
+  const burger =
     <div className={burgerWasClicked ? 'pulse-me' : ''} id='burger' onClick={unfold}>
       {SVG.burgerMenu}
     </div>;

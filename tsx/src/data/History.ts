@@ -1,4 +1,7 @@
+import YAML from 'yaml';
+
 import { jcon } from '../utils/debug';
+import { Resume } from './resume';
 
 export type HistoryData = {
   current: number;
@@ -40,7 +43,7 @@ const update = (
   newContent?: string
 ): HistoryData => {
   if(!newContent) throw 'No new content to update history with';
-  
+
   const { versions, current } = history;
   const cutUndos = versions.slice(0, current + 1);
 
@@ -50,7 +53,7 @@ const update = (
   };
 };
 
-const setToSingleVersion = (
+const initialiseWith = (
   newContent = 'BORKED DISPATCH.'
 ): HistoryData => ({
   current: 0,
@@ -63,18 +66,26 @@ const report = (history: HistoryData) =>
     versions: history.versions.map(s => s.slice(0,40))
   });
 
+const getCurrent = (history: HistoryData): string =>
+  history.versions[history.current];
+
+const parseCurrent = (history: HistoryData): Resume =>
+  YAML.parse(getCurrent(history));
+
 export const History = {
   report,
   undo,
   redo,
   update,
-  setToSingleVersion,
+  initialiseWith,
   createEmpty: (): HistoryData => ({
     current: -1,
     versions: []
   }),
-  getCurrent: (history: HistoryData): string =>
-    history.versions[history.current],
+  getCurrent,
+  parseCurrent,
   canRedo: (history: HistoryData): boolean =>
-    history.current + 1 < history.versions.length
+    history.current + 1 < history.versions.length,
+  canUndo: (history: HistoryData): boolean =>
+    history.current > 0
 };

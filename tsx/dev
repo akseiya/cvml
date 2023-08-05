@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd "${0%/*}"
+# When sourced, the script will try to cd
+# to shell's directory.
+[ "${0##*/}" == 'dev' ] && cd "${0%/*}"
 
 npm run start &
 http-server build/ &

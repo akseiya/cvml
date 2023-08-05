@@ -1,20 +1,23 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Resume } from '../../data/resume';
+import { History } from '../../data';
+import { HistoryContext } from '../../utils/contexts';
 import { Career, CVHeader, renderSummaryItem } from '.';
 
 export function CVMLPresenter(props: {
-  currentResume: Resume,
   layoutIsFlat: boolean
 }) {
-  const {currentResume, layoutIsFlat} = props;
+  const { layoutIsFlat } = props;
+  const history = useContext(HistoryContext);
+  if (!history) throw 'CVMLPresenter shouldn\'t be rendered with empty history!';
+  const currentResume = History.parseCurrent(history);
 
   document.title = `Editable Resume: ${currentResume.name}`;
 
   return <div className={'resume-root' + (layoutIsFlat ? '' : ' rich')}>
     <CVHeader currentResume={currentResume}/>
-    <main>
+    <main id="long-content">
       <a id="summary"/>
       <h1>Summary</h1>
       {(currentResume.summary ?? []).map(renderSummaryItem)}
