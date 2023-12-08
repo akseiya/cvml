@@ -7,14 +7,14 @@ die() {
 
 cd "${0%/*}"
 [ -f .env ] && source .env
-echo "Usage target directory $ghpDir"
+echo "Using target directory $GITHUB_PAGES_DIRECTORY"
 
 set -e
 
 # GitHub Pages repo directory is required
-[ "$ghpDir" ]
+[ "$GITHUB_PAGES_DIRECTORY" ]
 # Die if target dir not where expected
-stat "$ghpDir" > /dev/null
+stat "$GITHUB_PAGES_DIRECTORY" > /dev/null
 
 git add -A
 git commit -F -
@@ -23,10 +23,10 @@ git push
 
 # Decide if you want auto-build.
 npm run build
-rm -rf "$ghpDir"/*
-cp -r build/* "$ghpDir"
+rm -rf "$GITHUB_PAGES_DIRECTORY"/*
+cp -r build/* "$GITHUB_PAGES_DIRECTORY"
 
-cd "$ghpDir"
+cd "$GITHUB_PAGES_DIRECTORY"
 git add -A
 git commit -m "$last_commit"
 git push
