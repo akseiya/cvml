@@ -3,7 +3,7 @@
 ### present in this YAML (name,
 ### fundamentals, summary, career,
 ### extras), except the base64-encoded
-### photo which, due to its size is
+### photo which, due to its size, is
 ### dumped at the end.
 
 ### YAML comments are marked with triple ###
@@ -34,7 +34,7 @@ fundamentals:
   ### positioning. Check how does your core information render,
   ### especially on small phone screens.
 
-  crafting since: '1999'      ### Without conversion, the CV won't render.
+  crafting since: 1999
 
   ### ReactMarkdown requires at least one blank line before
   ### reference-style links definitions.
@@ -505,8 +505,9 @@ extras:
         * *(**very** rusty):* TSO/ISPF, Control-M, CICS, JCL, Serena, Xpediter
       * administration
         * Azure devOps
-### Even at 147px size and with EXIF, thumbnail etc cut out, this is
-### kilobytes large. Do bear this in mind when adding your own photo.
+### Even at 147px size and no EXIF, thumbnail etc, this is
+### kilobytes large. Do bear this in mind when adding your
+### own photo.
 photo:
   width: 147px
   height: 147px

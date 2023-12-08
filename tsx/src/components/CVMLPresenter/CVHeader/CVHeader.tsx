@@ -32,7 +32,7 @@ export function CVHeader(props: { currentResume: Resume }) {
   const core = currentResume.fundamentals;
   type CoreLine = [string, string];
   const coreLine = (pair: CoreLine) => {
-    const [key, value] = pair;
+    const [key, value] = pair.map(e => e.toString());
     return (
       <tr key={key}>
         <th>{`${key}:`}</th>
