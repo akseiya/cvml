@@ -52,15 +52,15 @@ summary:
   ### be used instead of "Core profile" etc.
 
   - Core profile: |-
-      Front line leader focused on supporting his engineers for ever further growth.
+      [Veteran](#career-csopl) of every flavour of software development
+      in applications from [military HR](#career-csopl) through
+      [finance](#career-nyse) to [video production](#career-aframe).
 
-      Mentor and teacher, always ready to learn the digital craft anew himself *(two
-      voluntary "demotions" so far, none regretted).*
+      Front-line [leader](#career-fuse) focused on supporting his engineers for
+      ever further growth.
 
-      Veteran of 2 decades of every shade and flavour of software development
-      in applications from military HR through finance to video production.
-
-      Troubleshooter, performance profiler, batch-, net- and DB-admin.
+      Troubleshooter, batch-, net- and DB-admin, [performance
+      profiler](#career-softbank).
 
   - Areas of competence: |-
       * Software Quality Assistance
@@ -121,54 +121,61 @@ career:
       from: 2023-03-13
       to: 2023-06-30
       company:
-        name: Global Relay
+        name: the Canadian corporation
         ### link: optional
-        link: https://www.glassdoor.co.uk/Reviews/Global-Relay-Reviews-E295588.htm?sort.sortType=OR&sort.ascending=true&filter.iso3Language=eng#ReviewsFeed
+        ### link: https://www.glassdoor.co.uk/Reviews/Global-Relay-Reviews-E295588.htm?sort.sortType=OR&sort.ascending=true&filter.iso3Language=eng#ReviewsFeed
       position:
-        ### Usual YAML caveats - to have quotes, you need more quotes
+        ### Usual YAML caveats - to have quotes, you need a wrapper
         name: '"Lead SDET"'
       ### Markdown to be rendered with ReactMarkdown (so no raw tags and no entities),
       ### probably will migrate to Showdown for some flexibility.
       description: |-
         # Duties
 
-        1.  Line management as per the corporate policies (including use of Trakstar
-            for regulated performance tracking and reviews including peer ratings).
-        1.  Serving as the testing Amigo, trying to drive the shift-left in the pod.
-        1.  Creating and refactoring testing frameworks and scripts (Pact.js, WDIO,
-            Cucumber, Jest, Playwright).
-        1.  Spikes and research, sharing the results and propositions with the pod
-            and the Quality Guild.
+        1.  Line management as per the corporate policies (including use of
+            Trakstar for regulated performance tracking and reviews including
+            peer ratings).
+        1.  Serving as the testing Amigo, trying to drive the shift-left in
+            the pod.
+        1.  Creating and refactoring testing frameworks and scripts (Pact.js,
+            WDIO, Cucumber, Jest, Playwright).
+        1.  Spikes and research, sharing the results and propositions with
+            the pod and the Quality Guild.
 
-        ## *"Why did you quit **that** fast?"*
+        ## *Why did you quit **that** fast? "The Canadian corporation"?!!*
 
         It turned out my leadership was of ephemeral nature: the
         ways-of-working standards, painstakingly worked out between the 3 Amigos
         and the rest of the pod got abruptly overturned by a mid-level manager
         without asking me any questions or providing any explanations.
 
+        I did not take to it kindly and I made sure to explain my position on
+        the exit interview, so now I'd rather explain myself before the
+        corporation gets asked for my references.
+
     - id: shred
       from: 2022-11
       to:   2023-01
       company:
-        name: Schroders (inside IR35)
+        name: Coforge (contract inside IR35)
         link: https://www.schroders.com/en/global/individual/contact-us/worldwide-locations/uk/
       position:
         name: QE learning lead
       description: |-
         # Description
 
-        Initially an attempt to liaise between 3 parties to deliver
-        a learning project with associated materials and processes. After
-        communications with the customer contact collapsing, I focused on
-        creating
-        * a [code exercises sandbox](#the_w3schools_wannabe) inspired by W3Schools and
+        Initially - an attempt to liaise between 3 parties to deliver
+        a learning project for Schroders, with associated materials and
+        processes. After my communications with the customer contact failed,
+        I focused on creating
+        * a [code exercises sandbox](#the_w3schools_wannabe) inspired
+          by W3Schools and
         * the first learning module delivered by it.
 
-        The project served as a clear indication where my consultancy and management
-        skills have their limits. That is: I don't really function well as an
-        unsupported hub with high-difficulty partners on all sides. I need
-        at least one solid wall to put my back against.
+        The project served as a clear indication where my skills as an external
+        consultant have their limits. That is: serving as a standalone
+        hub between multiple wildly different counter-parties with not a lot of
+        previously built rapport is not for me yet.
 
     - id: fuse
       from: 2018-05
@@ -410,17 +417,17 @@ projects:
       As long as the main sections (`name`, `fundamentals`,
       `summary`, `career`, `projects`, `extras`) are present and
       the format is conserved, any compatible data can be rendered,
-      including your own CV.
+      including an entirely different CV.
 
       Under development. Future ideas will be added to its
       [README](https://github.com/akseiya/cvml/tree/main/tsx#readme).
 
   - The W3Schools wannabe: |-
-      A jQuery-based course delivery system, working with concept of
-      learning modules and their stages as navigable sequences of web pages,
-      some of which can contain interactive code exercises.
+      A course delivery system treating learning modules and their stages as
+      navigable sequences of webpages - some of which can contain interactive
+      code exercises. Source currently on Bitbucket, ask me for access.
 
-      The content authored in Markdown is rendered with
+      The prose content authored in Markdown is rendered with
       [Showdown](https://showdownjs.com/), while code exercises have
       a bit more logic behind them (ultimately, a shell command gets executed
       in the backend to run the tests), including expected phrases and
@@ -455,10 +462,9 @@ projects:
 
       My chief effort was extensive scripting in Python, including:
       * The Universal Playback Parser (**UPP**) for wide variety of market data formats,
-        from delimited ASCII to pure binary.
+        from delimited ASCII to binary-encoded FIXML.
         * The parser used CSV exports of business requirements (sheets with fields'
-        meaning) and a symbol-based language for specifying the feed's underlying
-        format.
+        meaning) and symbol-based [de-]serialisation specs.
       * The Pretty Printer script filtering and presenting the UPP-decoded market
         data in usable formats (JSON or human-readable).
       * Automatic data checker, using the UPP to parse north and south side data:
