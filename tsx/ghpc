@@ -31,11 +31,13 @@ git add -A
 git commit -m "$last_commit"
 git push
 
-head -c 12 /dev/random | base64 > uniq.txt
-git add -A
-git commit -F - <<EOF
-    Dummy commit to nudge gitHub Pages.
-    Check out the previous commit:
-    $last_commit
-EOF
-git push
+# gitHub Pages just needs a bit of time.
+
+# head -c 12 /dev/random | base64 > uniq.txt
+# git add -A
+# git commit -F - <<EOF
+#     Dummy commit to nudge gitHub Pages.
+#     Check out the previous commit:
+#     $last_commit
+# EOF
+# git push
