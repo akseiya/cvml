@@ -304,11 +304,11 @@ career:
         # Stuff done
 
         1.  Deep refactoring and expansion of the sketch of Rewards Team's
-            end-to-end regression suite, including running it against SauceLabs
-            and within Amazon EC boxes orchestrated with Go Pipelines with
-            Chrome and XVFB.
-        1.  Spiking use of Pact.js as a contract testing as part of my work for
-            the Testing Function in CtM.
+            end-to-end regression suite, including running it with Chrome and
+            XVFB against SauceLabs and within Amazon EC boxes orchestrated
+            with Go Pipelines.
+        1.  Spiking use of Pact.js as part of my work for the Testing Function
+            in CtM.
         1.  Dogged insistence on keeping some basic principles of software
             development  with agility.
         1.  Preaching BDD to anyone and everyone.
@@ -317,7 +317,7 @@ career:
             for requirements to be expressed before the code gets written.
         1.  Reviewing Pull Requests from QA PoV.
         1.  Finding compromises between company-wide official Immunisation
-            scorecard for code quality and my squad's tech leads' fear of
+            scorecard for code quality and my squad's tech lead's fear of
             innovation.
 
     - id: aframe
