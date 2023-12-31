@@ -37,11 +37,15 @@ const nameWithOptionalLink = (linkable?: LinkableName) => {
   );
 };
 
-const freshJobsNumber = 3;
+const maxFeaturedJobs = 3;
+const minJobsToShow = 3;
+const expandedJobsToShow = 3;
+const [ msPerHour, hoursADay, daysInYear] = [3600000, 24, 365];
+const prehistoryThreshold = msPerHour * hoursADay * daysInYear * 10;
 
 const renderFlattableJob = (flat: boolean, job: Job, i: number) => {
   const [unfolded, setUnfolded] = useState(false);
-  const folded = !unfolded && i + 1 > freshJobsNumber;
+  const folded = !unfolded && i + 1 > expandedJobsToShow;
   const unfold = () => setUnfolded(true);
 
   const headingContent = !flat ?
@@ -70,6 +74,32 @@ const renderFlattableJob = (flat: boolean, job: Job, i: number) => {
 const renderJob =
   (flat: boolean) => (job: Job, i: number) => renderFlattableJob(flat, job, i);
 
+
+const jobsWithFeatureLimit = (jobs: Job[]) => {
+  let featuredCount = 0;
+  const limitedJobs: Job[] = [];
+  for(let i = 0; i < jobs.length; i++) {
+    const job = jobs[i];
+    if(job.featured) {
+      featuredCount++;
+      if(featuredCount > maxFeaturedJobs) job.featured = false;
+    }
+    limitedJobs.push(job);
+  };
+  return limitedJobs;
+};
+
+const jobFeaturedOrNewer = (job1: Job, job2: Job) => {
+  if(job1.featured && !job2.featured) return -1;
+  if(!job1.featured && job2.featured) return 1;
+  return new Date(job2.from).valueOf() - new Date(job1.from).valueOf();
+};
+
+const notPrehistoric = (job: Job, jobIndex: number) =>
+  !('to' in job) ||               // current assignment
+  (jobIndex < minJobsToShow) ||   // one of the first on sorted list
+  (Date.now() - new Date(job.from).valueOf() < prehistoryThreshold);
+
 export function Career(props: {
   currentResume: Resume,
   layoutIsFlat: boolean
@@ -78,14 +108,15 @@ export function Career(props: {
   const { career } = currentResume;
   const { jobs } = career ?? {};
 
-  const chronologically = (job1: Job, job2: Job) =>
-    new Date(job2.from).valueOf() - new Date(job1.from).valueOf();
+  // const chronologically = (job1: Job, job2: Job) =>
+  //   new Date(job2.from).valueOf() - new Date(job1.from).valueOf();
 
   return (
     <>
       <h1>Career</h1>
-      {(jobs ?? [])
-        .sort(chronologically)
+      {(jobsWithFeatureLimit(jobs) ?? [])
+        .sort(jobFeaturedOrNewer)
+        .filter(notPrehistoric)
         .map(renderJob(layoutIsFlat))}
     </>
   );

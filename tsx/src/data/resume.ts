@@ -11,6 +11,7 @@ export type LinkableName = {
 
 export type Job = {
   id:   string;
+  featured?: boolean;
   to?:  string;
   from: string;
   company:  LinkableName;

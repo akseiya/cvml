@@ -54,13 +54,11 @@ summary:
   - Core profile: |-
       [Veteran](#career-csopl) of every flavour of software development
       in applications from [military HR](#career-csopl) through
-      [finance](#career-nyse) to [video production](#career-aframe).
+      [finance](#career-nyse) to [video production](#career-aframe), including
+      roles in development, ops, management and quality assistance.
 
       Front-line [leader](#career-fuse) focused on supporting his engineers for
       ever further growth.
-
-      Troubleshooter, batch-, net- and DB-admin, [performance
-      profiler](#career-softbank).
 
       Believer in candor and meritocracy as foundations of a
       well-functioning, highly performing organisation.
@@ -76,7 +74,7 @@ summary:
 
       Allowed [NYSE](#career-nyse) to run performance tests of its Data Fabric
       system using a rented cluster of custom worker machines and my
-      mini-jUnit written in Python.
+      mini-jMeter written in Python.
       
       Enabled daily deploys for BT's [Vena project](#career-athena)
       through a multi-layered portfolio of test suites and deployment
@@ -122,6 +120,7 @@ career:
       ### Athena project listed out of order as it happens to use all options
       ### for specifying a job
     - id: athena       ### Each job panel is preceded with a `#career-${id}` anchor.
+      featured: true   ### Shows up top, expanded, even if not most recent 3
       from: 2020-04-01 ### Day of the month is ignored in default format anyway!
       to: 2021-10      ### When this is omitted, timing is rendered as "since Mon YYYY"
       company:
@@ -210,6 +209,7 @@ career:
         too much for my fledgling consultancy skills though.
 
     - id: fuse
+      featured: true
       from: 2018-05
       to: 2019-12
       company:
@@ -233,27 +233,30 @@ career:
           some of the company's first OKR's;
         * steering the development of technical tools to keep the processes
           going smoothly, delegating as much of coding as possible to the
-          engineers (against my natural tendencies which would interfere with my
-          engineers' growth).
+          engineers (against my personal tendencies which would interfere with
+          my engineers' growth).
 
         # Results
 
         The 2 permanent QA testers I started with were no longer focused on
-        moving to front-end development, instead becoming Test Engineers,
-        valued enough for some product owners to ask me to exclude "their" TE-s
-        from the quarterly squad rotation.
-
-        The 2 new hires overcame their initial difficulties, including a junior
-        becoming great help in extending the reach of BDD on the product side
-        and in a "special case" squad.
+        moving to front-end development, instead becoming Test Engineers in a
+        Spotify-inspired chapter of 6.
 
         Contracting was reduced to 2 special cases: a virtuoso of exploratory
-        testing and a dev-ops oriented engineer deemed irreplaceable by our
+        testing and a dev-ops-specialised engineer deemed irreplaceable by our
         Head of Platform.
 
-        Unit test coverage for front-end code became an actual tracked parameter
-        and jumped to over 70% within a few sprints since our initial spiking
-        sessions for Mocha/Chai and React tools for testing.
+        As a side effect of the integration testing spikes I've run with
+        our Head of Front-End, unit test coverage for front-end code became
+        an actual tracked parameter and jumped to over 70% within a few sprints.
+
+        Broad adoption of BDD had additional results, including clear,
+        documented and tracked path from ideation to code - which also allowed
+        the team to spot and address more gaps in the process - like change
+        requests accepted as bugs or impact of a completely separate team
+        creating full front-end override of our product in an isolated pipeline.
+        This is also what I sadly believe was the root cause for our CTO's
+        departure (and me following him out).
 
     - id: duco
       from: 2016-05
@@ -318,6 +321,7 @@ career:
             innovation.
 
     - id: aframe
+      featured: true
       from: 2012-09
       to: 2016-02
       company:
@@ -331,7 +335,7 @@ career:
         Initially I created various components of the Aframe video production
         platform (mostly endpoints of its Sinatra API).
 
-        After getting press-ganged back into QA I created Aframe's acceptance
+        After getting press-ganged into QA I created Aframe's acceptance
         testing platform in two misnamed flavours:
         * end-to-end "Big Smoke" with a custom Git flow serving as the
         kernel for a deployment pipeline;
@@ -448,13 +452,17 @@ projects:
   - CVML: |-
       This resume is a YAML document rendered with React.
 
-      Use the hamburger icon **≡** in the top right corner to
-      ***edit the YAML*** source and change currently rendered content.
+      Use the hamburger icon **≡** in the top right corner of [this
+      page](https://akseiya.github.io) to ***edit the YAML*** source and change
+      currently rendered content.
 
       As long as the main sections (`name`, `fundamentals`,
       `summary`, `career`, `projects`, `extras`) are present and
       the format is conserved, any compatible data can be rendered,
       including an entirely different CV.
+
+      There are no error boundaries yet. Breaking the YAML badly will
+      render a blank HTML page. Thou hast been warned.
 
       Under development. Future ideas will be added to its
       [README](https://github.com/akseiya/cvml/tree/main/tsx#readme).
