@@ -1,8 +1,21 @@
 #!/bin/bash
 
-# When sourced, the script will try to cd
-# to shell's directory.
-[ "${0##*/}" == 'dev' ] && cd "${0%/*}"
+# Sometimes, an optimised build is not really the same as dev version
+# served by React's `npm run start`.
+
+# This script helps with monitoring by serving the build directory, so that
+# you only need to `npm run build` and refresh the already served page.
+
+die() {
+    echo "$@" >&2
+    exit ${ERRCODE:-1}
+}
+
+[ "${0##*/}" == 'dev' ] || die "This script is not meant to be sourced."
+
+which http-server > /dev/null   ||
+    npm i -g http-server        ||
+        die "This script requires http-server or ability to install it globally."
 
 npm run start &
 http-server build/ &
