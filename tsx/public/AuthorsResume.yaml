@@ -52,10 +52,10 @@ summary:
   ### be used instead of "Core profile" etc.
 
   - Core profile: |-
-      [Veteran](#career-csopl) of every flavour of software development
-      in applications from [military HR](#career-csopl) through
-      [finance](#career-nyse) to [video production](#career-aframe), including
-      roles in development, ops, management and quality assistance.
+      Veteran (20+ years) of every flavour of software development
+      in applications from military HR through
+      [finance](#career-duco) to [video production](#career-aframe), in
+      roles of a manager, admin, developer and test engineer.
 
       Front-line [leader](#career-fuse) focused on supporting his engineers for
       ever further growth.
@@ -104,9 +104,9 @@ summary:
             ([Fuse](#career-fuse))
       # Fintech
         *   Reconciliation ([DuCo](#career-duco))
-        *   Cash markets ([NYSET](#career-nyse))
-        *   Derivatives trading support ([Pramerica](#career-pramerica))
-        *   Banking systems ([Softbank](#career-softbank))
+        *   Cash markets ([NYSE](#career-nyse))
+        *   Derivatives trading support (Pramerica)
+        *   Banking systems (Softbank)
       # Video production
         *   In the cloud! ([AFrame](#career-aframe))
 
@@ -141,9 +141,9 @@ career:
           across all the squads on the project: deployment scripts (k8s), Helm
           charts and gitLab CI/CD workflows, standalone mocks, proxies etc.
 
-        Within my squad, the outstanding Olives, I improved our code confidence
+        Within my squad, I improved our code confidence
         by replacing a Robot Framework-based perfect silo with
-        a squad-maintained CCIT suite. This also involved preaching BDD and
+        a squad-maintained CCIT suite. This also involved preaching BDD and
         shift-left to my squad and around it, introducing Cucumber (used
         correctly) and Pact.
 
@@ -321,7 +321,6 @@ career:
             innovation.
 
     - id: aframe
-      featured: true
       from: 2012-09
       to: 2016-02
       company:
@@ -344,6 +343,7 @@ career:
         manifesting outside the browser window).
 
     - id: nyse
+      featured: true
       from: 2010-08
       to: 2012-09
       company:

@@ -74,7 +74,6 @@ const renderFlattableJob = (flat: boolean, job: Job, i: number) => {
 const renderJob =
   (flat: boolean) => (job: Job, i: number) => renderFlattableJob(flat, job, i);
 
-
 const jobsWithFeatureLimit = (jobs: Job[]) => {
   let featuredCount = 0;
   const limitedJobs: Job[] = [];
@@ -98,7 +97,10 @@ const jobFeaturedOrNewer = (job1: Job, job2: Job) => {
 const notPrehistoric = (job: Job, jobIndex: number) =>
   !('to' in job) ||               // current assignment
   (jobIndex < minJobsToShow) ||   // one of the first on sorted list
-  (Date.now() - new Date(job.from).valueOf() < prehistoryThreshold);
+  (
+    (Date.now() - new Date(job.to ? job.to : job.from).valueOf()) <
+   prehistoryThreshold
+  );
 
 export function Career(props: {
   currentResume: Resume,
