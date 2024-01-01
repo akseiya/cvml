@@ -440,7 +440,7 @@ career:
 
 ### Just like "Summary", this is a series of free-form blocks.
 ### For now, the navbar generation is hardcoded to use this, so think
-### of at least one project to brag about.
+### of at least one project to write about.
 
 projects:
   - CVML: |-
@@ -450,16 +450,16 @@ projects:
       page](https://akseiya.github.io) to ***edit the YAML*** source and change
       currently rendered content.
 
-      As long as the main sections (`name`, `fundamentals`,
-      `summary`, `career`, `projects`, `extras`) are present and
-      the format is conserved, any compatible data can be rendered,
-      including an entirely different CV.
-
       There are no error boundaries yet. Breaking the YAML badly will
-      render a blank HTML page. Thou hast been warned.
+      render a blank HTML page.
 
       Under development. Future ideas will be added to its
-      [README](https://github.com/akseiya/cvml/tree/main/tsx#readme).
+      [README](https://github.com/akseiya/cvml/tree/main/tsx#the-yaml-cv-rendered-in-react).
+
+      Next main feature: use a hosted, CSRF-compliant proxy to relay
+      a public YAML file (e.g. hosted on Google Drive) - this would allow
+      a user to have link which would always make this React app render
+      the user's resume.
 
   - The W3Schools wannabe: |-
       A course delivery system treating learning modules and their stages as
