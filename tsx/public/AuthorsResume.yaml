@@ -67,19 +67,13 @@ summary:
       Converted an ailing QA team into a [functional Test
       Engineering chapter](#career-fuse) in a scaling agile model.
 
-      Drove [a broad adoption of BDD across tech and
-      product](#career-fuse), up to the point of product owners
-      becoming able to challenge numerous feature requests submitted
-      as bugs (on top of the usual BDD benefits).
-
       Allowed [NYSE](#career-nyse) to run performance tests of its Data Fabric
       system using a rented cluster of custom worker machines and my
       mini-jMeter written in Python.
       
       Enabled daily deploys for BT's [Vena project](#career-athena)
-      through a multi-layered portfolio of test suites and deployment
-      pipelines with emergency mitigation processes in place, adapted to
-      the project's unique challenges and leveraging its helpful traits.
+      through a multi-layered portfolio of test suites, deployment
+      pipelines and tailored processes.
       
       Reduced run-time of [DuCo's unit test suite](#career-duco) from
       a few minutes to 7 seconds.
@@ -193,7 +187,7 @@ career:
       to:   2023-01
       company:
         name: Coforge (contract inside IR35)
-        link: https://www.schroders.com/en/global/individual/contact-us/worldwide-locations/uk/
+        # link: https://www.schroders.com/en/global/individual/contact-us/worldwide-locations/uk/
       position:
         name: QE learning lead
       description: |-
