@@ -473,8 +473,8 @@ projects:
       a bit more logic behind them:
       * a shell command gets executed in the backend (expected to run the
         exercise code);
-        * if both are as expected,, the code exercise is considered completed
-          successfully;
+        * if its exit code and/or output produced are as expected, the code
+          exercise is considered completed successfully;
         * otherwise the user needs to retry and can be presented with hints for
           successful completion;
       * the user can be forbidden from using certain phrases, like
