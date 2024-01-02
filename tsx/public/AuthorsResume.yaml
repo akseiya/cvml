@@ -304,14 +304,14 @@ career:
         1.  Spiking use of Pact.js as part of my work for the Testing Function
             in CtM.
         1.  Dogged insistence on keeping some basic principles of software
-            development  with agility.
+            development with agility.
         1.  Preaching BDD to anyone and everyone.
         1.  Calling the 3 Amigos sessions and playing the role of product owner,
             business analyst and the SDET while also reminding about the need
             for requirements to be expressed before the code gets written.
         1.  Reviewing Pull Requests from QA PoV.
         1.  Finding compromises between company-wide official Immunisation
-            scorecard for code quality and my squad's tech lead's fear of
+            Scorecard for code quality and my squad's tech lead's fear of
             innovation.
 
     - id: aframe
@@ -453,28 +453,37 @@ projects:
       There are no error boundaries yet. Breaking the YAML badly will
       render a blank HTML page.
 
-      Under development. Future ideas will be added to its
-      [README](https://github.com/akseiya/cvml/tree/main/tsx#the-yaml-cv-rendered-in-react).
+      Currently, ReactMarkdown is used, which means limitations, e.g. external
+      links from this CV will not currently open in a new tab/window.
 
-      Next main feature: use a hosted, CSRF-compliant proxy to relay
-      a public YAML file (e.g. hosted on Google Drive) - this would allow
-      a user to have link which would always make this React app render
-      the user's resume.
+      Under development. [Roadmap in README][roadmap]. Next Big Thing:
+      persistence of a visitor's CV.
+
+      [roadmap]: https://github.com/akseiya/cvml/tree/main/tsx#roadmap
 
   - The W3Schools wannabe: |-
-      A course delivery system treating learning modules and their stages as
-      navigable sequences of webpages - some of which can contain interactive
-      code exercises. Source currently on Bitbucket, ask me for access.
+      A training course delivery system in jQuery and Fastify. It serves
+      a course as navigable sequence of webpages - some of which can contain
+      interactive code exercises.
 
-      The prose content authored in Markdown is rendered with
-      [Showdown](https://showdownjs.com/), while code exercises have
-      a bit more logic behind them (ultimately, a shell command gets executed
-      in the backend to run the tests), including expected phrases and
-      hints for the learner as well as basic protection against `rm -rf /`
-      and similar shenanigans.
+      [Source on Bitbucket][w3sw]
+
+      The prose content of the course needs to be authored in Markdown (renders
+      with [Showdown](https://showdownjs.com/)), while code exercises have
+      a bit more logic behind them:
+      * a shell command gets executed in the backend (expected to run the
+        exercise code);
+        * if both are as expected,, the code exercise is considered completed
+          successfully;
+        * otherwise the user needs to retry and can be presented with hints for
+          successful completion;
+      * the user can be forbidden from using certain phrases, like
+        `system("rm -rf /")`.
 
       The exercise delivered while implementing the framework prototype is "API
       Testing in C#", made for [Coforge](#career-shred).
+
+      [w3sw]: https://bitbucket.org/somatherion/csexerc-api-testing
 
   - Ergane: |-
       An ***almost*** run-of-the-mill, project-aligned, E2E testing framework.
@@ -482,48 +491,52 @@ projects:
       Written in Python with *Behave* and *Request* for BT's [Athena / Vena
       project](#career-athena).
 
-      Designed for boilerplate minimisation when extending, not just for page
-      objects, but - more importantly - for cluster-specific Vault paths,
-      hostnames etc - leading to a situation where typically adding support for
-      a new API meant specifying the core of its name.
+      Ergane was designed for boilerplate minimisation when extending the test
+      suite, not just for page objects, but - more importantly - for
+      cluster-specific Vault paths, hostnames etc - leading to a situation where
+      typically adding support for a new API meant specifying the core of its
+      name. A cascade of gradual overrides reduced extra code required to test
+      legacy and non-compliant components.
 
-      A cascade of gradual overrides made sure that "rebels" and legacy code
-      required merciful amounts of extra code.
-
-      The framework came with tailored workflow and associated GitLab CI/CD
-      pipeline stages, including a way to run super-slow overnight e2e tests
-      with physical  Juniper routers, a HA-Proxy instance allowing use of the
-      same cluster for internal and external E2E regimes, finally cross-poject
-      hooks in the pipelines to work around the missing budget for full GitLab
-      license.
+      I complemented the framework with custom workflow and associated GitLab
+      CI/CD pipeline stages, including a way to run super-slow overnight e2e
+      tests with physical  Juniper routers, a HA-Proxy instance allowing use of
+      the same cluster for internal and external E2E regimes, finally
+      cross-project hooks in the pipelines to work around the missing budget for
+      full GitLab license.
 
   - Orion: |-
       ...a.k.a. [NYSE's](#career-nyse) Next Generation Market Data System.
 
       My chief effort was extensive scripting in Python, including:
-      * The Universal Playback Parser (**UPP**) for wide variety of market data
-        formats, from delimited ASCII to binary-encoded FIXML.
-        * The parser used CSV exports of business requirements (sheets with
-          fields' meaning) and symbol-based [de-]serialisation specs.
-      * The Pretty Printer script filtering and presenting the UPP-decoded
-        market data in usable formats (JSON or human-readable).
-      * Automatic data checker, using the UPP to parse north and south side
-        data:
-        * simulates key parts of Orion's functionality using a CSV spreadsheet
-          with mappings of messages, fields and logical conditions;
-        * scans current message routing configuration (XML) and simulates proper
-          routing;
-        * compares resulting data streams and reports items lost, modified
-          and unexpected.
+      1.  The Universal Playback Parser (**UPP**) for wide variety of market
+          data formats, from delimited ASCII to binary-encoded FIXML.
+          * The parser used CSV exports of business requirements (sheets
+            with fields' meaning) and symbol-based [de-]serialisation specs.
+      1.  A simulator of cash market matching engine with a semi-manual mode
+          which presented data from tested feeds as a live ticker table
+          for visual checks, e.g. correct encoding could be confirmed by
+          valid simplified/traditional Mandarin and Cantonese characters showing
+          up in the table;
+      1.  Data validation scripts
+          * using the UPP to parse north/south side data, then the CSV
+            specs to marshal all of it to one format;
+          * using Data Fabric's routing configuration (XML) to separate
+            feeds per test client;
+          * comparing resulting data streams and reporting items lost,
+            mutated and unexpected.
 
 ### Again, a series of free-form blocks.
 
 extras:
   - Interests and hobbies: |-
-      * Gaming and [coding](https://github.com/akseiya);
-      * [photography](http://akseiya.deviantart.com/), music and literature;
+      * Gaming and coding ([gitHub], [bitBucket]);
+      * [photography](http://deviantart.com/akseiya), music and literature;
       * Japanese art & culture;
       * religions and mythologies.
+
+      [gitHub]: https://github.com/akseiya
+      [bitBucket]: https://bitbucket.org/somatherion
   - Technologies: |-
       # Fresh / reflexive
       * code core
