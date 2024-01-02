@@ -550,7 +550,7 @@ extras:
       * systems, devops
         * POSIX *(admin/scriptmaster)* and Windows *(power user who enables WSL
           anyway)*
-        * Open Blue Ocean (Jenkins)
+        * gitLab CI/CD, Docker, Open Blue Ocean (Jenkins)
       * administration
         * JIRA, TestRail, Confluence, Trakstar
       # Rusty / unmastered
@@ -564,11 +564,9 @@ extras:
       * persistence
         * pure SQL, postgres, Sequel and DataMapper, Oracle procs, DB2 with
           tooling
-      * systems, devops
-        * gitLab CI/CD (in-depth), Docker, Helm, k8s, deep Jenkins, Go Pipelines
+      * systems, devops, administration
+        * Helm, k8s, deep Jenkins, Go Pipelines, Azure devOps
         * *(**very** rusty):* TSO/ISPF, Control-M, CICS, JCL, Serena, Xpediter
-      * administration
-        * Azure devOps
 ### Even at 147px size and no EXIF, thumbnail etc, this is
 ### kilobytes large. Do bear this in mind when adding your
 ### own photo.
