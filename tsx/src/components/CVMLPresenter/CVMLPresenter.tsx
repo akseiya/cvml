@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from 'react';
 
 import { ResumeHistory } from '../../data';
@@ -23,8 +22,7 @@ export function CVMLPresenter() {
         title='Summary' />
 
       <a id="career" />
-      {/* FIXME: Use the context! */}
-      <Career {...{currentResume, layoutIsFlat: flatView}} />
+      <Career />
 
       <PanelSet
         anchor='projects'

@@ -15,19 +15,20 @@ article.job .unfolder {
   display: none;
 }
 
-.rich article.job.old .unfolder {
+.rich article.job.folded .unfolder {
   display: inline-block;
   cursor: pointer;
   max-height: 1.4em;
   text-align: center;
 }
 
-.unfolder svg {
+.unfolder svg,
+.prehistory-button svg {
   width: 1.4em;
   height: 1.4em;
 }
 
-.rich article.job.old main {
+.rich article.job.folded main {
   display: none;
 }
 
@@ -40,4 +41,14 @@ article.job header div {
 .rich article.job header div:nth-child(2) {
   flex-grow: 4;
   text-align: left;
+}
+
+.prehistory-button {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em 0;
+  width: 10em;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--color-medium-shade);
 }

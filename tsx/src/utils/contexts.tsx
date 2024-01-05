@@ -21,14 +21,14 @@ export const DispatchContext =
 
 type MainAppContextProps = {
   children: React.ReactNode;
-  present: PresenterContext;
+  presenterData: PresenterContext;
   dispatch: React.Dispatch<Action>;
 }
 
 export function AppContextProvider(props: MainAppContextProps) {
-  const { children, present, dispatch } = props;
+  const { children, presenterData, dispatch } = props;
   return (
-    <PresenterContext.Provider value={present}>
+    <PresenterContext.Provider value={presenterData}>
       <DispatchContext.Provider value={dispatch}>
         { children }
       </DispatchContext.Provider>

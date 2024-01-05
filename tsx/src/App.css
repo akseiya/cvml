@@ -4,6 +4,15 @@
   scroll-behavior: smooth;
 }
 
+html {
+  --color-brightest: white;
+  --color-darkest: black;
+  --color-light-shade: #fcf7e8;
+  --color-medium-shade: bisque;
+  --color-darker-shade: #330;
+  --color-dropped-shadow: #776;
+}
+
 #root {
   top: 0;
   left: 0;

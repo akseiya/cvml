@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/jsx-no-bind */
 import 'animate.css';
 import './App.css';
 import './App.mainblocks.css';
@@ -14,21 +13,20 @@ import { AppContextProvider } from './utils/contexts';
 import { updatePresenter } from './utils/reducers';
 
 export default function App() {
-  const [present, dispatch] = useReducer(
+  const [presenterData, dispatch] = useReducer(
     updatePresenter,
     {
       history: ResumeHistory.createEmpty(),
       flags: { flatView: false }
     }
   );
-  const { history } = present;
+  const { history } = presenterData;
 
   const [editorIsActive,   setEditorIsActive]   = useState(false);
-  const [burgerWasClicked, setBurgerWasClicked] = useState(true);
+  const [burgerWasClicked, setBurgerWasClicked] = useState(false);
 
-  // const flipFlatLayout = () => { setLayoutIsFlat(!layoutIsFlat); };
-  const closeEditor    = () => { setEditorIsActive(false);       };
-  const openEditor     = () => { setEditorIsActive(true);        };
+  const closeEditor    = () => { setEditorIsActive(false); };
+  const openEditor     = () => { setEditorIsActive(true);  };
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -54,7 +52,7 @@ export default function App() {
   if (history.versions.length < 1) return <div>Loading the default CV...</div>;
 
   const inContext = (children: React.ReactNode) =>
-    <AppContextProvider {...{ present, dispatch }}>
+    <AppContextProvider {...{ presenterData, dispatch }}>
       { children }
     </AppContextProvider>;
 
@@ -69,7 +67,9 @@ export default function App() {
   };
 
   return inContext(
-    <><CVMLPresenter/>
-      <MainMenu {...mainMenuWiring } /></>
+    <>
+      <CVMLPresenter/>
+      <MainMenu {...mainMenuWiring } />
+    </>
   );
 }

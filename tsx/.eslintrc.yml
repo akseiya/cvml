@@ -41,6 +41,7 @@ rules:
   capitalized-comments: off
   react/jsx-no-literals: off
   react/jsx-max-depth: off
+  react/jsx-props-no-spreading: off
   react/jsx-filename-extension:
     - 1
     - extensions:

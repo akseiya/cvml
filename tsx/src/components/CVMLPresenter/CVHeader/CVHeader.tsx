@@ -11,7 +11,6 @@ const email = (email: string) =>
     {SVG.envelope}
   </a>;
 
-// eslint-disable-next-line react/no-unused-prop-types
 export function CVHeader(props: { currentResume: Resume }) {
   const { currentResume } = props;
 

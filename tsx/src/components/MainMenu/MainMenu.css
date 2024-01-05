@@ -16,16 +16,16 @@
     height:     2.4em;
     padding:    0.2em;
     text-align: center;
-    color:    white;
-    background-color: #330;
+    color:              var(--color-brightest);
+    background-color:   var(--color-darker-shade);
 }
 @media screen and (hover: hover) {
     #home-arrow:hover,
     #burger:hover,
     #mail-me:hover
     {
-        color: black;
-        background-color: bisque;
+        color:              var(--color-darkest);
+        background-color:   var(--color-medium-shade);
     }
 }
 #mail-me {
@@ -57,8 +57,8 @@
 }
 
 #main-menu {
-    background-color: white;
-    box-shadow: -4px 4px 12px #777;
+    background-color: var(--color-brightest);;
+    box-shadow: -4px 4px 12px var(--color-dropped-shadow);
 }
 #main-menu > div {
     padding: 0.3em;
@@ -66,9 +66,12 @@
     align-items:    center;
     flex-direction: row;
 }
-#main-menu > div:hover {
-    background-color: #fcf7e8;
+@media screen and (hover: hover) {
+    #main-menu > div:hover {
+        background-color: var(--color-medium-shade);
+    }
 }
+
 
 #main-menu svg {
     width:  1.6em;
@@ -79,7 +82,7 @@
 #main-menu-modal-bg {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: white;
+    background-color: var(--color-brightest);;
     opacity: 0.4;
 }
 

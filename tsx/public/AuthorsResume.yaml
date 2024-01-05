@@ -389,17 +389,16 @@ career:
       description: |-
         From a junior dev to a tech lead for 3 juniors.
 
-        # Duties
+        Typical duties of an advancing COBOL/DB2 developer, up to full paths
+        from written user requirements to transactions, batch processes and
+        DB2 entities - including SQL performance tuning, JCL wizardry and
+        supervising deploys to production.
 
-        * Analysis of customer requirements and designing solutions;
-        * creating high level designs basing on solution designs;
-        * designing and supervising designs of components basing on high level designs;
-        * coding and testing the components and solutions;
-        * developing standards for coding, testing and documentation;
-        * developing auxiliary tools for programmers;
-        * analysis of existing code, performance tuning, code tweaks;
-        * support for batch processing;
-        * revamping and delivering trainings for project newcomers.
+        Particular contributions:
+        * revamping and delivering training for new hires;
+        * removing a redundant layer from project documentation;
+        * creating a set of code guidelines and code snippets, intended for my
+          juniors, but quickly adopted across the project.
 
     - id: wakac
       from: "2002"

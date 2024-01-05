@@ -2,7 +2,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: white;
+  background-color: var(--color-brightest);
 }
 
 .resume-root > header > div {
@@ -50,7 +50,7 @@
   margin: 0;
   text-align: left;
   flex: 0 1 auto;
-  background-color: white;
+  background-color: var(--color-brightest);
   max-width: 86%;
 }
 

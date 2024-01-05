@@ -9,7 +9,7 @@ export type LinkableName = {
   link?:  string;
 }
 
-export type Job = {
+export type JobSpec = {
   id:   string;
   featured?: boolean;
   to?:  string;
@@ -38,7 +38,7 @@ export type Resume = {
   };
   career: {
     title?: string;
-    jobs: Job[];
+    jobs: JobSpec[];
   };
 }
 
