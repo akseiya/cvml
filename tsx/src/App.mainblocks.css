@@ -21,6 +21,10 @@ main article > main {
   border-radius: 0.4em;
 }
 
+@media print {
+  .rich main article { page-break-inside: avoid }
+}
+
 .rich main article {
   border: 1px solid var(--color-darkest);
   margin-bottom: 2em;

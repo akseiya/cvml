@@ -31,7 +31,8 @@ const redo = (
 ): HistoryData => {
   let { current } = history;
   current++;
-  if (current + 1 > history.versions.length) throw 'No more redos, why button drawn?';
+  if (current + 1 > history.versions.length)
+    throw 'No more redos, why button drawn?';
   return {
     ...history,
     current
