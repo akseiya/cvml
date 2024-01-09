@@ -12,12 +12,12 @@ import {
 } from '../../utils/contexts';
 
 export type YAMLEditorProps = {
-  closeEditor: () => void,
+  readonly closeEditor: () => void
 };
 
 export function CVMLEditor(props: YAMLEditorProps) {
   const { 
-    closeEditor,
+    closeEditor
   } = props;
 
   const presenterData = useContext(PresenterContext);

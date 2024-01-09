@@ -5,9 +5,9 @@ import { PresenterContext } from '../../utils/contexts';
 import { Career, CVHeader, PanelSet } from '.';
 
 export function CVMLPresenter() {
-  const present = useContext(PresenterContext);
-  if (!present) throw 'CVMLPresenter shouldn\'t be rendered with empty history!';
-  const { history, flags: { flatView } } = present;
+  const presenterData = useContext(PresenterContext);
+  if (!presenterData) throw 'CVMLPresenter shouldn\'t be rendered with empty history!';
+  const { history, flags: { flatView } } = presenterData;
 
   const currentResume = ResumeHistory.parseCurrent(history);
 

@@ -5,8 +5,9 @@ import './App.mainblocks.css';
 import './Responsive.css';
 
 import React, { useEffect, useReducer, useState } from 'react';
+import ErrorBoundary from 'react-error-boundary';
 
-import { CVMLEditor, CVMLPresenter, MainMenu } from './components';
+import { CVMLEditor, CVMLPresenter, ErrorRecovery, MainMenu } from './components';
 import { ResumeHistory } from './data';
 import { httpClient } from './utils/client';
 import { AppContextProvider } from './utils/contexts';
@@ -66,10 +67,8 @@ export default function App() {
     setBurgerWasClicked
   };
 
-  return inContext(
-    <>
-      <CVMLPresenter/>
-      <MainMenu {...mainMenuWiring } />
-    </>
-  );
+  return inContext(<ErrorBoundary>
+    <CVMLPresenter/>
+    <MainMenu {...mainMenuWiring } />
+  </ErrorBoundary>);
 }
