@@ -11,7 +11,7 @@ const email = (email: string) =>
     {SVG.envelope}
   </a>;
 
-export function CVHeader(props: { currentResume: Resume }) {
+export function CVHeader(props: { readonly currentResume: Resume }) {
   const { currentResume } = props;
 
   const navLink = (href:string, label:string) =>

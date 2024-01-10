@@ -1,9 +1,6 @@
 import React, { createContext } from 'react';
 
-import {
-  // HistoryChange,
-  HistoryData
-} from '../data';
+import { HistoryData } from '../data';
 import { Action } from './reducers';
 
 export type PresenterContext = {
@@ -20,9 +17,9 @@ export const DispatchContext =
   createContext<React.Dispatch<Action> | null>(null);
 
 type MainAppContextProps = {
-  children: React.ReactNode;
-  presenterData: PresenterContext;
-  dispatch: React.Dispatch<Action>;
+  readonly children: React.ReactNode;
+  readonly presenterData: PresenterContext;
+  readonly dispatch: React.Dispatch<Action>;
 }
 
 export function AppContextProvider(props: MainAppContextProps) {

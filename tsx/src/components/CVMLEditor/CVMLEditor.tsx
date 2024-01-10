@@ -24,6 +24,7 @@ export function CVMLEditor(props: YAMLEditorProps) {
   const dispatch = useContext(DispatchContext);
   if (!(presenterData && dispatch)) throw 'Trying to render MainMenu without context';
   const { history } = presenterData;
+  const { brokenUpdate } = history;
 
   const currentYAML = ResumeHistory.getCurrent(history);
   /*
@@ -55,7 +56,7 @@ export function CVMLEditor(props: YAMLEditorProps) {
         <button onClick={closeEditor} type="button">Cancel</button>
         <button onClick={restore} type="button">Restore</button>
       </div>
-      <textarea defaultValue={currentYAML}/>
+      <textarea defaultValue={brokenUpdate || currentYAML}/>
     </div>
   );
 }

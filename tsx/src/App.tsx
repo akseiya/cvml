@@ -4,8 +4,8 @@ import './App.css';
 import './App.mainblocks.css';
 import './Responsive.css';
 
-import React, { useEffect, useReducer, useState } from 'react';
-import ErrorBoundary from 'react-error-boundary';
+import React, { useCallback, useEffect, useReducer, useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { CVMLEditor, CVMLPresenter, ErrorRecovery, MainMenu } from './components';
 import { ResumeHistory } from './data';
@@ -28,6 +28,11 @@ export default function App() {
 
   const closeEditor    = () => { setEditorIsActive(false); };
   const openEditor     = () => { setEditorIsActive(true);  };
+
+  const undoBrokenYAML = useCallback(
+    () => {dispatch({type: 'undo-broken-yaml'});},
+    [dispatch]
+  );
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -67,7 +72,10 @@ export default function App() {
     setBurgerWasClicked
   };
 
-  return inContext(<ErrorBoundary>
+  return inContext(<ErrorBoundary
+    FallbackComponent={ErrorRecovery}
+    onReset={undoBrokenYAML}
+  >
     <CVMLPresenter/>
     <MainMenu {...mainMenuWiring } />
   </ErrorBoundary>);

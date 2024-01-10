@@ -4,6 +4,7 @@ import {
   ResumeHistory
 } from '../data/History';
 import { PresenterContext } from './contexts';
+import { jdbg } from './debug';
 
 export type FlagSwitchType = 'flatten' | 'unflatten';
 export type ActionType = HistoryChangeType | FlagSwitchType;
@@ -13,11 +14,33 @@ export type FlagSwitch = {
 
 export type Action = HistoryChange | FlagSwitch;
 
+const debugDispatch = (
+  presenterData: PresenterContext,
+  action: Action) => {
+  const { type } = action;
+  const { history: { versions, current } } = presenterData;
+  jdbg({
+    type,
+    history: {
+      current,
+      versions: versions.map(
+        v => v.
+          split('\n').
+          filter(l => !l.startsWith('#') && l.length).
+          slice(0,5).
+          join(' --- ')
+      )
+    }
+  });
+};
+
 export const updatePresenter = (
-  present: PresenterContext,
+  presenterData: PresenterContext,
   action: Action
 ): PresenterContext => {
-  const { flags, history } = present;
+  const { flags, history } = presenterData;
+
+  debugDispatch(presenterData, action);
 
   const updateHistory = () =>
     ResumeHistory.update(history, (action as HistoryChange).newContent);
@@ -30,7 +53,9 @@ export const updatePresenter = (
   case 'update': return { flags, history: updateHistory() };
   // 'update' dispatch cannot be used, as it adds a new version to the list
   // which leads to double addition in Strict mode dev server!
-  case 'load-default': return { history: initHistory(), flags };
+  case 'load-default': return { flags, history: initHistory() };
+  case 'undo-broken-yaml':
+    return { flags, history: ResumeHistory.revertBrokenUpdate(history)};
 
   case 'flatten':   return { history, flags: { ...flags, flatView: true } };
   case 'unflatten': return { history, flags: { ...flags, flatView: false } };

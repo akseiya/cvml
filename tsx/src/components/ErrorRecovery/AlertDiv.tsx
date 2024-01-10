@@ -2,8 +2,6 @@
 
 import React, { ReactNode } from 'react';
 
-import { jdmp } from '../../utils/debug';
-
 type AlertDivProps = {
   readonly preface: string[];
   readonly callToAction: string[];
@@ -16,17 +14,30 @@ export function AlertDiv(props: AlertDivProps) {
   const {
     preface, callToAction, error, ctaWithoutEmail, children
   } = props;
+
   const toParagraphs = (line: string) => <p key={line}>{line}</p>;
+
   const elements = preface.map(toParagraphs);
-  if (error) elements.push(<pre>{jdmp(error)}</pre>);  
+
+  if (error) {
+    const { name, message, stack } = error;
+    elements.push(
+      <>
+        <pre key="errornamessage">{name}: {message}</pre>
+        <pre key="errorstack">{stack?.split('\n').slice(0,2).join('\n')}</pre>
+      </>
+    );
+  }
+
   if (ctaWithoutEmail)
     elements.push(...callToAction.map(toParagraphs));
   else {
-    const contactLine = callToAction.pop();
-    elements.push(...callToAction.map(toParagraphs));
-    elements.push(<p>
+    const cta = [...callToAction];
+    const contactLine = cta.pop();
+    elements.push(...cta.map(toParagraphs));
+    elements.push(<p key="contact">
       {contactLine}:
-      <a href="mailto:akseiya@gmail.com">akseiya@gmail.com</a>
+      <a href="mailto:akseiya@gmail.com"> akseiya@gmail.com </a>
     </p>);
   }
 

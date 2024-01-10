@@ -21,9 +21,9 @@ const renderSummaryItem = (item: SummaryItem) => {
 };
 
 type PanelSetProps = {
-  title: string;
-  anchor: string;
-  panelsData: SummaryItem[] | null;
+  readonly title: string;
+  readonly anchor: string;
+  readonly panelsData: SummaryItem[] | null;
 }
 export function PanelSet(props: PanelSetProps) {
   const { title, anchor, panelsData } = props;

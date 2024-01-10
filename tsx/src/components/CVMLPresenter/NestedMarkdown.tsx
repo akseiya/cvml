@@ -9,7 +9,7 @@ but the "# Asteroids found" MD header inside is a <h1>, all MD
 headers get downgraded to one level below the expected H-level of
 the panel's title.
 */
-export default function NestedMarkdown(props:{children: string}) {
+export default function NestedMarkdown(props:{readonly children: string}) {
   const { children:markdown } = props;
   return <main><ReactMarkdown>
     {markdown.replaceAll(/(^|\s)#+\s/g, (hN) => hN.replace('#', '###'))}

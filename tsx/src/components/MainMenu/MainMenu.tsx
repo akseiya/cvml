@@ -10,9 +10,9 @@ import { SVG } from '../../utils/svg';
 
 type TrivialFunction = () => void;
 type MainMenuProps = {
-  openEditor: TrivialFunction,
-  burgerWasClicked: boolean,
-  setBurgerWasClicked: React.Dispatch<React.SetStateAction<boolean>>
+  readonly openEditor: TrivialFunction,
+  readonly burgerWasClicked: boolean,
+  readonly setBurgerWasClicked: React.Dispatch<React.SetStateAction<boolean>>
 };
 
 export function MainMenu(props: MainMenuProps) {
@@ -55,6 +55,11 @@ export function MainMenu(props: MainMenuProps) {
       [setUnfolded, dispatch]
     );
 
+  const undo = foldAndDispatch('undo');
+  const redo = foldAndDispatch('redo');
+  const flatten = foldAndDispatch('flatten');
+  const unflatten = foldAndDispatch('unflatten');
+
   const foldAndOpenEditor = useCallback(
     () => fold(() => openEditor()),
     [setUnfolded, openEditor]
@@ -62,24 +67,24 @@ export function MainMenu(props: MainMenuProps) {
 
   const justFold = useCallback(() => fold(), [setUnfolded]);
 
-  const flattenDiv = <div onClick={foldAndDispatch('flatten')}>
+  const flattenDiv = <div onClick={flatten}>
     {SVG.flatten}
     <div>flatten CV layout</div>
   </div>;
 
-  const unflattenDiv = <div onClick={foldAndDispatch('unflatten')}>
+  const unflattenDiv = <div onClick={unflatten}>
     {SVG.unflatten}
     <div>restore rich layout</div>
   </div>;
 
   const undoDiv = ResumeHistory.canUndo(history) ?
-    <div onClick={foldAndDispatch('undo')}>
+    <div onClick={undo}>
       {SVG.arrowCCW}
       <div>undo YAML source change</div>
     </div> : null;
 
   const redoDiv = ResumeHistory.canRedo(history) ?
-    <div onClick={foldAndDispatch('redo')}>
+    <div onClick={redo}>
       {SVG.arrowCW}
       <div>redo YAML source change</div>
     </div> : null;

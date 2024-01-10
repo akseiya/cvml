@@ -38,8 +38,8 @@ const nameWithOptionalLink = (linkable?: LinkableName) => {
 
 export type InitialJobState = 'unfolded' | 'folded' | 'hidden';
 type JobProps = {
-    job: JobSpec,
-    initialState: InitialJobState
+    readonly job: JobSpec,
+    readonly initialState: InitialJobState
 }
 
 export function Job(props: JobProps) {

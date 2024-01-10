@@ -6,9 +6,10 @@ import { Resume } from './resume';
 export type HistoryData = {
   current: number;
   versions: string[];
+  brokenUpdate?: string;
 };
 
-export type HistoryChangeType = 'update' | 'undo' | 'redo' | 'load-default';
+export type HistoryChangeType = 'update' | 'undo' | 'redo' | 'load-default' | 'undo-broken-yaml';
 export type HistoryChange = {
   type: HistoryChangeType,
   newContent?: string;
@@ -54,6 +55,21 @@ const update = (
   };
 };
 
+const revertBrokenUpdate = (
+  history: HistoryData,
+): HistoryData => {
+  const { versions, current } = history;
+  if (current !== versions.length - 1)
+    throw 'revertBrokenUpdate() only makes sense after update()';
+  const versionsCopy = [...versions];
+  const brokenUpdate = versionsCopy.pop();
+  return {
+    versions: versionsCopy,
+    current: current - 1,
+    brokenUpdate
+  };
+};
+
 const initialiseWith = (
   newContent = 'BORKED DISPATCH.'
 ): HistoryData => ({
@@ -78,6 +94,7 @@ export const ResumeHistory = {
   undo,
   redo,
   update,
+  revertBrokenUpdate,
   initialiseWith,
   createEmpty: (): HistoryData => ({
     current: -1,
