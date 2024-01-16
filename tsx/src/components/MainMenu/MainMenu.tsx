@@ -38,15 +38,18 @@ export function MainMenu(props: MainMenuProps) {
     [setBurgerWasClicked, setUnfolded]
   );
 
+  // animate.css does allow me to setUnfolded(false)
+  // once it's done sliding out, but it will still
+  // flash the fully unfolded menu before hiding it
   const fold = (action?: TrivialFunction) => {
     const fader = document.getElementById('main-menu');
     if(!fader) throw 'Somehow, main menu is gone...';
     fader.classList.remove('slide-in');
-    fader.classList.add('slide-out');
+    // fader.classList.add('slide-out');
     if (action) action();
-    fader.addEventListener('animationend', () => {
-      setUnfolded(false);
-    });
+    // fader.addEventListener('animationend', () => {
+    setUnfolded(false);
+    // });
   };
 
   const foldAndDispatch = (type: ActionType) =>
@@ -109,7 +112,7 @@ export function MainMenu(props: MainMenuProps) {
   return unfolded ?
     <>
       {burger}
-      <div id='main-menu-modal-bg' onClick={justFold}/>
+      <div id='modal-bg' onClick={justFold}/>
       {menu}
     </> :
     <>

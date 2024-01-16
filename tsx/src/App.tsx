@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import 'animate.css';
 import './App.css';
 import './App.mainblocks.css';
@@ -26,11 +25,14 @@ export default function App() {
   const [editorIsActive,   setEditorIsActive]   = useState(false);
   const [burgerWasClicked, setBurgerWasClicked] = useState(false);
 
-  const closeEditor    = () => { setEditorIsActive(false); };
-  const openEditor     = () => { setEditorIsActive(true);  };
+  const closeEditor = () => { setEditorIsActive(false); };
+  const openEditor  = () => { setEditorIsActive(true);  };
 
   const undoBrokenYAML = useCallback(
-    () => {dispatch({type: 'undo-broken-yaml'});},
+    () => {
+      dispatch({type: 'undo-broken-yaml'});
+      openEditor();
+    },
     [dispatch]
   );
 

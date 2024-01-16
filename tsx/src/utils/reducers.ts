@@ -56,6 +56,8 @@ export const updatePresenter = (
   case 'load-default': return { flags, history: initHistory() };
   case 'undo-broken-yaml':
     return { flags, history: ResumeHistory.revertBrokenUpdate(history)};
+  case 'discard-broken-yaml':
+    return { flags, history: ResumeHistory.discardBrokenUpdate(history)};
 
   case 'flatten':   return { history, flags: { ...flags, flatView: true } };
   case 'unflatten': return { history, flags: { ...flags, flatView: false } };

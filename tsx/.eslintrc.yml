@@ -37,8 +37,8 @@ rules:
   semi:
     - error
     - always
-  require-unicode-regexp: off
   capitalized-comments: off
+  # react/require-default-props: off
   react/jsx-no-literals: off
   react/jsx-max-depth: off
   react/jsx-props-no-spreading: off

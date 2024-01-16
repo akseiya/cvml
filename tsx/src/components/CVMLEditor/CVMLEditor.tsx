@@ -48,12 +48,19 @@ export function CVMLEditor(props: YAMLEditorProps) {
   const restore = useCallback(() => {
     editArea().value = currentYAML;
   }, [presenterData]); // though no other component should be able to change it
+  const cancel = useCallback(
+    () => {
+      dispatch({type: 'discard-broken-yaml'});
+      closeEditor();
+    },
+    [closeEditor, dispatch]
+  );
 
   return (
     <div className='yaml-editor'>
       <div>
         <button onClick={apply} type="button">Apply</button>
-        <button onClick={closeEditor} type="button">Cancel</button>
+        <button onClick={cancel} type="button">Cancel</button>
         <button onClick={restore} type="button">Restore</button>
       </div>
       <textarea defaultValue={brokenUpdate || currentYAML}/>

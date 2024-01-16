@@ -6,10 +6,16 @@ import { Resume } from './resume';
 export type HistoryData = {
   current: number;
   versions: string[];
+  // History manipulation functions tend to return new history
+  // from `current` and `versions` only, so if some new fields are
+  // added besides the throwaway `brokenUpdate`, more functionality,
+  // similar to separate `discardBrokenUpdate()`, need to be added.
   brokenUpdate?: string;
 };
 
-export type HistoryChangeType = 'update' | 'undo' | 'redo' | 'load-default' | 'undo-broken-yaml';
+export type HistoryChangeType = 'update' | 'undo' | 'redo' |
+                                'load-default' |
+                                'undo-broken-yaml' | 'discard-broken-yaml';
 export type HistoryChange = {
   type: HistoryChangeType,
   newContent?: string;
@@ -70,6 +76,14 @@ const revertBrokenUpdate = (
   };
 };
 
+const discardBrokenUpdate = (
+  history: HistoryData,
+): HistoryData => {
+  const newHistory = { ...history };
+  if (newHistory.brokenUpdate) delete newHistory.brokenUpdate;
+  return newHistory;
+};
+
 const initialiseWith = (
   newContent = 'BORKED DISPATCH.'
 ): HistoryData => ({
@@ -95,6 +109,7 @@ export const ResumeHistory = {
   redo,
   update,
   revertBrokenUpdate,
+  discardBrokenUpdate,
   initialiseWith,
   createEmpty: (): HistoryData => ({
     current: -1,

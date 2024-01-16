@@ -59,3 +59,7 @@ under the main heading .pagetop
 @media screen and (max-width: 26em) {
   .navbar { display: none }
 }
+
+@media screen and (max-width: 22em) {
+  div[role="alert"] { font-size: 0.8em; }
+}

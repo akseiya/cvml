@@ -69,7 +69,6 @@ it somewhere else and pasting it back later.
 
 ### Top priorities
 
-1.  Error boundaries to allow easy recovery from YAML problems.
 1.  Persistence of custom YAML documents (user's CV)
     *   right now I can only think of a CSRF-allowed proxy serving a cloud
         document already made public by the user.
@@ -86,6 +85,12 @@ it somewhere else and pasting it back later.
     employment history.
 
 ### Implemented
+
+1.  Error boundaries to allow easy recovery from YAML problems;
+    *   somewhat rudimentary and does emit the JS error;
+    *   does offer two further recovery options - to correct the source YAML
+        manually or to completely fall back to previously remembered state
+        (which had to be valid).
 
 1.  State refactor, possibly with a reducer as the hovering menu should not
     consider YAML history its state, but it does need to change it, 

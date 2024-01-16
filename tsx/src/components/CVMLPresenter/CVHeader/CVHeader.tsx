@@ -24,11 +24,14 @@ export function CVHeader(props: { readonly currentResume: Resume }) {
       ['career', 'Career'],
       ['projects', 'Projects'],
       ['extras', 'Bits & bobs']
-    ].map(nbi => navLink(nbi[0],nbi[1]));
+    ].filter(s => s[0] in currentResume).
+      map(nbi => navLink(nbi[0],nbi[1]));
     return sections;
   };
 
   const core = currentResume.fundamentals;
+  if (!core)
+    throw new Error('Cannot render the header with no `/fundamentals` in YAML');
   type CoreLine = [string, string];
   const coreLine = (pair: CoreLine) => {
     const [key, value] = pair.map(e => e.toString());
@@ -56,11 +59,9 @@ export function CVHeader(props: { readonly currentResume: Resume }) {
             <header>
               <h1>{currentResume.name}</h1>
             </header>
-            <div>
-              <table>
-                <tbody>{coreTable}</tbody>
-              </table>
-            </div>
+            <div><table><tbody>
+              {coreTable}
+            </tbody></table></div>
           </main>
         </main>
         <footer className='navbar'>{navBar()}</footer>

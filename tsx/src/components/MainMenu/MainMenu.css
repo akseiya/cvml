@@ -72,18 +72,10 @@
     }
 }
 
-
 #main-menu svg {
     width:  1.6em;
     height: 1.6em;
     margin-right: 0.4em;
-}
-
-#main-menu-modal-bg {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: var(--color-brightest);;
-    opacity: 0.4;
 }
 
 .slide-in  { animation: slideInRight;  }
