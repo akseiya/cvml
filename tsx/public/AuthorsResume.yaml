@@ -321,16 +321,19 @@ career:
       company:
         name: Aframe
       position:
-        name: senior QA analyst
+        name: back-end developer
       description: |-
-        A somewhat unstable path from a backend Ruby developer to QA "team
-        founder" and then halfway back to part-time developer and part-time QA.
+        For most of my time at AFrame I created various components of
+        the Aframe video production platform - mostly endpoints of its
+        Sinatra API, while re-learning TDD, 12-factor apps etc. Problems
+        to solve included integration between wildly different metadata
+        formats or dealing with extremely obscure i18n problems caused
+        by using MacOS to develop video processing software deployed
+        to Linux containers.
 
-        Initially I created various components of the Aframe video production
-        platform (mostly endpoints of its Sinatra API).
-
-        After getting press-ganged into QA I created Aframe's acceptance
-        testing platform in two misnamed flavours:
+        During the last year I got hybridised into a part-time QA
+        engineer and created Aframe's acceptance testing platform in
+        two misnamed flavours:
         * end-to-end "Big Smoke" with a custom Git flow serving as the
         kernel for a deployment pipeline;
         * locally dockerised "Small Smoke", running just the core and the
@@ -449,9 +452,6 @@ projects:
       Use the hamburger icon **≡** in the top right corner of [this
       page](https://akseiya.github.io) to ***edit the YAML*** source and change
       currently rendered content.
-
-      There are no error boundaries yet. Breaking the YAML badly will
-      render a blank HTML page.
 
       Currently, ReactMarkdown is used, which means limitations, e.g. external
       links from this CV will not currently open in a new tab/window.
