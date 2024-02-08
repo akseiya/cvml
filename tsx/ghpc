@@ -16,10 +16,14 @@ set -e
 # Die if target dir not where expected
 stat "$GITHUB_PAGES_DIRECTORY" > /dev/null
 
-git add -A
-git commit -F -
+commit_current() {
+    git add -A
+    git commit -F -
+}
+
+[ "$(git status --porcelain | wc -c)" = "0" ] || commit_current
 last_commit=`git log -1 --pretty=%B`
-git push
+git status | grep -q 'Your branch is ahead' || git push
 
 # Decide if you want auto-build.
 npm run build
