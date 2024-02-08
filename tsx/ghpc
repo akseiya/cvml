@@ -25,6 +25,10 @@ commit_current() {
 last_commit=`git log -1 --pretty=%B`
 git status | grep -q 'Your branch is ahead' || git push
 
+pushd "$GITHUB_PAGES_DIRECTORY"
+git pull
+popd
+
 # Decide if you want auto-build.
 npm run build
 rm -rf "$GITHUB_PAGES_DIRECTORY"/*

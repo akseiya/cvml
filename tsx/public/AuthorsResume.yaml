@@ -70,11 +70,11 @@ summary:
       Allowed [NYSE](#career-nyse) to run performance tests of its Data Fabric
       system using a rented cluster of custom worker machines and my
       mini-jMeter written in Python.
-      
+
       Enabled daily deploys for BT's [Vena project](#career-athena)
       through a multi-layered portfolio of test suites, deployment
       pipelines and tailored processes.
-      
+
       Reduced run-time of [DuCo's unit test suite](#career-duco) from
       a few minutes to 7 seconds.
 
