@@ -67,6 +67,13 @@ summary:
       Converted an ailing QA team into a [functional Test
       Engineering chapter](#career-fuse) in a scaling agile model.
 
+      Spared myself the tedium of editing my growing HTML resumé by
+      making it a YAML file rendered with
+      a [React.js app](#cvml).
+      
+      Reduced overhead of creating new routines on the ZSI project
+      with a set of highly reusable, optimised COBOL snippets.
+      
       Allowed [NYSE](#career-nyse) to run performance tests of its Data Fabric
       system using a rented cluster of custom worker machines and my
       mini-jMeter written in Python.
@@ -74,9 +81,6 @@ summary:
       Enabled daily deploys for BT's [Vena project](#career-athena)
       through a multi-layered portfolio of test suites, deployment
       pipelines and tailored processes.
-
-      Reduced run-time of [DuCo's unit test suite](#career-duco) from
-      a few minutes to 7 seconds.
 
       Gatekept a number of showstoppers from production with [my first
       webdriven end-to-end testing suite](#career-aframe) and then optimised
@@ -453,8 +457,8 @@ projects:
       page](https://akseiya.github.io) to ***edit the YAML*** source and change
       currently rendered content.
 
-      Currently, ReactMarkdown is used, which means limitations, e.g. external
-      links from this CV will not currently open in a new tab/window.
+      Currently, it uses ReactMarkdown which means limitations, e.g. external
+      links from this CV will open in the same tab.
 
       Under development. [Roadmap in README][roadmap]. Next Big Thing:
       persistence of a visitor's CV.
