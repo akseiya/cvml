@@ -70,10 +70,10 @@ summary:
       Spared myself the tedium of editing my growing HTML resumé by
       making it a YAML file rendered with
       a [React.js app](#cvml).
-      
+
       Reduced overhead of creating new routines on the ZSI project
       with a set of highly reusable, optimised COBOL snippets.
-      
+
       Allowed [NYSE](#career-nyse) to run performance tests of its Data Fabric
       system using a rented cluster of custom worker machines and my
       mini-jMeter written in Python.
@@ -89,7 +89,7 @@ summary:
 
   - Areas of competence: |-
       * Software development
-        * *from Cobol+DB2 on zOS all the way to Ruby, Python and Node
+        * *from Cobol+DB2 on z/OS all the way to Ruby, Python and Node
           on k8s and serverless.*
       * Software Quality Assistance
         * *including building a 6-strong QE chapter within a scaled agile model.*
