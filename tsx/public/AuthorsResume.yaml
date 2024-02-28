@@ -88,10 +88,11 @@ summary:
       start-up to cut the workforce.
 
   - Areas of competence: |-
+      * Software development
+        * *from Cobol+DB2 on zOS all the way to Ruby, Python and Node
+          on k8s and serverless.*
       * Software Quality Assistance
         * *including building a 6-strong QE chapter within a scaled agile model.*
-      * Software development
-        * *from Cobol+DB2 on zOS all the way to Ruby / Python / Node on k8s).*
       * Ways of working and platform design and supervision
         * *preaching, spiking, implementation, tooling - from z/OS's Control-M
           long ago to gitLab CI/CD recently.*
