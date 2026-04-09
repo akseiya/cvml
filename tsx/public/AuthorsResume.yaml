@@ -150,9 +150,9 @@ career:
       from: 2023-03-13
       to: 2023-06-30
       company:
-        name: the Canadian corporation
+        name: Global Relay
         ### link: optional
-        ### link: https://www.glassdoor.co.uk/Reviews/Global-Relay-Reviews-E295588.htm?sort.sortType=OR&sort.ascending=true&filter.iso3Language=eng#ReviewsFeed
+        link: https://www.glassdoor.co.uk/Reviews/Global-Relay-Reviews-E295588.htm?sort.sortType=OR&sort.ascending=true&filter.iso3Language=eng#ReviewsFeed
       position:
         ### Usual YAML caveats - to have quotes, you need a wrapper
         name: '"Lead SDET"'
