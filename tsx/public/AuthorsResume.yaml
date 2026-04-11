@@ -137,7 +137,7 @@ career:
           charts and gitLab CI/CD workflows, standalone mocks, proxies etc.
 
         Within my squad, I improved our code confidence
-        by replacing a Robot Framework-based perfect silo with
+        by replacing a Robot-Framework-based perfect silo with
         a squad-maintained CCIT suite. This also involved preaching BDD and
         shift-left to my squad and around it, introducing Cucumber (used
         correctly) and Pact.
@@ -161,9 +161,7 @@ career:
       description: |-
         # Duties
 
-        1.  Line management as per the corporate policies (including use of
-            Trakstar for regulated performance tracking and reviews including
-            peer ratings).
+        1.  Line management as per the corporate policies with Trakstar.
         1.  Serving as the testing Amigo, driving the shift-left in
             the pod.
         1.  Creating and refactoring testing processes, frameworks and scripts
@@ -171,17 +169,13 @@ career:
         1.  Spikes and research, sharing the results and propositions with
             the pod and the Quality Guild.
 
-        ## *Why did you quit **that** fast? "The Canadian corporation"?!!*
+        ## *Why did you quit **that** fast?*
 
         It turned out my (and others') leadership was of unacceptably ephemeral
         nature: the ways-of-working standards, painstakingly worked out between
         the 3 Amigos and the rest of the pod got abruptly overturned by a
-        mid-level manager without asking pre-intervention questions or providing
+        mid-level manager without asking any pre-intervention questions or providing
         any explanations until demanded.
-
-        I did not take it lightly and made sure to explain my position on
-        the exit interview, so now I'd rather explain myself before the
-        corporation gets asked for my references.
 
     - id: shred
       from: 2022-11
@@ -229,18 +223,13 @@ career:
           of working, including some of the company's first OKR's;
         * steering the development of technical tools to keep the processes
           going smoothly, delegating as much of coding as possible to the
-          engineers (against my personal tendencies which would interfere with
-          my engineers' growth).
+          engineers.
 
         # Results
 
         The 2 permanent QA testers I started with were no longer focused on
-        moving to front-end development, instead becoming Test Engineers in a
-        Spotify-inspired chapter of 6.
-
-        Contracting was reduced to 2 special cases: a virtuoso of exploratory
-        testing and a dev-ops-specialised engineer deemed irreplaceable by our
-        Head of Platform.
+        moving to front-end development, instead becoming Test Engineers in
+        a chapter of 6.
 
         As a side effect of the integration testing spikes I've run with
         our Head of Front-End, unit test coverage for front-end code became
@@ -248,7 +237,7 @@ career:
 
         Broad adoption of BDD had additional results, including clear,
         documented and tracked path from ideation to code - which also allowed
-        the team to spot and address more gaps in the process - like change
+        the teams to spot and address more gaps in our processes - like change
         requests accepted as bugs or impact of a completely separate team
         creating full front-end override of our product in an isolated pipeline.
         This is also what I sadly believe was the root cause for our CTO's
@@ -263,7 +252,7 @@ career:
       position:
         name: QA Engineer
       description: |-
-        A premature attempt to deliver vision and strategy for a young
+        A premature attempt to deliver vision and strategy for a young
         startup's Quality Engineering. While I did create a bunch of nifty
         tools and processes, I resigned after realising I don't really yet
         have enough of a vision to share.
@@ -338,7 +327,7 @@ career:
         * end-to-end "Big Smoke" with a custom Git flow serving as the
         kernel for a deployment pipeline;
         * locally dockerised "Small Smoke", running just the core and the
-        front-end in XVFB (for error screenshots to deal with defects
+        front-end in XVFB (to deal with defects
         manifesting outside the browser window).
 
     - id: nyse
@@ -358,6 +347,7 @@ career:
           together with results synthesis across up to a 1000 boxes (gnuplot and
           HTML for reporting, Python with Pthreads and occasional Bash scripting
           for orchestrating the performance events).
+          * I still don't know how I didn't find jMeter, it had to already exist back then
 
     - id: pramerica
       from: 2007-12
@@ -394,10 +384,11 @@ career:
       description: |-
         From a junior dev to a tech lead for 3 juniors.
 
-        Typical duties of an advancing COBOL/DB2 developer, up to full paths
+        Typical duties of an advancing COBOL/DB2 developer, up to running
+        full journeys
         from written user requirements to transactions, batch processes and
         DB2 entities - including SQL performance tuning, JCL wizardry and
-        supervising deploys to production.
+        supervising deployments to production.
 
         Particular contributions:
         * revamping and delivering training for new hires;
